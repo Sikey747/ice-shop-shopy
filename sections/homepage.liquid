@@ -17,7 +17,7 @@
             <div class="half-container sm:w-1/2 flex flex-col gap-[8px] py-[clamp(1.813rem,16.714vw-2.105rem,12.938rem)] px-[clamp(1rem,7.7vw-1.805rem,5.125rem)]">
               <p class="font-semibold">{{ product.vendor }}</p>
               <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">{{ product.title }}</h1>
-              <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.</p>
+              <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">{{ section.settings.discrip-text }}</p>
               <a
                 href="{{ section.settings.colections.url }}"
                 data-btn
@@ -165,6 +165,10 @@
         "label": "Colections",
         "id": "colections",
         "type": "collection"
+      }, {
+        "label": "Discription text",
+        "id": "discrip-text",
+        "type": "richtext"
       }
     ]
   }
