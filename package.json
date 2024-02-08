@@ -1,0 +1,25 @@
+{
+    "name": "elizabeth_clean-main",
+    "version": "1.0.0",
+    "description": "[![Generic badge](https://img.shields.io/badge/course%20available%3F-yes-green.svg)](https://shields.io/)",
+    "main": "index.js",
+    "scripts": {
+        "dev": "shopify theme dev",
+        "watch": "npx tailwindcss -i ./src/taillwind.css -o ./assets/application.css --watch",
+        "build": "npx tailwindcss -i ./src/taillwind.css -o ./assets/application.css --minify"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@shopify/prettier-plugin-liquid": "^1.4.1",
+        "autoprefixer": "^10.4.17",
+        "postcss": "^8.4.33",
+        "prettier": "^3.2.5",
+        "tailwindcss": "^3.4.1"
+    },
+    "dependencies": {
+        "flowbite": "^2.2.1",
+        "postcss-minify": "^1.1.0"
+    }
+}

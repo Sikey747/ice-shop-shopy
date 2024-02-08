@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+@import "/src/header.css";
+
+.ibg {
+  position: relative;
+}
+
+.ibg img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
+[data-btn]::after {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary-black);
+}
+
+.abs-mid {
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.half-container {
+  max-width: calc(var(--container-with) / 2);
+}
+
+.container-1\2 {
+  display: flex;
+  padding-right: max(15px, calc((100% - 1440px) / 2));
+}
+
+@media (any-hover: hover) {
+  .nav__link-button:hover .nav__subLinks {
+    opacity: 1;
+  }
+  .nav__subLinks {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .nav__link-button:hover .nav__chevron {
+    rotate: 180deg;
+  }
+  .nav__chevron {
+    rotate: 0deg;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+@media (any-hover: none) {
+  .open-subNav .nav__subLinks {
+    opacity: 1;
+  }
+  .nav__subLinks {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .open-subNav .nav__chevron {
+    rotate: 180deg;
+  }
+  .nav__chevron {
+    rotate: 0deg;
+    transition: all 0.3s ease-in-out;
+  }
+}

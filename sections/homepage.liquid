@@ -1,0 +1,181 @@
+<div class="relative hero">
+
+  <div class="swiper">
+
+    <div class="swiper-wrapper">
+      {% for product in section.settings.colections.products %}
+
+
+        <div class="swiper-slide">
+
+          <div class="flex flex-col sm:flex-row container-left ">
+
+            <div class="sm:w-1/2 ibg sm:min-h-fit min-h-[105.3vw]">
+              {{ product.images.first.src | image_url: width: "5760" | image_tag }}
+            </div>
+
+            <div class="half-container sm:w-1/2 flex flex-col gap-[8px] py-[clamp(1.813rem,16.714vw-2.105rem,12.938rem)] px-[clamp(1rem,7.7vw-1.805rem,5.125rem)]">
+              <p class="font-semibold">{{ product.vendor }}</p>
+              <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">{{ product.title }}</h1>
+              <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.</p>
+              <a
+                href="{{ section.settings.colections.url }}"
+                data-btn
+                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] ">See Collection</a>
+            </div>
+
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <div class="container w-[97%] xl:w-full absolute z-[1] abs-mid">
+
+    <button class="absolute p-[10px] rounded-full bg-white shadow1 left-0 -translate-y-1/2 top-1/2 swiper-button-prev">
+      <svg
+        width="32.000000"
+        height="32.000000"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <rect
+          id="Icon/arrow-left"
+          width="31.999998"
+          height="31.999998"
+          fill="#FFFFFF"
+          fill-opacity="0" />
+        <path
+          id="Vector"
+          d="M6.66663 16L25.3333 16"
+          stroke="#282828"
+          stroke-opacity="1.000000"
+          stroke-width="2.000000"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+        <path
+          id="Vector"
+          d="M6.66663 16L14.6666 24"
+          stroke="#282828"
+          stroke-opacity="1.000000"
+          stroke-width="2.000000"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+        <path
+          id="Vector"
+          d="M6.66663 16L14.6666 8"
+          stroke="#282828"
+          stroke-opacity="1.000000"
+          stroke-width="2.000000"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+      </svg>
+    </button>
+    <button class="absolute p-[10px] rounded-full bg-white shadow1 right-0 -translate-y-1/2 top-1/2 swiper-button-next">
+      <svg
+        width="32.000000"
+        height="32.000000"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <rect
+          id="Icon/arrow-right"
+          width="31.999998"
+          height="31.999998"
+          fill="#FFFFFF"
+          fill-opacity="0" />
+        <path
+          id="Vector"
+          d="M6.6665 16L25.3333 16"
+          stroke="#282828"
+          stroke-opacity="1.000000"
+          stroke-width="2.000000"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+        <path
+          id="Vector"
+          d="M17.3335 24L25.3335 16"
+          stroke="#282828"
+          stroke-opacity="1.000000"
+          stroke-width="2.000000"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+        <path
+          id="Vector"
+          d="M17.3335 8L25.3335 16"
+          stroke="#282828"
+          stroke-opacity="1.000000"
+          stroke-width="2.000000"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+      </svg>
+    </button>
+
+  </div>
+</div>
+
+
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+<script defer src="{{ 'swiper.js' | asset_url }}"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper('#shopify-section-{{ section.id }} .hero .swiper', {
+  loop: true,
+  autoHeight:true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  });
+  });
+</script>
+
+
+<style>
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    content: "";
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: auto;
+    width: auto;
+    height: auto;
+    margin-top: auto;
+    z-index: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: auto;
+  }
+
+</style>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "tag": "section",
+    "settings": [
+      {
+        "label": "Colections",
+        "id": "colections",
+        "type": "collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slideshow",
+        "settings": {
+          "title": "Slideshow"
+        }
+      }
+    ]
+  }
+{% endschema %}

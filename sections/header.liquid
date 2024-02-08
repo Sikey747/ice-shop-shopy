@@ -1,0 +1,119 @@
+<div class="z-50 flex flex-wrap w-full py-4 text-sm bg-white sm:justify-start sm:flex-nowrap dark:bg-gray-800">
+  <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+    <div class="flex items-center justify-between">
+      {% comment %} Login {% endcomment %}
+      <a class="flex-none" href="{{ section.settings.menu-links.links[0].url }}">
+        {% render "icon-logo" %}
+      </a>
+      {% comment %} Burger {% endcomment %}
+      <div class="sm:hidden">
+        <button
+          data-burger
+          type="button"
+          class="inline-flex items-center justify-center p-2 text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm hs-collapse-toggle gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-gray-700 dark:text-white dark:hover:bg-white/10 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          data-hs-collapse="#navbar-image-1"
+          aria-controls="navbar-image-1"
+          aria-label="Toggle navigation">
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12" />
+          </svg>
+
+        </button>
+      </div>
+    </div>
+    {% comment %} Links {% endcomment %}
+    <div id="navbar-image-1" class="hidden transition-all duration-300 hs-collapse basis-full grow sm:block">
+      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+        {% for link in section.settings.menu-links.links %}
+          {% if link.links != blank %}
+            <div class="relative nav__link-button">
+              <div class="flex items-center gap-1">
+                <button class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                  {{ link.title }}
+                </button>
+                {% render "icon-chevron"
+                  , className: "nav__chevron w-4 h-4 stroke-gray-400" %}
+              </div>
+
+              <div class="nav__subLinks absolute min-w-[100px] max-w-[250px] justify-center items-center mt-2 flex flex-col text-nowrap gap-4 p-2 bg-gray-600 rounded-sm shadow-md right-[50%] translate-x-[50%]">
+                {% for sublink in link.links %}
+                  <a href="{{ link.url }}" class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                    {{ sublink.title }}
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          {% else %}
+            <a href="{{ link.url }}" class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              {{ link.title }}</a>
+          {% endif %}
+        {% endfor %}
+        {% comment %} Login {% endcomment %}
+        <div class="flex items-center justify-between gap-4">
+          {% if shop.customer_accounts_enabled == blank %}
+            {% if customer %}
+              <a href="/account" class="">Account</a>
+              {{ 'Log Out' | customer_logout_link | replace: "<a", "<a class='text-blue-500'" }}
+            {% else %}
+              {{- "Log In" | customer_login_link | replace: "<a", "<a class='text-blue-500'" -}}
+              {{ "Registration" | customer_register_link | replace: "<a", "<a class='text-blue-500'" }}
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+{% schema %}
+  {
+    "name": "Header",
+    "tag": "header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu-links",
+        "default": "main-menu",
+        "label": "Heading navigation menu"
+      }, {
+        "type": "text",
+        "id": "header-text",
+        "default": "Hellow gay",
+        "label": "Text for header"
+      }, {
+        "type": "text",
+        "id": "header-button",
+        "default": "Button text",
+        "label": "Text for Button"
+      }, {
+        "type": "image_picker",
+        "id": "bg-image",
+        "label": "Bacground Image"
+      }
+    ]
+  }
+{% endschema %}
