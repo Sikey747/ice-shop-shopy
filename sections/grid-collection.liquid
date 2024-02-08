@@ -1,0 +1,28 @@
+<div class="container grid grid-cols-3 gap-8 ">
+  {% for collection in section.settings.collectionList %}
+    <div class="flex flex-col h-[40vw]">
+      <div class="ibg">
+        {{ collection.featured_image | image_tag | image_url: width: "5700px" }}
+      </div>
+      <div class="px-4 pt-4 pb-8 text-center">
+        <p class="text-primary-gray1">{{ collection.title }}</p>
+        <h3 class="font-semibold text-[20px]">{{ collection.all_vendors.first }} Series®</h3>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Grid Collection",
+    "tag": "section",
+    "settings": [
+      {
+        "label": "List Collection",
+        "id": "collectionList",
+        "type": "collection_list"
+      }
+    ]
+  }
+{% endschema %}
