@@ -1,6 +1,27 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu-links": "main-menu",
+          "header-text": "Hellow gay",
+          "header-button": "Button text"
+        }
+      },
+      "homepage": {
+        "type": "homepage",
+        "settings": {
+          "colections": "bages"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+    }
   }
 }
