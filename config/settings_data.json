@@ -12,7 +12,8 @@
       "homepage": {
         "type": "homepage",
         "settings": {
-          "colections": "bages"
+          "colections": "bages",
+          "discrip-text": "<p>Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.<\/p>"
         }
       }
     },
