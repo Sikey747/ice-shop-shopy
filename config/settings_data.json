@@ -5,15 +5,52 @@
         "type": "header",
         "settings": {
           "menu-links": "main-menu",
-          "header-text": "Hellow gay",
-          "header-button": "Button text"
+          "logo-icon": "shopify:\/\/shop_images\/logo.svg"
         }
       },
-      "homepage": {
-        "type": "homepage",
+      "hero": {
+        "type": "hero",
         "settings": {
-          "colections": "bages",
-          "discrip-text": "<p>Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.<\/p>"
+          "colections": "",
+          "discrip-text": "<p>You text<\/p>"
+        }
+      },
+      "grid-collection": {
+        "type": "grid-collection",
+        "settings": {
+          "collectionList": [
+
+          ],
+          "postfix": "Series®"
+        }
+      },
+      "partners": {
+        "type": "partners",
+        "settings": {
+        }
+      },
+      "countdown-timer": {
+        "type": "countdown-timer",
+        "settings": {
+          "sub-title": "Exsclusive",
+          "procent": "50",
+          "description": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque<\/p>",
+          "day-end": "01-05-2024",
+          "timer-end": "24:00",
+          "button-text": "Shop Now"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "title": "<p>Join our newsletter<\/p>",
+          "description": "<p>Enjoy big discounts and latest updates right to your inbox.<\/p>",
+          "button-text": "Signup"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
         }
       }
     },
