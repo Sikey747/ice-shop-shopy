@@ -62,6 +62,18 @@
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "social_icon_EFc4Pa": {
+            "type": "social-icon",
+            "settings": {
+              "icon-img": "shopify:\/\/shop_images\/Vector_3_06765a09-89b5-42fd-a281-0c3db83ee303.svg",
+              "social-link": "1515"
+            }
+          }
+        },
+        "block_order": [
+          "social_icon_EFc4Pa"
+        ],
         "settings": {
         }
       }
