@@ -19,7 +19,9 @@
         "type": "grid-collection",
         "settings": {
           "collectionList": [
-
+            "bages",
+            "frontpage",
+            "new-prod"
           ],
           "postfix": "Series®"
         }
