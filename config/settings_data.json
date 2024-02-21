@@ -26,6 +26,17 @@
       },
       "partners": {
         "type": "partners",
+        "blocks": {
+          "partenrs_item_Hn7mVL": {
+            "type": "partenrs-item",
+            "settings": {
+              "partnersImage": "shopify:\/\/shop_images\/Vector_5.svg"
+            }
+          }
+        },
+        "block_order": [
+          "partenrs_item_Hn7mVL"
+        ],
         "settings": {
         }
       },
