@@ -1,0 +1,65 @@
+<button data-burger-menu class="burger-menu sm:hidden">
+  <span></span>
+  {% comment %} <span></span> {% endcomment %}
+  <span></span>
+</button>
+
+<style>
+  .burger-menu {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .burger-menu span {
+    width: 16px;
+    height: 1px;
+    background-color: var(--primary-black);
+    border-radius: 24px;
+    transition: all 0.2s ease-in-out;
+  }
+  .burger-menu span:nth-child(1) {
+    margin-bottom: 8px;
+    transition: all 0.2s ease-in-out;
+  }
+  body[data-burger-menu="open"] span:nth-child(1) {
+    rotate: 45deg;
+    translate: 0 4px;
+  }
+  body[data-burger-menu="open"] span:nth-child(2) {
+    rotate: -45deg;
+    translate: 0 -5px;
+  }
+  @media (min-width: 640px) {
+    .burger-menu.sm\:hidden {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burgers = document.querySelectorAll('.burger-menu');
+    const body = document.body;
+  
+    body.setAttribute("data-burger-menu", "close");
+  
+    
+  
+    if (burgers.length > 0) {
+      burgers.forEach((burger) => {
+        burger.addEventListener("click", () => {
+          if (body.getAttribute("data-burger-menu") === "open") {
+            body.setAttribute("data-burger-menu", "close");
+            scrollLock.enablePageScroll(body);
+          } else {
+            body.setAttribute("data-burger-menu", "open");
+            scrollLock.disablePageScroll(body);
+          }
+        });
+      });
+    }
+  });
+</script>

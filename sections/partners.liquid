@@ -1,0 +1,152 @@
+<div class="partners">
+  <div class="container relative w-[97%] xl:w-full py-[clamp(2.5rem,1.495vw+2.154rem,3.5rem)] border-t border-b border-primary-gray2">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+
+          <div class="flex flex-wrap w-full gap-y-[16px] gap-[clamp(2.5rem,0.748vw+2.327rem,3rem)] max-w-[915px] justify-center items-center m-auto ">
+            {% for partner in section.blocks %}
+              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                {{ partner.settings.partnersImage | image_url: width: "5000" | image_tag }}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container w-[97%] xl:w-full absolute z-[1] abs-mid">
+      <button class="hidden sm:block absolute p-[10px] rounded-full bg-white shadow1 left-0 -translate-y-1/2 top-1/2 swiper-button-prev-{{ section.id }}">
+        <svg
+          width="32.000000"
+          height="32.000000"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect
+            id="Icon/arrow-left"
+            width="31.999998"
+            height="31.999998"
+            fill="#FFFFFF"
+            fill-opacity="0" />
+          <path
+            id="Vector"
+            d="M6.66663 16L25.3333 16"
+            stroke="#282828"
+            stroke-opacity="1.000000"
+            stroke-width="2.000000"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+          <path
+            id="Vector"
+            d="M6.66663 16L14.6666 24"
+            stroke="#282828"
+            stroke-opacity="1.000000"
+            stroke-width="2.000000"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+          <path
+            id="Vector"
+            d="M6.66663 16L14.6666 8"
+            stroke="#282828"
+            stroke-opacity="1.000000"
+            stroke-width="2.000000"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+        </svg>
+      </button>
+      <button class="hidden sm:block absolute p-[10px] rounded-full bg-white shadow1 right-0 -translate-y-1/2 top-1/2 swiper-button-next-{{ section.id }}">
+        <svg
+          width="32.000000"
+          height="32.000000"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect
+            id="Icon/arrow-right"
+            width="31.999998"
+            height="31.999998"
+            fill="#FFFFFF"
+            fill-opacity="0" />
+          <path
+            id="Vector"
+            d="M6.6665 16L25.3333 16"
+            stroke="#282828"
+            stroke-opacity="1.000000"
+            stroke-width="2.000000"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+          <path
+            id="Vector"
+            d="M17.3335 24L25.3335 16"
+            stroke="#282828"
+            stroke-opacity="1.000000"
+            stroke-width="2.000000"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+          <path
+            id="Vector"
+            d="M17.3335 8L25.3335 16"
+            stroke="#282828"
+            stroke-opacity="1.000000"
+            stroke-width="2.000000"
+            stroke-linejoin="round"
+            stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mt-[32px] sm:hiden swiper-pagination"></div>
+
+  </div>
+</div>
+
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+<script defer src="{{ 'swiper.js' | asset_url }}"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+  const partnersSwiper  = new Swiper('#shopify-section-{{ section.id }} .partners .container .swiper', {
+  loop: true,
+  autoHeight:true,
+   autoplay: {
+      speed: 400,
+   },
+  navigation: {
+    nextEl: '#shopify-section-{{ section.id }} .partners .container .swiper-button-next-{{ section.id }}',
+    prevEl: '#shopify-section-{{ section.id }} .partners .container .swiper-button-prev-{{ section.id }}',
+  },
+    pagination: {
+    el: '#shopify-section-{{ section.id }} .partners .container .swiper-pagination',
+      clickable:true,
+  },
+  });
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "Partners",
+    "tag": "section",
+    "blocks": [
+      {
+        "name": "Partners Item",
+        "limit": 6,
+        "type": "partenrs-item",
+        "settings": [
+          {
+            "label": "Image",
+            "id": "partnersImage",
+            "type": "image_picker",
+            "info": "Select partnerd logo in svg file"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

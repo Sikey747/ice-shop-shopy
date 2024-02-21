@@ -1,0 +1,43 @@
+<div id="about" class="container flex flex-col justify-center items-center border border-primary-gray3 rounded-[12px] h-[23.1944vw]">
+
+  <h2 class="text-[clamp(2.125rem,0.748vw+1.952rem,2.625rem)] mb-2 font-semibold">{{ section.settings.title }}</h2>
+  <p class="text-[18px] mb-6">{{ section.settings.description }}</p>
+
+  <form action="" class="flex items-center border-b border-primary-gray2">
+    <div class="flex items-center">
+      {% render "icon-email" %}
+      <input
+        type="email"
+        placeholder="Email address"
+        class="border-0 placeholder:text-primary-gray3 text-primary-black"></div>
+
+    <button type="submit" class="font-semibold text-primary-black">{{ section.settings.button-text }}</button>
+  </form>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "tag": "section",
+    "settings": [
+      {
+        "label": "Title",
+        "id": "title",
+        "type": "richtext",
+        "default": "<p>Join our newsletter</p>"
+      }, {
+        "label": "Discription",
+        "id": "description",
+        "type": "richtext",
+        "default": "<p>Enjoy big discounts and latest updates right to your inbox.</p>"
+      }, {
+        "label": "Button text",
+        "id": "button-text",
+        "type": "text",
+        "default": "Signup"
+      }
+    ]
+  }
+{% endschema %}

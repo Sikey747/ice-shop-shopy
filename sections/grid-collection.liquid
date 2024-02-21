@@ -1,17 +1,28 @@
-<div class="container grid grid-cols-3 gap-8 ">
-  {% for collection in section.settings.collectionList %}
-    <div class="flex flex-col h-[40vw]">
-      <div class="ibg">
-        {{ collection.featured_image | image_tag | image_url: width: "5700px" }}
-      </div>
-      <div class="px-4 pt-4 pb-8 text-center">
-        <p class="text-primary-gray1">{{ collection.title }}</p>
-        <h3 class="font-semibold text-[20px]">{{ collection.all_vendors.first }} Series®</h3>
-      </div>
-    </div>
-  {% endfor %}
+<div class="container">
+  <div class=" grid grid-cols-1 gap-8 sm:grid-cols-3 py-[52px]">
+    {% for collection in section.settings.collectionList %}
+      <a href="{{ collection.url }}" class="flex flex-col grid-collection-link">
+        <div class="ibg sm:h-[40vw] max-h-[524px] h-[123vw] ">
+          {{ collection.featured_image | image_url: width: "5700px" | image_tag }}
+        </div>
+        <div class="px-4 pt-4 pb-8 text-center ">
+          {% if collection == blank %}
+            <h3 class="font-semibold text-[20px]">Add Collection</h3>
+          {% endif %}
+          <p class="text-primary-gray1">{{ collection.title }}</p>
+          <h3 class="font-semibold text-[20px]">{{ collection.all_vendors.first }} {{ section.settings.postfix }}</h3>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
 </div>
 
+<style>
+  .grid-collection-link:hover * img {
+    scale: 1.10;
+    transition: all 0.3s ease-in-out;
+  }
+</style>
 
 {% schema %}
   {
@@ -22,6 +33,11 @@
         "label": "List Collection",
         "id": "collectionList",
         "type": "collection_list"
+      }, {
+        "label": "Postfix",
+        "id": "postfix",
+        "type": "text",
+        "default": "Series®"
       }
     ]
   }

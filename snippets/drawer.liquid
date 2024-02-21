@@ -1,0 +1,43 @@
+<div data-drawer class="drawer bg-primary-gray2 h-[100dvh] w-[80vw] absolute top-0 p-4 sm:hidden z-[100] overflow-auto">
+  <nav class="nav">
+    <ul class="flex flex-col gap-[clamp(1rem,2.243vw+0.481rem,2.5rem)] text-[25px] font-semibold items-start justify-start">
+      {% for link in section.settings.menu-links.links %}
+        {% if link.links != blank %}
+          <button data-menu="close" class="relative flex flex-col items-start">
+            <div class="flex items-center gap-1">
+              <div class="relative link-button">{{ link.title }}</div>
+              {% render "icon-chevron"
+                , className: "icon-chevron icon-chevron_open w-5 h-5 stroke-gray-400" %}</div>
+
+            <ul class="flex flex-col gap-4 p-4 transition-all rounded-lg sub-menu w-max bg-primary-gray2">
+              {% for sublink in link.links %}
+                <li class="max-w-fit">
+                  <a class="nav__link" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </button>
+        {% else %}
+          <li>
+            <a class="nav__link" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+
+      {% endfor %}
+
+    </ul>
+  </nav>
+</div>
+
+<style>
+  body[data-burger-menu="open"] [data-drawer] {
+    transition: all 0.2s ease-in-out;
+    left: 0;
+    opacity: 1;
+  }
+  body[data-burger-menu="close"] [data-drawer] {
+    left: -100%;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+  }
+</style>

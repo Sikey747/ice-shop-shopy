@@ -1,0 +1,204 @@
+<div class="container pt-[clamp(3rem,2.051vw+2.654rem,4.5rem)] pb-[clamp(1.5rem,0.28vw+1.435rem,1.688rem)] flex flex-col gap-[72px]">
+
+  <div class="flex justify-between">
+    <div class="accordion-container">
+      <div class="ac">
+        <h2 class="ac-header">
+          <button type="button" class="flex items-center justify-between gap-2 border-t border-primary-gray2 ac-trigger">Lorem ipsum dolor sit amet. {% render "icon-chevron"
+  , className: "h-5 w-5" %}
+          </button>
+        </h2>
+        <div class="ac-panel">
+          <p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne">
+          Accordion Item #1
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the first item's accordion body.</strong>
+          It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+          <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="false"
+          aria-controls="collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the second item's accordion body.</strong>
+          It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+          <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div class="flex-col-reverse items-center justify-between gap-2 pt-6 border-t sm:flex-row flxe border-primary-gray2">
+  <p>© 2088 Nayzak Design</p>
+  <div class="flex items-center gap-4 sm:hidden">
+    {% for social in section.blocks["social-icon"] %}
+      <a href="{{ social.social-link }}" class="flex items-center justify-center bg-white rounded-full ibg min-h-9 w-9">
+        {{ social.icon-img | image_url: width: "2000" | image_tag }}
+      </a>
+    {% endfor %}
+  </div>
+  <div class="flex gap-8">
+    <div class="select local"></div>
+    <div class="selext currency"></div>
+  </div>
+</div>
+
+
+<script defer src="{{ "accordion.js" |  asset_url }}"></script>
+{{ "accordion.css" | asset_url | stylesheet_tag }}
+
+<style>
+  .ac {
+    margin-top: 0;
+    border: 0 solid #eee;
+    background-color: transparent;
+    box-sizing: border-box;
+  }
+  .ac .ac-trigger {
+
+    font: 600 14px var(--f1);
+    color: var(--primary-black);
+    text-align: left;
+    width: 100%;
+    padding: 10px 2px 10px 0;
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+    transition: color 0.25s ease;
+    position: relative;
+    text-decoration: none;
+    margin: 0;
+    border: 0;
+  }
+  .ac-header {
+    border-top: 1px solid var(--primary-gray2);
+  }
+  .ac .ac-trigger:after {
+    content: "";
+    text-align: center;
+    width: 15px;
+    -webkit-transform: translate(0, -50%);
+    transform: translateY(-50%);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+  }
+  .ac.is-active > .ac-header .ac-trigger:after {
+    content: "";
+  }
+  .ac.is-active > .ac-header .ac-trigger svg {
+    rotate: 180deg;
+  }
+  .ac .ac-panel .ac-text {
+    padding: 0;
+  }
+  .accordion-button:not(.collapsed) {
+    color: var(--primary-black);
+    background-color: transparent;
+    box-shadow: transparent;
+  }
+  .accordion-button:not(.collapsed)::after {
+    background-image: var(--accordion-btn-active-icon);
+    transform: var(--bs-accordion-btn-icon-transform);
+  }
+  .accordion-button::after {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-left: auto;
+    content: "";
+    background-image: var(--accordion-btn-active-icon);
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded",()=>{
+    new Accordion('.accordion-container');
+  })
+</script>
+{% schema %}
+  {
+    "name": "Footer",
+    "tag": "footer",
+    "settings": [
+      {
+        "label": "Logo",
+        "id": "logo-icon",
+        "type": "image_picker"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Info Block",
+        "type": "info-block",
+        "settings": [
+          {
+            "label": "Title Block",
+            "id": "title",
+            "type": "text"
+          }, {
+            "label": "Links",
+            "id": "links-list",
+            "type": "link_list"
+          }
+        ]
+      }, {
+        "name": "Social Icon",
+        "type": "social-icon",
+        "settings": [
+          {
+            "label": "Icon img/svg",
+            "id": "icon-img",
+            "type": "image_picker"
+          }, {
+            "label": "Link",
+            "id": "social-link",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
