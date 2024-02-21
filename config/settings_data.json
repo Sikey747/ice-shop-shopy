@@ -11,7 +11,7 @@
       "hero": {
         "type": "hero",
         "settings": {
-          "colections": "",
+          "colections": "bages",
           "discrip-text": "<p>You text<\/p>"
         }
       },
@@ -33,6 +33,7 @@
         "type": "countdown-timer",
         "settings": {
           "sub-title": "Exsclusive",
+          "main-image": "shopify:\/\/shop_images\/Pasteimage_1.jpg",
           "procent": "50",
           "description": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque<\/p>",
           "day-end": "01-05-2024",
