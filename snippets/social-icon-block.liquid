@@ -1,0 +1,20 @@
+<ul class="{{ class }}">
+  {% for social in socials %}
+    {% if social.type == "socialIcon" %}
+      <li class="">
+        <a href="{{ social.settings.socialLink }}" class="flex items-center justify-center bg-white rounded-full h-9 w-9 ">
+          {% if social.settings.iconImg %}
+            <div class="ibgin h-[18px]">
+              {{ social.settings.iconImg | image_url: width: "18px" | image_tag }}
+            </div>
+          {% else %}
+            <div class="ibg h-[36px] w-[36px]">
+              {{ "product-2" | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

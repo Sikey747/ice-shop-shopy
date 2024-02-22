@@ -3,17 +3,29 @@
     <div class="swiper">
       <div class="swiper-wrapper">
 
-        <div class="swiper-slide">
+        {% assign numberBlock = section.blocks.size %}
+        {% assign slidesNeeded = numberBlock | divided_by: 6 | ceil %}
 
-          <div class="flex flex-wrap w-full gap-y-[16px] gap-[clamp(2.5rem,0.748vw+2.327rem,3rem)] max-w-[915px] justify-center items-center m-auto ">
-            {% for partner in section.blocks %}
-              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
-                {{ partner.settings.partnersImage | image_url: width: "5000" | image_tag }}
-              </div>
-            {% endfor %}
+        {% for slideIndex in (0..slidesNeeded) %}
+          <div class="swiper-slide">
+            <div class="flex flex-wrap w-full gap-y-[16px] gap-[clamp(2.5rem,0.748vw+2.327rem,3rem)] max-w-[915px] justify-center items-center m-auto">
+              {% assign startIndex = slideIndex | times: 6 %}
+              {% assign endIndex = startIndex | plus: 5 %}
+
+              {% for i in (startIndex..endIndex) %}
+                {% if section.blocks[i] %}
+                  <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                    {% if section.blocks[i].settings.partnersImage %}
+                      {{ section.blocks[i].settings.partnersImage | image_url: width: "5000" | image_tag }}
+                    {% else %}
+                      {{ "collection-4" | placeholder_svg_tag }}
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
           </div>
-        </div>
-
+        {% endfor %}
       </div>
     </div>
 
@@ -100,10 +112,11 @@
       </button>
     </div>
 
-    <div class="mt-[32px] sm:hiden swiper-pagination"></div>
+    <div class="mt-[32px] sm:hidden swiper-pagination"></div>
 
   </div>
 </div>
+
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 <script defer src="{{ 'swiper.js' | asset_url }}"></script>
@@ -136,7 +149,6 @@
     "blocks": [
       {
         "name": "Partners Item",
-        "limit": 6,
         "type": "partenrs-item",
         "settings": [
           {

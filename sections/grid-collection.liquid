@@ -1,8 +1,8 @@
 <div class="container">
-  <div class=" grid grid-cols-1 gap-8 sm:grid-cols-3 py-[52px]">
+  <div class="flex gap-8 sm:flex-row flex-col py-[52px] justify-center">
     {% for collection in section.settings.collectionList %}
-      <a href="{{ collection.url }}" class="flex flex-col grid-collection-link">
-        <div class="ibg sm:h-[40vw] max-h-[524px] h-[123vw] ">
+      <a href="{{ collection.url }}" class="flex flex-col grid-collection-link flex-[424px]">
+        <div class="ibg sm:h-[40vw] max-h-[524px] h-[123vw]">
           {{ collection.featured_image | image_url: width: "5700px" | image_tag }}
         </div>
         <div class="px-4 pt-4 pb-8 text-center ">

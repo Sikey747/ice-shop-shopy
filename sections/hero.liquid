@@ -19,11 +19,11 @@
             <div class="half-container sm:w-1/2 flex flex-col gap-[8px] py-[clamp(1.813rem,16.714vw-2.105rem,12.938rem)] px-[clamp(1rem,7.7vw-1.805rem,5.125rem)]">
               <p class="font-semibold">{{ product.vendor }}</p>
               <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">{{ product.title }}</h1>
-              <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">{{ section.settings.discrip-text }}</p>
+              <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">{{ product.description }}</p>
               <a
                 href="{{ section.settings.colections.url }}"
                 data-btn
-                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] ">See Collection</a>
+                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] ">{{ section.settings.discrip-text }}</a>
             </div>
 
           </div>

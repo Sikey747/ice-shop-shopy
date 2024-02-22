@@ -20,7 +20,6 @@
               {% for sublink in link.links %}
                 <li class="max-w-fit subLink">
                   <a class="nav__link" href="{{ sublink.url }}">{{ sublink.title }}</a>
-
                 </li>
               {% endfor %}
             </ul>
@@ -29,7 +28,6 @@
 
           <li>
             <a class="nav__link" href="{{ link.url }}">{{ link.title }}</a>
-            <a class="nav__link" href="#shopify-section-{{ link.url }}">about</a>
           </li>
 
         {% endif %}
