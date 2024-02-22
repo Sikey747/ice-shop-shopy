@@ -2092,8 +2092,119 @@
           "show_all": "Покажи все",
           "hide_all_accessibility_label": "Сховати всі замовлення на перегляді",
           "show_all_accessibility_label": "Показати всі замовлення на огляді",
-          "show_all_orders_in_review": "Показати всі замовлення на огляді"
+          "show_all_orders_in_review": "Показати всі замовлення на огляді",
+          "show_less_orders_in_review": "Показувати менше замовлень на огляді",
+          "title": "В очікуванні",
+          "pending_tab_accessibility_label": {
+            "no_pending_orders": "У вас немає незавершених замовлень",
+            "pending_orders": {
+              "one": "У вас {{count}} незавершене замовлення",
+              "other": "У вас є {{count}} незавершених замовлень"
+            },
+            "more_than_pagination_length": "У вас більше {{count}} замовлень, що очікують на розгляд"
+          },
+          "pending_orders_count_more_than_pagination_length": "{{count}} +",
+          "pagination": {
+            "nav_accessibility_label": "Замовлення в кнопках навігації огляду"
+          }
+        },
+        "order_list_column_headers_location": "Місцезнаходження",
+        "order_list_column_headers_contact": "контакт",
+        "removed_company_contact_tooltip": "Вилучено з компанії"
+      },
+      "draft_order_details": {
+        "draft_order_subtitle": "Підтверджено {{date}} із замовлення {{draftOrderName}}",
+        "loading": "Завантаження деталей замовлення",
+        "loading_finished_accessibility_message": "Деталі замовлення завантажено",
+        "payment_status": {
+          "pending": {
+            "banner_overdue": {
+              "one": "Ваш платіж прострочено на {{count}} день",
+              "other": "Ваш платіж прострочено на {{count}} днів"
+            },
+            "banner_due": {
+              "one": "Термін оплати {{count}} день",
+              "other": "Термін оплати: {{count}} днів"
+            },
+            "banner_due_today": "Ваш платіж має бути сьогодні",
+            "title": "Очікуваний платіж",
+            "title_with_date": "Термін оплати {{date}}",
+            "title_due_on_receipt": "Платіж ще не настав",
+            "title_due_on_fulfillment": "Оплата після виконання",
+            "description_overdue": "Ваш платіж запізнюється.",
+            "description_partially_paid": "Це замовлення було частково оплачено. У вас є залишок.",
+            "description_authorized": "З вашого методу оплати буде стягнено плату в установлений термін, або ви можете оплатити зараз.",
+            "description_waiting_for_manual_payment": "Після отримання оплати замовлення буде позначено як оплачене.",
+            "description_due_on_receipt": "Коли настане термін оплати, ви отримаєте рахунок-фактуру.",
+            "description_due_on_receipt_partially_paid": "Це замовлення було частково оплачено. У вас є залишок. Коли настане термін оплати, ви отримаєте рахунок-фактуру.",
+            "description_due_on_fulfillment": "Оплата здійснюється після виконання всіх пунктів цього замовлення.",
+            "description_due_on_fulfillment_partially_paid": "Це замовлення було частково оплачено. У вас є залишок. Оплата здійснюється після виконання всіх пунктів цього замовлення."
+          },
+          "draft": {
+            "description": "Деталі оплати визначаються під час підтвердження замовлення.",
+            "title": "Платіж ще не настав",
+            "in_review": {
+              "description": "Деталі оплати визначаються під час підтвердження замовлення.",
+              "title": "Платіж ще не настав"
+            },
+            "submitted": {
+              "description": "Здійсніть оплату, щоб підтвердити це замовлення.",
+              "title": "Оплатіть для підтвердження"
+            }
+          },
+          "paid": {
+            "title": "Платний",
+            "title_with_date": "Оплачено {{date}}",
+            "description": "Ваше замовлення повністю оплачено."
+          },
+          "refund": {
+            "title": "Повернено",
+            "title_with_date": "Повернено {{date}}",
+            "description_full_refund": "Ви отримали повне відшкодування за це замовлення.",
+            "description_single_refund": "Ви отримали часткове відшкодування за це замовлення.",
+            "description_multiple_refunds": "Ви отримали часткове відшкодування за це замовлення."
+          },
+          "canceled": {
+            "title": "Платіж скасовано",
+            "description": "З вас не стягували плату."
+          },
+          "pay_now": "Платити зараз",
+          "pay_now_accessibility_label": "Сплатіть зараз за замовлення {{orderName}}",
+          "title": "Статус платежу"
+        },
+        "order_timeline": {
+          "expand_events_label": "Показати деталі",
+          "expand_events_accessibility_label": "Показати деталі проекту замовлення",
+          "hide_events_label": "Приховати деталі",
+          "hide_events_accessibility_label": "Приховати деталі проекту замовлення"
+        },
+        "subtitle": "Надіслано {{date}}",
+        "title": "Замовити {{name}}"
+      },
+      "payment_methods": {
+        "payment_delete": {
+          "description_without_replacement": "Цей спосіб оплати більше не буде доступний для майбутніх покупок у цьому місці.",
+          "description_with_replacement": "Видалення цього способу оплати вплине на попередні авторизації платежів для цього місця. Замініть його іншим способом оплати, щоб продовжувати отримувати наступні замовлення."
+        },
+        "payment_details": {
+          "order_label": "Замовити {{name}}",
+          "draft_label": "Проект наказу {{name}}"
         }
+      },
+      "purchase_order_number": {
+        "add_accessibility_label": "Додайте номер замовлення",
+        "add_modal_title": "Додайте номер замовлення",
+        "cancel": "Скасувати",
+        "close_modal_accessibility_label": "Закрити модальний номер замовлення",
+        "discard": "Відкинути",
+        "discard_changes_modal_title": "Скасувати зміни?",
+        "edit_accessibility_label": "Редагувати номер замовлення",
+        "edit_modal_title": "Редагувати номер замовлення",
+        "empty_state": "Без номера замовлення на замовлення",
+        "modal_po_number_input_label": "номер замовлення на замовлення",
+        "modal_po_number_input_max_length_error": "Максимальна кількість символів у номері замовлення на покупку {{maxLength}} .",
+        "save": "зберегти",
+        "title": "PO № {{poNumber}}"
       }
     },
     "payment_method_brands": {
@@ -2315,7 +2426,10 @@
           "missing_billing_address_error_message": "Будь ласка, вкажіть платіжну адресу",
           "default_checkbox": "Встановити як спосіб оплати за умовчанням"
         }
-      }
+      },
+      "title": "Методи оплати",
+      "add_payment_method_button": "Додати спосіб оплати",
+      "add_payment_method_banner": "Додайте спосіб оплати для швидшої оплати або попередньо авторизованих послуг"
     },
     "order_details": {
       "payment": {
@@ -2462,6 +2576,60 @@
       "no_data_provided_accessibility_label": "{{fieldName}} порожнє",
       "paid_amount": "Платний",
       "partially_refunded_label": "ЧАСТКОВО ПОВЕРНЕНО"
+    },
+    "errors": {
+      "address_deletion_error": {
+        "description": "Під час видалення цієї адреси виникла проблема. Повторіть спробу або оновіть сторінку."
+      },
+      "addresses_loading_issue": {
+        "description": "Помилка з'єднання. Перевірте підключення до Інтернету та повторіть спробу."
+      },
+      "banner_title": {
+        "one": "Є {{count}} помилка",
+        "other": "Є {{count}} помилок"
+      },
+      "failed_address_creation": {
+        "description": "Виникла проблема зі створенням адреси. Спробуйте оновити цю сторінку або перевірте підключення до Інтернету."
+      },
+      "failed_address_update": {
+        "description": "Під час оновлення адреси виникла проблема. Спробуйте оновити цю сторінку або перевірте підключення до Інтернету."
+      },
+      "load_orders_error": {
+        "title": "Не вдалося завантажити замовлення",
+        "description": "Повторіть спробу або поверніться пізніше.",
+        "retry_button": "Повторіть спробу"
+      },
+      "load_paypal_error": {
+        "description": "Виникла проблема із завантаженням PayPal. Будь ласка спробуйте ще раз."
+      },
+      "logout_everywhere": {
+        "description": "Щось пішло не так під час виходу. Будь ласка спробуйте ще раз."
+      },
+      "no_access": {
+        "back_to_authentication_link": "Увійдіть в інший обліковий запис",
+        "description": "Ви не зареєстровані як клієнт B2B у {{shopName}}",
+        "title": "Немає доступу"
+      },
+      "no_access_to_locations": {
+        "description": "Ви не маєте доступу до жодного місця"
+      },
+      "not_found": {
+        "description": "Перевірте URL-адресу або повторіть спробу через кілька хвилин.",
+        "title": "Виникла проблема із завантаженням цієї сторінки"
+      },
+      "order_not_found": {
+        "description": "Це замовлення не існує або у вас немає дозволу на його перегляд.",
+        "title": "Замовлення не знайдено"
+      },
+      "profile_update_error": {
+        "description": "Під час оновлення вашого профілю виникла проблема. Спробуйте оновити цю сторінку або перевірте підключення до Інтернету."
+      },
+      "retry_action_label": "Повторіть спробу",
+      "load_extension_error": {
+        "title": "Помилка",
+        "description": "Оновіть сторінку або повторіть спробу через кілька хвилин.",
+        "refresh_button": "Оновити сторінку"
+      }
     }
   },
   "general": {
