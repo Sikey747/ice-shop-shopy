@@ -5,15 +5,87 @@
         "type": "header",
         "settings": {
           "menu-links": "main-menu",
-          "header-text": "Hellow gay",
-          "header-button": "Button text"
+          "logo-icon": "shopify:\/\/shop_images\/logo.svg"
         }
       },
-      "homepage": {
-        "type": "homepage",
+      "hero": {
+        "type": "hero",
         "settings": {
           "colections": "bages",
-          "discrip-text": "<p>Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.<\/p>"
+          "discrip-text": "<p>You text<\/p>"
+        }
+      },
+      "grid-collection": {
+        "type": "grid-collection",
+        "settings": {
+          "collectionList": [
+            "bages",
+            "frontpage",
+            "new-prod"
+          ],
+          "postfix": "Series®"
+        }
+      },
+      "partners": {
+        "type": "partners",
+        "blocks": {
+          "partenrs_item_Hn7mVL": {
+            "type": "partenrs-item",
+            "settings": {
+              "partnersImage": "shopify:\/\/shop_images\/Vector_5.svg"
+            }
+          }
+        },
+        "block_order": [
+          "partenrs_item_Hn7mVL"
+        ],
+        "settings": {
+        }
+      },
+      "countdown-timer": {
+        "type": "countdown-timer",
+        "settings": {
+          "sub-title": "Exsclusive",
+          "main-image": "shopify:\/\/shop_images\/Pasteimage_1.jpg",
+          "procent": "50",
+          "description": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque<\/p>",
+          "day-end": "01-05-2024",
+          "timer-end": "24:00",
+          "button-text": "Shop Now"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "title": "<p>Join our newsletter<\/p>",
+          "description": "<p>Enjoy big discounts and latest updates right to your inbox.<\/p>",
+          "button-text": "Signup"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "social_icon_EFc4Pa": {
+            "type": "social-icon",
+            "settings": {
+              "icon-img": "shopify:\/\/shop_images\/Vector_3_06765a09-89b5-42fd-a281-0c3db83ee303.svg",
+              "social-link": "1515"
+            }
+          },
+          "social_icon_KiXhkh": {
+            "type": "social-icon",
+            "settings": {
+              "icon-img": "shopify:\/\/shop_images\/Vector_4_2537ddb8-7c1d-4478-b4e2-f319dddcb31c.svg",
+              "social-link": "15"
+            }
+          }
+        },
+        "block_order": [
+          "social_icon_EFc4Pa",
+          "social_icon_KiXhkh"
+        ],
+        "settings": {
+          "logo-icon": "shopify:\/\/shop_images\/logo.svg"
         }
       }
     },
