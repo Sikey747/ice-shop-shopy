@@ -3,116 +3,149 @@
     <div class="swiper">
       <div class="swiper-wrapper">
 
-        {% assign numberBlock = section.blocks.size %}
-        {% assign slidesNeeded = numberBlock | divided_by: 6 | ceil %}
+        {% if section.blocks.size != 0 %}
 
-        {% for slideIndex in (0..slidesNeeded) %}
+          {% assign numberBlock = section.blocks.size %}
+          {% assign slidesNeeded = numberBlock | divided_by: 6 | ceil %}
+
+          {% for slideIndex in (0..slidesNeeded) %}
+            <div class="swiper-slide">
+              <div class="flex flex-wrap w-full gap-y-[16px] gap-[clamp(2.5rem,0.748vw+2.327rem,3rem)] max-w-[915px] justify-center items-center m-auto">
+                {% assign startIndex = slideIndex | times: 6 %}
+                {% assign endIndex = startIndex | plus: 5 %}
+
+                {% for i in (startIndex..endIndex) %}
+                  {% if section.blocks[i] %}
+                    <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                      {% if section.blocks[i].settings.partnersImage %}
+                        {{ section.blocks[i].settings.partnersImage | image_url: width: "5000" | image_tag }}
+                      {% else %}
+                        {{ "collection-4" | placeholder_svg_tag }}
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
           <div class="swiper-slide">
             <div class="flex flex-wrap w-full gap-y-[16px] gap-[clamp(2.5rem,0.748vw+2.327rem,3rem)] max-w-[915px] justify-center items-center m-auto">
-              {% assign startIndex = slideIndex | times: 6 %}
-              {% assign endIndex = startIndex | plus: 5 %}
 
-              {% for i in (startIndex..endIndex) %}
-                {% if section.blocks[i] %}
-                  <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
-                    {% if section.blocks[i].settings.partnersImage %}
-                      {{ section.blocks[i].settings.partnersImage | image_url: width: "5000" | image_tag }}
-                    {% else %}
-                      {{ "collection-4" | placeholder_svg_tag }}
-                    {% endif %}
-                  </div>
-                {% endif %}
-              {% endfor %}
+              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                {{ "collection-1" | placeholder_svg_tag }}
+              </div>
+              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                {{ "collection-2" | placeholder_svg_tag }}
+              </div>
+              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                {{ "collection-3" | placeholder_svg_tag }}
+              </div>
+              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                {{ "collection-4" | placeholder_svg_tag }}
+              </div>
+              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                {{ "collection-5" | placeholder_svg_tag }}
+              </div>
+              <div class="max-w-[120px] min-w-[80px] min-h-[80px] max-h-[80px] ibgin flex items-center justify-center">
+                {{ "collection-6" | placeholder_svg_tag }}
+              </div>
+
+
             </div>
           </div>
-        {% endfor %}
+        {% endif %}
+
       </div>
     </div>
 
-    <div class="container w-[97%] xl:w-full absolute z-[1] abs-mid">
-      <button class="hidden sm:block absolute p-[10px] rounded-full bg-white shadow1 left-0 -translate-y-1/2 top-1/2 swiper-button-prev-{{ section.id }}">
-        <svg
-          width="32.000000"
-          height="32.000000"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <rect
-            id="Icon/arrow-left"
-            width="31.999998"
-            height="31.999998"
-            fill="#FFFFFF"
-            fill-opacity="0" />
-          <path
-            id="Vector"
-            d="M6.66663 16L25.3333 16"
-            stroke="#282828"
-            stroke-opacity="1.000000"
-            stroke-width="2.000000"
-            stroke-linejoin="round"
-            stroke-linecap="round" />
-          <path
-            id="Vector"
-            d="M6.66663 16L14.6666 24"
-            stroke="#282828"
-            stroke-opacity="1.000000"
-            stroke-width="2.000000"
-            stroke-linejoin="round"
-            stroke-linecap="round" />
-          <path
-            id="Vector"
-            d="M6.66663 16L14.6666 8"
-            stroke="#282828"
-            stroke-opacity="1.000000"
-            stroke-width="2.000000"
-            stroke-linejoin="round"
-            stroke-linecap="round" />
-        </svg>
-      </button>
-      <button class="hidden sm:block absolute p-[10px] rounded-full bg-white shadow1 right-0 -translate-y-1/2 top-1/2 swiper-button-next-{{ section.id }}">
-        <svg
-          width="32.000000"
-          height="32.000000"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <rect
-            id="Icon/arrow-right"
-            width="31.999998"
-            height="31.999998"
-            fill="#FFFFFF"
-            fill-opacity="0" />
-          <path
-            id="Vector"
-            d="M6.6665 16L25.3333 16"
-            stroke="#282828"
-            stroke-opacity="1.000000"
-            stroke-width="2.000000"
-            stroke-linejoin="round"
-            stroke-linecap="round" />
-          <path
-            id="Vector"
-            d="M17.3335 24L25.3335 16"
-            stroke="#282828"
-            stroke-opacity="1.000000"
-            stroke-width="2.000000"
-            stroke-linejoin="round"
-            stroke-linecap="round" />
-          <path
-            id="Vector"
-            d="M17.3335 8L25.3335 16"
-            stroke="#282828"
-            stroke-opacity="1.000000"
-            stroke-width="2.000000"
-            stroke-linejoin="round"
-            stroke-linecap="round" />
-        </svg>
-      </button>
-    </div>
+    {% if section.blocks.size > 1 %}
+      <div class="container w-[97%] xl:w-full absolute z-[1] abs-mid">
+        <button class="hidden sm:block absolute p-[10px] rounded-full bg-white shadow1 left-0 -translate-y-1/2 top-1/2 swiper-button-prev-{{ section.id }}">
+          <svg
+            width="32.000000"
+            height="32.000000"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect
+              id="Icon/arrow-left"
+              width="31.999998"
+              height="31.999998"
+              fill="#FFFFFF"
+              fill-opacity="0" />
+            <path
+              id="Vector"
+              d="M6.66663 16L25.3333 16"
+              stroke="#282828"
+              stroke-opacity="1.000000"
+              stroke-width="2.000000"
+              stroke-linejoin="round"
+              stroke-linecap="round" />
+            <path
+              id="Vector"
+              d="M6.66663 16L14.6666 24"
+              stroke="#282828"
+              stroke-opacity="1.000000"
+              stroke-width="2.000000"
+              stroke-linejoin="round"
+              stroke-linecap="round" />
+            <path
+              id="Vector"
+              d="M6.66663 16L14.6666 8"
+              stroke="#282828"
+              stroke-opacity="1.000000"
+              stroke-width="2.000000"
+              stroke-linejoin="round"
+              stroke-linecap="round" />
+          </svg>
+        </button>
+        <button class="hidden sm:block absolute p-[10px] rounded-full bg-white shadow1 right-0 -translate-y-1/2 top-1/2 swiper-button-next-{{ section.id }}">
+          <svg
+            width="32.000000"
+            height="32.000000"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect
+              id="Icon/arrow-right"
+              width="31.999998"
+              height="31.999998"
+              fill="#FFFFFF"
+              fill-opacity="0" />
+            <path
+              id="Vector"
+              d="M6.6665 16L25.3333 16"
+              stroke="#282828"
+              stroke-opacity="1.000000"
+              stroke-width="2.000000"
+              stroke-linejoin="round"
+              stroke-linecap="round" />
+            <path
+              id="Vector"
+              d="M17.3335 24L25.3335 16"
+              stroke="#282828"
+              stroke-opacity="1.000000"
+              stroke-width="2.000000"
+              stroke-linejoin="round"
+              stroke-linecap="round" />
+            <path
+              id="Vector"
+              d="M17.3335 8L25.3335 16"
+              stroke="#282828"
+              stroke-opacity="1.000000"
+              stroke-width="2.000000"
+              stroke-linejoin="round"
+              stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
 
-    <div class="mt-[32px] sm:hidden swiper-pagination"></div>
+      <div class="mt-[32px] sm:hidden swiper-pagination"></div>
+    {% endif %}
+
 
   </div>
 </div>

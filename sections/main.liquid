@@ -1,10 +1,15 @@
-<div class="container ">
+<div class="container">
   <div class="ibg py-[clamp(1.5rem,2.617vw+0.895rem,3.25rem)] pl-0 pr-0">
-    {{ section.settings.image | image_url: width: "5700px" | image_tag }}
-    <div class="max-w-[478px] text-center flex flex-col text-white relative mx-auto pt-[clamp(6.188rem,5.514vw+4.912rem,9.875rem)] pb-[99px] px-6">
+    {% if section.settings.image %}
+      {{ section.settings.image | image_url: width: "5700px" | image_tag }}
+    {% else %}
+      {{ "lifestyle-2" | placeholder_svg_tag }}
+    {% endif %}
+
+    <div class="max-w-[478px] text-center flex flex-col text-{{ section.settings.text-color }} relative mx-auto pt-[clamp(6.188rem,5.514vw+4.912rem,9.875rem)] pb-[99px] px-6">
       <h2 class="font-semibold text-[clamp(2.125rem,0.748vw+1.952rem,2.625rem)] mb-3">{{ section.settings.title }}</h2>
       <p class="text-[clamp(0.875rem,0.374vw+0.789rem,1.125rem)]">{{ section.settings.description }}</p>
-      <a class="w-fit mx-auto mt-6 text-[18px] font-semibold after:bg-white after:w-full after:block after:h-[1px] after:bottom-1" href="{{ section.settings.link }}">{{ section.settings.text-link }}</a>
+      <a class="w-fit mx-auto mt-6 text-[18px] font-semibold after:bg-{{ section.settings.text-color }} after:w-full after:block after:h-[1px] after:bottom-1" href="{{ section.settings.link }}">{{ section.settings.text-link }}</a>
     </div>
   </div>
 
@@ -41,6 +46,20 @@
         "label": "Image Bacground",
         "id": "image",
         "type": "image_picker"
+      }, {
+        "label": "Text color",
+        "id": "text-color",
+        "type": "radio",
+        "options": [
+          {
+            "value": "primary-black",
+            "label": "Black"
+          }, {
+            "value": "white",
+            "label": "White"
+          }
+        ],
+        "default": "primary-black"
       }
     ]
   }

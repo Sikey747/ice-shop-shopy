@@ -1,0 +1,22 @@
+{% assign url = "#" %}
+{% assign image = null %}
+{% assign title = "title" %}
+{% assign postfix = "@text" %}
+{% assign all_vendors = "firest, second" | split: "," %}
+
+<a href="{{ url }}" class="flex flex-col grid-collection-link flex-[424px]">
+  <div class="ibg sm:h-[40vw] max-h-[524px] h-[123vw]">
+    {% if image == null %}
+      {{ "lifestyle-1" | placeholder_svg_tag }}
+    {% else %}
+      {{ image | image_url: width: "5700px" | image_tag }}
+    {% endif %}
+  </div>
+  <div class="px-4 pt-4 pb-8 text-center ">
+    {% if collection == blank %}
+      <h3 class="font-semibold text-[20px]">Add Collection</h3>
+    {% endif %}
+    <p class="text-primary-gray1">{{ title }}</p>
+    <h3 class="font-semibold text-[20px]">{{ all_vendors.first }} {{ postfix }}</h3>
+  </div>
+</a>

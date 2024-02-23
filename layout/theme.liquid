@@ -10,11 +10,10 @@
   {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
-    {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
-
     <script defer src="{{ 'application.js' | asset_url }}"></script>
+
     <script defer src="{{ 'scrollLock.js' | asset_url }}"></script>
-    <script defer src="{{ 'bootstrap.bundle.min.js' | asset_url }}"></script>
+    <script defer src="{{ 'jquery.js' | asset_url }}"></script>
     {% comment %} {{ "bootstrap.min.css" | asset_url | stylesheet_tag }} {% endcomment %}
 
     {% style %}:root

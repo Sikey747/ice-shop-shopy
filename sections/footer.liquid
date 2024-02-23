@@ -1,5 +1,5 @@
-<div class="container pt-[clamp(3rem,2.051vw+2.654rem,4.5rem)] pb-[clamp(1.5rem,0.28vw+1.435rem,1.688rem)] flex sm:flex-row flex-col justify-between gap-2 ">
-  <div class="flex flex-col sm:max-w-[310px] max-w-full sm:w-1/2 w-full">
+<div class="container pt-[clamp(3rem,2.051vw+2.654rem,4.5rem)] pb-[clamp(1.5rem,0.28vw+1.435rem,1.688rem)] flex md:flex-row flex-col justify-between gap-2 gap-y-4 ">
+  <div class="flex flex-col sm:max-w-[310px] max-w-full xl:w-1/2 w-full">
     {% render "logo"
       , logo: section.settings.logo-icon
       , class: "mb-4" %}
@@ -9,23 +9,45 @@
       , class: "items-center hidden gap-4 mt-6 sm:flex" %}
   </div>
 
-  <div class="flex justify-between w-full max-w-full gap-2 sm:w-1/2">
-    {% for linklist in section.blocks %}
-      {% if linklist.type == "footerLinks" %}
-
-        {% for listLink in linklist.settings.linksList %}
-          <h4 class="">{{ listLink.title }}</h4>
-          <ul>
-            {% for link in listLink.links %}
-              <li>
+  <div class="justify-between hidden w-full gap-3 sm:flex xl:w-1/2">
+    {% for block in section.blocks %}
+      {% if block.type == "footerLinks" %}
+        <div class="sm:max-w-[150px] max-w-full">
+          <h4 class="mb-4 font-semibold">{{ block.settings.blockLists.title }}</h4>
+          <ul class="flex flex-col gap-3">
+            {% for link in block.settings.blockLists.links %}
+              <li class="text-[14px] text-primary-gray1">
                 <a href="{{ link.url }}">{{ link.title }}</a>
               </li>
             {% endfor %}
           </ul>
-        {% endfor %}
+        </div>
       {% endif %}
     {% endfor %}
 
+  </div>
+
+  <div class="flex flex-col sm:hidden">
+    <div class="accordion-container">
+      {% for block in section.blocks %}
+        {% if block.type == "footerLinks" %}
+          <div class="ac">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger font-semibold">{{ block.settings.blockLists.title }}</button>
+            </h2>
+            <div class="ac-panel">
+              <ul class="flex flex-col gap-3 p-2">
+                {% for link in block.settings.blockLists.links %}
+                  <li class="text-[14px] text-primary-gray1">
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -34,26 +56,93 @@
   {% render "social-icon-block"
     , socials: section.blocks
     , class: "flex items-center gap-4 mb-4 sm:hidden" %}
-  <div class="flex flex-row gap-6 mb-8 sm:mb-0 sm:gap-8 ">
+  <div class="flex flex-row items-center gap-6 mb-8 sm:mb-0 sm:gap-8">
     <div class="select local">
-      local select
+      {% form 'localization' %}
+        <select name="" id="">
+          {% for local in shop.published_locales %}
+            <option value="{{ local.iso_code }}">{{ local.endonym_name | capitalize }}</option>
+          {% endfor %}
+        </select>
+        {% comment %} <a href="#" lang="{{ local.iso_code }}">{{ local.endonym_name | capitalize }}</a> {% endcomment %}
+      {% endform %}
+
     </div>
     <div class="selext currency">
-      currensy select
+      {% form 'currency' %}
+        {{ form | currency_selector }}
+      {% endform %}
     </div>
   </div>
 </div>
 
+<style>
+  [name="currency"] {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5rem;
+    --tw-shadow: 0 0 #0000;
+  }
+  select:not([size]) {
+    padding-right: 2rem;
+    font-weight: 600;
+  }
+  .accordion-container .ac {
+    margin-top: 0;
+    border: none;
+    border-bottom: 1px solid var(--primary-black);
+    background-color: transparent;
+  }
 
+  .accordion-container .ac .ac-trigger:focus {
+    color: var(--primary-black);
+  }
+
+  .accordion-container .ac .ac-trigger {
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    width: 100%;
+    padding: 8px 32px 8px 8px;
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    transition: color 0.25s ease;
+    position: relative;
+    text-decoration: none;
+    margin: 0;
+    border: 0;
+  }
+
+  .accordion-container .ac .ac-trigger::after {
+    content: "‹";
+    text-align: center;
+    width: 15px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    rotate: -90deg;
+    scale: 1.2;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+  }
+</style>
+
+<script defer src="{{ "countrySelect.js" |  asset_url }}"></script>
+{{ "countrySelect.min.css" | asset_url | stylesheet_tag }}
 <script defer src="{{ "accordion.js" |  asset_url }}"></script>
 {{ "accordion.css" | asset_url | stylesheet_tag }}
 
 <script>
-  //   document.addEventListener("DOMContentLoaded",()=>{
-  //     new Accordion('.accordion-container');
-  //   })
-  //
+  window.addEventListener("DOMContentLoaded",()=>{
+    new Accordion('.accordion-container');
+  });
 </script>
+
 
 {% schema %}
   {
@@ -72,12 +161,8 @@
         "type": "footerLinks",
         "settings": [
           {
-            "label": "Title Links",
-            "id": "title",
-            "type": "text"
-          }, {
             "label": "Links",
-            "id": "linksList",
+            "id": "blockLists",
             "type": "link_list"
           }
         ]
