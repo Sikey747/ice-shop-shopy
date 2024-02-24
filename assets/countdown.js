@@ -49,7 +49,7 @@
 // });
 // ```
 
-const $ = (elem) => document.querySelector(elem);
+const countdownElement = (elem) => document.querySelector(elem);
 
 const countdown = function (_config) {
   const countdownElements = document.querySelectorAll(_config.target);
@@ -105,10 +105,14 @@ const countdown = function (_config) {
       0,
     ).getTime();
 
-    $(_config.target + " .day .word").innerHTML = _config.dayWord;
-    $(_config.target + " .hour .word").innerHTML = _config.hourWord;
-    $(_config.target + " .min .word").innerHTML = _config.minWord;
-    $(_config.target + " .sec .word").innerHTML = _config.secWord;
+    countdownElement(_config.target + " .day .word").innerHTML =
+      _config.dayWord;
+    countdownElement(_config.target + " .hour .word").innerHTML =
+      _config.hourWord;
+    countdownElement(_config.target + " .min .word").innerHTML =
+      _config.minWord;
+    countdownElement(_config.target + " .sec .word").innerHTML =
+      _config.secWord;
 
     const updateTime = () => {
       // Get todays date and time
@@ -127,17 +131,20 @@ const countdown = function (_config) {
 
       requestAnimationFrame(updateTime);
 
-      $(_config.target + " .day .num").innerHTML = addZero(days);
-      $(_config.target + " .hour .num").innerHTML = addZero(hours);
-      $(_config.target + " .min .num").innerHTML = addZero(minutes);
-      $(_config.target + " .sec .num").innerHTML = addZero(seconds);
+      countdownElement(_config.target + " .day .num").innerHTML = addZero(days);
+      countdownElement(_config.target + " .hour .num").innerHTML =
+        addZero(hours);
+      countdownElement(_config.target + " .min .num").innerHTML =
+        addZero(minutes);
+      countdownElement(_config.target + " .sec .num").innerHTML =
+        addZero(seconds);
 
       // If the count down is over, write some text
       if (distance < 0) {
-        $(_config.target + " .day .num").innerHTML = addZero(0);
-        $(_config.target + " .hour .num").innerHTML = addZero(0);
-        $(_config.target + " .min .num").innerHTML = addZero(0);
-        $(_config.target + " .sec .num").innerHTML = addZero(0);
+        countdownElement(_config.target + " .day .num").innerHTML = addZero(0);
+        countdownElement(_config.target + " .hour .num").innerHTML = addZero(0);
+        countdownElement(_config.target + " .min .num").innerHTML = addZero(0);
+        countdownElement(_config.target + " .sec .num").innerHTML = addZero(0);
       }
     };
 

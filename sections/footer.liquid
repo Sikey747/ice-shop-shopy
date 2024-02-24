@@ -1,4 +1,4 @@
-<div class="container pt-[clamp(3rem,2.051vw+2.654rem,4.5rem)] pb-[clamp(1.5rem,0.28vw+1.435rem,1.688rem)] flex md:flex-row flex-col justify-between gap-2 gap-y-4 ">
+<div class="container pt-[clamp(3rem,2.051vw+2.654rem,4.5rem)] pb-[clamp(1.5rem,0.28vw+1.435rem,1.688rem)] flex xl:flex-row flex-col justify-between gap-2 gap-y-4 ">
   <div class="flex flex-col sm:max-w-[310px] max-w-full xl:w-1/2 w-full">
     {% render "logo"
       , logo: section.settings.logo-icon
@@ -9,7 +9,7 @@
       , class: "items-center hidden gap-4 mt-6 sm:flex" %}
   </div>
 
-  <div class="justify-between hidden w-full gap-3 sm:flex xl:w-1/2">
+  <div class="flex-col justify-between hidden w-full gap-3 sm:flex xl:flex-row xl:w-1/2">
     {% for block in section.blocks %}
       {% if block.type == "footerLinks" %}
         <div class="sm:max-w-[150px] max-w-full">
@@ -33,7 +33,7 @@
         {% if block.type == "footerLinks" %}
           <div class="ac">
             <h2 class="ac-header">
-              <button type="button" class="ac-trigger font-semibold">{{ block.settings.blockLists.title }}</button>
+              <button type="button" class="font-semibold ac-trigger">{{ block.settings.blockLists.title }}</button>
             </h2>
             <div class="ac-panel">
               <ul class="flex flex-col gap-3 p-2">

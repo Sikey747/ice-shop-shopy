@@ -65,6 +65,7 @@
   header {
     width: 100%;
     z-index: 30;
+
     background-color: white;
   }
 
@@ -185,7 +186,7 @@
     }
   };
   
-  const headRoomLib = () =>{
+  const headRoomLib = () => {
     const header = document.querySelector("header");
     header.classList.add("fixed");
     const headroom  = new Headroom(header);
@@ -222,11 +223,26 @@
     } 
   }
   
+  const headerHeightFix = () => {
+      const header = document.querySelector('header');
+  
+      const headerHeightChenge = () => {
+        let headerHeight = header.getBoundingClientRect().height;
+        const section = document.querySelector("main")
+        section.style.paddingTop = headerHeight+"px"
+      }
+      
+    window.addEventListener("DOMContentLoaded",headerHeightChenge)
+    window.addEventListener("resize",headerHeightChenge)
+    window.addEventListener("orientationchange",headerHeightChenge)
+  }
+  
   const startScript = () => {
     mobileSubMenuToggle()
     headRoomLib()
     addActiveClassToNavLink()
     scrollspyLib()
+    headerHeightFix()
   }
   
   document.addEventListener("DOMContentLoaded", startScript);

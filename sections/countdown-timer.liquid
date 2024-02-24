@@ -1,5 +1,5 @@
 <div class="container flex flex-col sm:gap-0 gap-4 sm:flex-row py-[52px] justify-center">
-  <div class="min-h-[89vw] w-[110vw] -translate-x-[10vw] sm:-translate-x-[0]  sm:min-h-full sm:w-1/2 ibg ">
+  <div class="min-h-[89vw] w-[110vw] -translate-x-[10vw] sm:-translate-x-[0] sm:min-h-full sm:w-1/2 ibg ">
     {% if section.settings.main-image.src %}
       {{ section.settings.main-image.src | image_url: width: "5760" | image_tag }}
     {% else %}
@@ -7,7 +7,7 @@
     {% endif %}
 
   </div>
-  <div class="sm:w-1/2 py-[clamp(0rem,13.458vw-3.112rem,9rem)] pl-[clamp(0rem,13.458vw-3.112rem,9rem)] pr-[clamp(0rem,7.664vw-1.772rem,5.125rem)]">
+  <div class="timer sm:w-1/2 py-[clamp(0rem,13.458vw-3.112rem,9rem)] pl-[clamp(0rem,13.458vw-3.112rem,9rem)] pr-[clamp(0rem,7.664vw-1.772rem,5.125rem)]">
 
     <div class="flex flex-col gap-2 mb-[24px] -tracking-[0.4px]">
       <h4 class="font-semibold">{{ section.settings.sub-title }}</h4>
@@ -49,7 +49,7 @@
 <script>
   window.addEventListener("DOMContentLoaded", function () {
   const efcc_countdown = new countdown({
-    target: ".countdown",
+    target: "#shopify-section-{{ section.id }} * .countdown",
     dayWord: "d",
     hourWord: "h",
     minWord: "m",
@@ -100,6 +100,11 @@
         "id": "button-text",
         "type": "text",
         "default": "Shop Now"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Countdown timer"
       }
     ]
   }
