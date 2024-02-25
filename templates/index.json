@@ -7,6 +7,11 @@
         "discrip-text": "<p>You text<\/p>"
       }
     },
+    "partners_tENp6B": {
+      "type": "partners",
+      "settings": {
+      }
+    },
     "countdown_timer_PDBbrb": {
       "type": "countdown-timer",
       "settings": {
@@ -24,17 +29,12 @@
         "colections": "",
         "discrip-text": "<p>You text<\/p>"
       }
-    },
-    "partners_tENp6B": {
-      "type": "partners",
-      "settings": {
-      }
     }
   },
   "order": [
     "hero",
+    "partners_tENp6B",
     "countdown_timer_PDBbrb",
-    "hero_ng9CMR",
-    "partners_tENp6B"
+    "hero_ng9CMR"
   ]
 }
