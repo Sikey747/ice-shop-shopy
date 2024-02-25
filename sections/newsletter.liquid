@@ -3,17 +3,32 @@
     <h2 class="text-[clamp(2.125rem,0.748vw+1.952rem,2.625rem)] mb-2 font-semibold">{{ section.settings.title }}</h2>
     <p class="text-[18px] ">{{ section.settings.description }}</p>
 
-    <form action="" class="flex flex-col items-center justify-center gap-3 mt-6 sm:gap-0 sm:flex-row sm:border-b border-primary-gray2">
-      <div class="flex items-center border-b border-primary-gray2 sm:border-transparent">
-        {% render "icon-email" %}
-        <input
-          type="email"
-          placeholder="Email address"
-          class="bg-transparent border-0 placeholder:text-primary-gray3 text-primary-black">
+    {% form 'contact' %}
+      <div class="flex flex-col items-center justify-center gap-3 mt-6 sm:gap-0 sm:flex-row sm:border-b border-primary-gray2">
+        <div class="flex items-center border-b border-primary-gray2 sm:border-transparent">
+          {% render "icon-email" %}
+          <input
+            name="contact[email]"
+            type="email"
+            placeholder="Email address"
+            class="bg-transparent border-0 placeholder:text-primary-gray3 text-primary-black">
+        </div>
+        <button type="submit" class="py-[8px] sm:bg-transparent font-semibold rounded-[12px] sm:text-primary-black text-white bg-primary-black w-full">{{ section.settings.button-text }}</button>
+        {{ form.errors | default_errors }}
       </div>
+    {% endform %}
 
-      <button type="submit" class="py-[8px] sm:bg-transparent font-semibold rounded-[12px] sm:text-primary-black text-white bg-primary-black w-full">{{ section.settings.button-text }}</button>
-    </form>
+  {% comment %} <form action="" class="flex flex-col items-center justify-center gap-3 mt-6 sm:gap-0 sm:flex-row sm:border-b border-primary-gray2">
+                                      <div class="flex items-center border-b border-primary-gray2 sm:border-transparent">
+                                        {% render "icon-email" %}
+                                        <input
+                                          type="email"
+                                          placeholder="Email address"
+                                          class="bg-transparent border-0 placeholder:text-primary-gray3 text-primary-black">
+                                      </div>
+                
+                                      <button type="submit" class="py-[8px] sm:bg-transparent font-semibold rounded-[12px] sm:text-primary-black text-white bg-primary-black w-full">{{ section.settings.button-text }}</button>
+                    </form> {% endcomment %}
   </div>
 </div>
 

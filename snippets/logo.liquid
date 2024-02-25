@@ -1,3 +1,9 @@
-<div class="ibgin max-w-[120px] {{ class }}">
-  {{ logo | image_url: width: "24px" | image_tag }}
-</div>
+<a href="{{ shop.url }}">
+  <div class="ibgin max-w-[120px] {{ class }}">
+    {% if logo != blank %}
+      {{ logo | image_url: width: "24px" | image_tag }}
+    {% else %}
+      {{ "collection-1" | placeholder_svg_tag }}
+    {% endif %}
+  </div>
+</a>
