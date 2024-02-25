@@ -1,3 +1,21 @@
 {
-  "current": {}
+  "current": {
+    "bg-color": "#b7a38f",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu-links": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
 }
