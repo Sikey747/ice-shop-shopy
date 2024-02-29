@@ -1,8 +1,40 @@
 {
   "sections": {
     "hero": {
-      "type": "hero"
+      "type": "hero",
+      "settings": {
+        "colections": "",
+        "discrip-text": "<p>You text<\/p>"
+      }
+    },
+    "partners_tENp6B": {
+      "type": "partners",
+      "settings": {
+      }
+    },
+    "countdown_timer_PDBbrb": {
+      "type": "countdown-timer",
+      "settings": {
+        "sub-title": "Exsclusive",
+        "procent": "50",
+        "description": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque<\/p>",
+        "day-end": "01-05-2024",
+        "timer-end": "24:00",
+        "button-text": "Shop Now"
+      }
+    },
+    "hero_ng9CMR": {
+      "type": "hero",
+      "settings": {
+        "colections": "bages",
+        "discrip-text": "<p>SEE<\/p>"
+      }
     }
   },
-  "order": ["hero"]
+  "order": [
+    "hero",
+    "partners_tENp6B",
+    "countdown_timer_PDBbrb",
+    "hero_ng9CMR"
+  ]
 }
