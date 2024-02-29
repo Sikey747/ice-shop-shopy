@@ -3,12 +3,22 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "colections": "",
+        "colections": "bages",
         "discrip-text": "<p>You text<\/p>"
       }
     },
     "partners_tENp6B": {
       "type": "partners",
+      "blocks": {
+        "partenrs_item_WkdfX3": {
+          "type": "partenrs-item",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "partenrs_item_WkdfX3"
+      ],
       "settings": {
       }
     },
