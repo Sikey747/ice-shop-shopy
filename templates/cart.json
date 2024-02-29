@@ -4,14 +4,25 @@
       "type": "tempalte-cart",
       "blocks": {
         "updateBlock": {
-          "type": "update"
+          "type": "update",
+          "settings": {
+          }
         },
         "checkoutBlock": {
-          "type": "checkout"
+          "type": "checkout",
+          "settings": {
+          }
         }
       },
-      "block_order": ["updateBlock", "checkoutBlock"]
+      "block_order": [
+        "updateBlock",
+        "checkoutBlock"
+      ],
+      "settings": {
+      }
     }
   },
-  "order": ["tempalte"]
+  "order": [
+    "tempalte"
+  ]
 }
