@@ -1,0 +1,25 @@
+{% comment %} {% render "card-product"
+            , productItem: product %} {% endcomment %}
+
+<div class="card-product">
+  <div class="flex flex-col flex-auto">
+    <a class="ibg sm:h-[30vw] h-[50vw] max-h-[500px]" href="{{ productItem.url | within: collection }}">
+      <div class="absolute top-0 left-0 w-full h-full sm:h-[30vw] h-[50vw] max-h-[500px]">
+        {{ productItem.images.last | image_url: width: "500px" | image_tag }}
+      </div>
+      <div class="absolute top-0 left-0 w-full h-full sm:h-[30vw] h-[50vw] max-h-[500px]">
+        {{ productItem.featured_image.src | image_url: width: "500px" | image_tag }}
+      </div>
+      {% unless productItem.available %}
+        <span class="absolute top-0 right-0 p-2 uppercase bg-primary-gray3">sold out</span>
+      {% endunless %}
+    </a>
+    <div class="flex flex-col gap-2 p-3">
+      <h3 class="font-semibold 2xl">{{ productItem.title }}</h3>
+      <p class="text-primary-gray1">{{ productItem.price | money }}</p>
+    </div>
+  </div>
+  <div class="flex flex-col gap-2 p-3">
+    {% render "button", href: productItem.url | within: collection, variant: "link", text: "See Product", class: "text-blue-500" %}
+  </div>
+</div>

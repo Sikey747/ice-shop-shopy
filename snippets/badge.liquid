@@ -1,1 +1,23 @@
-<div class="bg-primary-black w-5 h-5 flex flex-col justify-center items-center rounded-full text-[12px] font-bold text-white">{{ quantity }}</div>
+{% if quantity == blank %}
+  {% assign quantity = 0 %}
+{% endif %}
+
+<div data-cart-items class="bg-primary-black w-5 h-5 flex flex-col justify-center items-center rounded-full text-[12px] font-bold text-white">{{ quantity }}</div>
+
+<script>
+  const getTotalCountProd = async () => {
+    const cartItemsCounters = document.querySelectorAll('[data-cart-items]')
+  
+    if(cartItemsCounters.length>0) {
+      const response = await fetch(window.Shopify.routes.root + 'cart.js');
+      const data = await response.json();
+      const item_count = data.item_count;
+      
+      cartItemsCounters.forEach(cartItemsCounter => {
+        cartItemsCounter.innerHTML = item_count;
+      })
+    }
+  
+  }
+  window.addEventListener("DOMContentLoaded",getTotalCountProd)
+</script>

@@ -1,0 +1,48 @@
+<div class="container">
+  {% paginate collection.products by {{ section.settings.itemsInPage }} %}
+    <h1 class="flex justify-center my-5 text-4xl font-bold text-center">{{ collection.title }}</h1>
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-{{ section.settings.geidInPage }}">
+      {% for product in collection.products %}
+        <div class="flex flex-col gap-1 rounded-lg shadow-lg bg-primary-gray2 bodredr border-primary-gray3">
+          {% render 'card-product', productItem: product %}
+        </div>
+      {% else %}
+        <p class="mx-auto text-4xl font-bold">No Products</p>
+      {% endfor %}
+    </div>
+    {% if paginate.pages > 1 %}
+      <div class="my-4">
+        {% render 'pagination', pagination: paginate %}
+      </div>
+    {% endif %}
+  {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Collections",
+  "tag": "section",
+  "settings": [
+    {
+      "label": "Item in page",
+      "type": "range",
+      "id": "itemsInPage",
+      "min": 3,
+      "max": 50,
+      "step": 1,
+      "unit": "itm",
+      "default": 3
+    },
+    {
+      "label": "Grid in page",
+      "type": "range",
+      "id": "geidInPage",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "unit": "itm",
+      "default": 3
+    }
+  ]
+}
+{% endschema %}

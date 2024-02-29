@@ -1,0 +1,9 @@
+{% comment %} 
+    {% render "pagination" pagination: paginate %} 
+{% endcomment %}
+
+{% if pagination.pages > 1 %}
+  <div class="flex items-center justify-center mx-auto text-sm leading-tight text-gray-500 bg-white border border-gray-200 divide-x divide-gray-200 rounded h-9 w-fit">
+    {{ pagination | default_pagination }}
+  </div>
+{% endif %}

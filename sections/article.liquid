@@ -1,107 +1,57 @@
-{% comment %} {% assign number_of_comments = article.comments_count %}
-                                                                        {% if comment and comment.created_at %}
-                                                                          {% assign number_of_comments = article.comments_count %}
-                                                                        {% endif %}
-
-                                                                        <h1>{{ article.title }}</h1>
-                                                                        {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
-                                                                        {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
-                                                                        {{ article.author }} @ {{ article.created_at }}
-
-                                                                        <div>{{ article.content }}</div>
-                                                                        {% if blog.comments_enabled? %}
-                                                                          <h2>{{ number_of_comments }} comments</h2>
-                                                                          {% paginate article.comments by 5 %}
-                                                                            {% for comment in article.comments %}
-                                                                              <div>
-                                                                                <div>{{ comment.content }}</div>
-                                                                                {{ comment.author }} @ {{ comment.created_at }}
-                                                                              </div>
-                                                                            {% endfor %}
-                                                                            {% if paginate.pages > 1 %}
-                                                                              {{ paginate | default_pagination }}
-                                                                            {% endif %}
-                                                                          {% endpaginate %}
-
-                                                                          <div>
-                                                                            {% form 'new_comment', article %}
-                                                                              {{ form.errors | default_errors }}
-                                                                              <label for="CommentAuthor">name</label>
-                                                                              <input type="text" name="comment[author]" id="CommentAuthor" placeholder="name" value="{{ form.author }}" autocapitalize="words">
-
-                                                                              <label for="CommentEmail">email</label>
-                                                                              <input type="email" name="comment[email]" id="CommentEmail" placeholder="email" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
-
-                                                                              <label for="CommentBody">message</label>
-                                                                              <textarea name="comment[body]" id="CommentBody" placeholder="message">{{ form.body }}</textarea>
-
-                                                                              <input type="submit" value="post">
-                                                                            {% endform %}
-                                                                          </div>
-{% endif %} {% endcomment %}
-
-
-<div class="container flex flex-col gap-6">
-
-  <div class="">
-    <h1 class="">{{ article.title }}</h1>
-    <div class="ibg">
-      {% if article.user.image %}
-        {{ article.user.image | image_tag | image_url: width: "100px" }}
-      {% else %}
-        {% render "icon-user" %}
-      {% endif %}
-
+<div
+  class="container flex flex-col gap-3 gap-6 py-6 "
+  itemscope
+  itemtype='http://schema.org/BlogPosting'>
+  <div class="flex flex-col gap-2">
+    <h1 class="text-3xl font-semibold" itemprop="headline">{{ article.title }}</h1>
+    <div class="flex gap-2">
+      <h3 class="text-primary-gray1" itemprop="creator">{{ article.author }}</h3>
+      <p itemprop="datePublished">
+        {{ article.created_at | time_tag | date: '%m/%d/%Y' }}
+      </p>
     </div>
-    <h3>{{ article.author }}</h3>
     {% if article.tags != blank %}
-      <div>
-        <ul>
-          {% for tag in article.tags %}
-            <li>
-              {{ tag }}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+      <ul class="flex gap-1 flex-wrap max-w-[200px]">
+        {% for tag in article.tags %}
+          <li itemprop="keywords" class="px-2 py-1 rounded-3xl bg-primary-gray2">
+            {{ tag | capitalize }}
+          </li>
+        {% endfor %}
+      </ul>
     {% endif %}
-
-    <time>{{ article.created_at }}</time>
   </div>
 
-  <div class="h-24 ibg">
+  <div itemprop="image" class="h-[400px] ibg flex justify-center items-center">
     {% if article.image %}
-      {{ article.image | image_tag | image_url: width: "2000" }}
+      {{ article.image.src | image_url: width: "2000" | image_tag }}
     {% else %}
       {{ "lifestyle-1" | placeholder_svg_tag }}
     {% endif %}
   </div>
 
-  <div class="">
+  <div itemprop="articleBody" class="px-2 py-3 border-t border-b border-primary-gray1">
     {{ article.content }}
   </div>
-
-  <div class="line"></div>
 
   <div>
     {% if article.comments_enabled? %}
       {% if article.comments_count > 0 %}
-        <p>{{ article.comments_count }}</p>
-        {% paginate article.comments by 5 %}
-          <ul class="">
+
+        <ul class="">
+          {% paginate article.comments by 1 %}
             {% for coment in article.comments %}
               <li class="p-3 shadow-md">
-                <div class="ibg"></div>
-                <div class="flex gap-2 max-w-[500px] flex-col relative">
-                  <h5 class="text-3xl font-semibold">{{ coment.author }}</h5>
-                  <p class="text-primary-gray2">{{ coment.created_at }}</p>
-                </div>
-                <div>{{ coment.content }}</div>
+                {% render "comment"
+                  , commentItem: coment %}
               </li>
             {% endfor %}
-          </ul>
-          {{ paginate | default_pagination }}
-        {% endpaginate %}
+            <p class="flex justify-center p-2 mx-auto my-2 border w-fit border-primary-gray1">{{ article.comments_count }} comments</p>
+            {% render "pagination"
+              , pagination: paginate %}
+          {% endpaginate %}
+        </ul>
+
+
       {% endif %}
     {% endif %}
 
@@ -109,32 +59,56 @@
       {% form 'new_comment'
         , article %}
         {{ form.errors | default_errors }}
-
-        <div class="name">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            name="comment[author]"
-            value="{{ form.author }}">
-        </div>
-
-        <div class="email">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            name="comment[email]"
-            value="{{ form.email }}">
-        </div>
-
-        <div class="comment">
-          <label for="comment">Comment</label>
-          <textarea name="comment[body]">{{ form.body }}</textarea>
-        </div>
-
-        <div class="submit">
-          <input type="submit" value="Post">
+        <div class="flex flex-col gap-2 max-w-[600px] mx-auto">
+          <div class="flex flex-wrap gap-2">
+            <div class="flex flex-col gap-1">
+              <label for="name">Name</label>
+              <input
+                class="w-full"
+                type="text"
+                name="comment[author]"
+                value="{{ form.author }}">
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="email">Email</label>
+              <input
+                class="w-full"
+                type="email"
+                name="comment[email]"
+                value="{{ form.email }}">
+            </div>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="comment">Comment</label>
+            <textarea name="comment[body]">{{ form.body }}</textarea>
+          </div>
+          <button
+            data-aos="fade-right"
+            type="submit"
+            value="Post"
+            class="px-3 py-1 transition-all shadow-md bg-primary-gray3 hover:bg-primary-gray1">send comment</button>
         </div>
       {% endform %}
     </div>
   </div>
 </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded',()=>{
+    const prev = document.querySelector('.prev > a');
+    const next = document.querySelector('.next > a');
+    if (prev) {
+      prev.text = prev.text.split(" ")[0];
+    }
+    if(next){
+      next.text = next.text.split(" ")[1];
+   }
+  })
+</script>
+
+{% schema %}
+  {
+    "name": "article",
+    "tag": "article"
+  }
+{% endschema %}

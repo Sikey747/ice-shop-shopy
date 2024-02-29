@@ -1,0 +1,7 @@
+<div class="flex gap-2 max-w-[500px] flex-col relative">
+  <h5 class="text-3xl font-semibold">{{ commentItem.author }}</h5>
+  <p class="text-primary-gray2">
+    {{ commentItem.created_at | time_tag | date: '%m/%d/%Y' }}
+  </p>
+</div>
+<div>{{ commentItem.content }}</div>

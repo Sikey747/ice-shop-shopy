@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "tempalte": {
+      "type": "tempalte-cart",
+      "blocks": {
+        "updateBlock": {
+          "type": "update"
+        },
+        "checkoutBlock": {
+          "type": "checkout"
+        }
+      },
+      "block_order": ["updateBlock", "checkoutBlock"]
+    }
+  },
+  "order": ["tempalte"]
+}

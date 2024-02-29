@@ -11,10 +11,13 @@
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
     <script defer src="{{ 'application.js' | asset_url }}"></script>
-
-    <script defer src="{{ 'scrollLock.js' | asset_url }}"></script>
+    <script defer src="{{ 'aos.min.js' | asset_url }}"></script>
     <script defer src="{{ 'jquery.js' | asset_url }}"></script>
-    {% comment %} {{ "bootstrap.min.css" | asset_url | stylesheet_tag }} {% endcomment %}
+    <script defer src="{{ 'scrollLock.js' | asset_url }}"></script>
+    <script defer src="{{ 'toastify.js' | asset_url }}"></script>
+
+    {{ "aos.min.css" | asset_url | stylesheet_tag }}
+    {{ "toastify.css" | asset_url | stylesheet_tag }}
 
     {% style %}:root
     {
@@ -60,4 +63,9 @@
     {{ content_for_layout }}
   </main>
   {% section 'footer' %}
-</body></html>
+</body></html><script defer>
+  window.addEventListener("DOMContentLoaded",()=>{
+      AOS.init();
+  })
+
+</script>

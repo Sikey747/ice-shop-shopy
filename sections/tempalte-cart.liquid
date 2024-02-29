@@ -1,0 +1,131 @@
+<div class="container cart__container">
+  {% if cart.item_count > 0 %}
+    <div data-cart-wraper>
+      <h1 class="font-bold 2xl">You Cart</h1>
+      <form
+        action="{{ routes.cart_url }}"
+        method="post"
+        novalidate
+      >
+        <div>
+          <div class="grid grid-cols-3 gap-4 sm:grid-cols-4 place-items-center">
+            <div class="col-span-1 font-semibold sm:col-span-2 ">Prod</div>
+            <div class="font-semibold">Qty</div>
+            <div class="font-semibold">Price</div>
+            <div class="w-full h-[1px] sm:col-span-4 col-span-3 bg-primary-black"></div>
+          </div>
+          {% for item in cart.items %}
+            <div
+              data-item-card="{{ item.id }}"
+              class="grid grid-cols-3 gap-4 py-4 card-item sm:grid-cols-4 place-items-center"
+            >
+              <div class="flex flex-col items-center self-start col-span-1 gap-1 font-semibold sm:col-span-2 justify-self-center">
+                <div class="ibg max-w-[500px] ibg max-h-[500px] h-[20vw] w-[20vw]">
+                  {{ item.image.src | image_url: width: '500px' | image_tag: loading: 'lazy' }}
+                </div>
+                <div class="font-semibold text-center">
+                  <h3 class="font-semibold 2xl">
+                    {{ item.title | capitalize }}
+                  </h3>
+                  <p class="text-primary-gray3">{{ item.vendor }}</p>
+                  <p class="text-primary-gray3">{{ item.variant.title }}</p>
+                </div>
+              </div>
+
+              <div class="flex flex-col items-center gap-2 font-semibold justify-self-center">
+                {% render 'inputQWT', qwantity: item.quantity, id: item.variant_id, index: forloop.index %}
+                {% render 'button',
+                  variant: 'link',
+                  class: 'text-red-500 hover:text-red-300',
+                  href: item.url_to_remove,
+                  text: 'Remuve'
+                %}
+              </div>
+
+              <div class="font-semibold">
+                <h4 data-price-id="{{ item.variant_id }}">{{ item.final_line_price | money }}</h4>
+              </div>
+            </div>
+          {% endfor %}
+
+          <div class="w-full h-[1px] sm:col-span-4 col-span-3 bg-primary-black"></div>
+          <div class="flex justify-end my-3 font-semibold">
+            <h5 class="font-bold 2xl:">
+              Total Price :
+              <span data-total-price>{{ cart.total_price | money }}</span>
+            </h5>
+          </div>
+        </div>
+        <div>
+          <div class="max-w-[200px] flex flex-col gap-2 ml-auto mt-4">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'update' %}
+                  <button
+                    class="btn"
+                    type="submit"
+                    name="update"
+                  >
+                    {{ block.settings.updateItem }}
+                  </button>
+                {% when 'checkout' %}
+                  <button
+                    class="btn"
+                    type="submit"
+                    name="checkout"
+                  >
+                    {{ block.settings.checkoutItem }}
+                  </button>
+                {% else %}
+
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </form>
+    </div>
+  {% else %}
+    <div class="flex flex-col items-center justify-center gap-4 cart__empty h-dvh">
+      <h1 class="font-semibold 4xl text-[50px]">Cart is empty</h1>
+      <a href="{{ routes.all_products_collection_url  }}">
+        {% render 'button', text: 'Finde Product', class: 'text-3xl' %}
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Update",
+      "type": "update",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "label": "Update Text",
+          "default": "Update",
+          "id": "updateItem"
+        }
+      ]
+    },
+    {
+      "name": "Checkout",
+      "type": "checkout",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "label": "Checkout Text",
+          "default": "Checkout",
+          "id": "checkoutItem"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

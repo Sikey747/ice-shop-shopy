@@ -4,117 +4,160 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-@layer components {
-  .btn {
-    @apply inline-flex items-center px-4 py-3 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600;
+@layer base {
+  p[data-mce-fragment] {
+    margin: 0 0 1em 0;
+    line-height: 1.4;
+  }
+
+  h2[data-mce-fragment] {
+    margin: 0 0 1em 0;
+    line-height: 1.4;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
   }
 }
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-4 py-3 text-sm font-semibold text-white bg-primary-gray1 border border-transparent rounded-lg gap-x-2 hover:bg-primary-gray1 transition-all disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 justify-center;
+  }
+  [data-btn]::after {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-black);
+  }
+  .shopify-challenge__container .shopify-challenge__button {
+    background-color: var(--primary-black);
+    color: white;
+    padding: 5px 10px;
+  }
+  .on.toast-error {
+    background: theme(colors.red.500);
+    @apply p-4 border border-primary-black;
+  }
+}
+@layer pagination {
+  .deco,
+  .page,
+  .prev,
+  .next {
+    @apply cursor-pointer inline-flex items-center h-full px-3 hover:bg-gray-300 rounded-l bg-gray-50;
+  }
 
-.shopify-challenge__container .shopify-challenge__button {
-  background-color: var(--primary-black);
-  color: white;
-  padding: 5px 10px;
+  .page.current {
+    @apply text-blue-500;
+  }
 }
+@layer utilities {
+  .ibg {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
 
-.ibg {
-  position: relative;
-  overflow: hidden;
-}
+  .ibgin img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+  }
 
-.ibgin img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.3s ease-in-out;
-}
+  .ibg img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+  }
 
-.ibg img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  transition: all 0.3s ease-in-out;
-}
+  .ibg svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+  }
 
-.ibg svg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  transition: all 0.3s ease-in-out;
-}
+  .ibg > div {
+    transition: all 0.3s ease-in-out;
+  }
+  .ibg:hover > div:nth-child(2) {
+    opacity: 0;
+    scale: 1.2;
+    transition: all 0.3s ease-in-out;
+  }
+  .ibg:hover > div:nth-child(1) {
+    scale: 1.2;
+    transition: all 0.3s ease-in-out;
+  }
 
-svg {
-  transition: all 0.3s ease-in-out;
-}
+  svg {
+    transition: all 0.3s ease-in-out;
+  }
 
-.abs-mid {
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, -50%);
-}
+  .abs-mid {
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-.half-container {
-  max-width: calc(var(--container-with) / 2);
-}
+  .half-container {
+    max-width: calc(var(--container-with) / 2);
+  }
 
-.container-1\2 {
-  display: flex;
-  padding-right: max(15px, calc((100% - 1440px) / 2));
+  .container-1\2 {
+    display: flex;
+    padding-right: max(15px, calc((100% - 1440px) / 2));
+  }
 }
-
-[data-btn]::after {
-  display: block;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 1px;
-  background-color: var(--primary-black);
+@layer swiper {
+  button.swiper-button-next::after,
+  button.swiper-button-prev::after {
+    content: "";
+  }
+  button.swiper-button-next,
+  button.swiper-button-prev {
+    top: auto;
+    width: auto;
+    height: auto;
+    margin-top: auto;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: auto;
+  }
+  .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--primary-black);
+  }
+  .swiper-pagination
+    .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
+    /* background-color: var(--primary-black); */
+    position: absolute;
+    content: "";
+    left: -50%;
+    bottom: -50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--primary-black);
+    border-radius: 100%;
+  }
+  .swiper-pagination .swiper-pagination-bullet {
+    background-color: var(--primary-gray2);
+    position: relative;
+    width: 8px;
+    height: 8px;
+  }
 }
-
-button.swiper-button-next::after,
-button.swiper-button-prev::after {
-  content: "";
+@layer toast {
 }
-button.swiper-button-next,
-button.swiper-button-prev {
-  top: auto;
-  width: auto;
-  height: auto;
-  margin-top: auto;
-  z-index: 10;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: auto;
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: var(--primary-black);
-}
-.swiper-pagination
-  .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
-  /* background-color: var(--primary-black); */
-  position: absolute;
-  content: "";
-  left: -50%;
-  bottom: -50%;
-  width: 16px;
-  height: 16px;
-  border: 1px solid var(--primary-black);
-  border-radius: 100%;
-}
-.swiper-pagination .swiper-pagination-bullet {
-  background-color: var(--primary-gray2);
-  position: relative;
-  width: 8px;
-  height: 8px;
-}
-
-.shopify-challenge__button .btn {
-}
-
-/* .collapse {
-  visibility: visible;
-} */

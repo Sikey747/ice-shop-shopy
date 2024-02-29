@@ -1,7 +1,7 @@
 {% render "overlay" %}
 {% render "drawer" %}
 
-<div class="container py-[clamp(0.5rem,0.748vw+0.327rem,1rem)] flex items-center justify-between gap-2">
+<div data-money-format="{{ shop.money_format }}" class="container py-[clamp(0.5rem,0.748vw+0.327rem,1rem)] flex items-center justify-between gap-2">
 
   {% if section.settings.logo-icon.src %}
     {% render "logo"
@@ -50,9 +50,10 @@
       {% render "icon-hard" %}
     </button>
     <button class="flex items-center gap-2">
-      {% render "icon-shop" %}
+      <a href="{{ routes.cart_url }}">
+        {% render "icon-shop" %}</a>
       {% render "badge"
-        , quantity: 2 %}
+        , quantity: {{ cart.item_count }} %}
       {% render "burger-menu" %}
     </button>
 
