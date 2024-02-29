@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="my-7">All Collections</h1>
+  {% for collection in collections %}
+    {% if collection.all_products_count > 0 %}
+      <div class="gap-5 rounded-md shadow-md">
+        <div class="flex justify-between p-3">
+          <a href="{{ collection.url }}" class="transition-all hover:text-primary-gray2">
+            <h3>{{ collection.title }}</h3>
+          </a>
+          <p class="text-primary-gray2">Count: {{ collection.all_products_count }}</p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 bg-gray-300">
+          {% for product in collection.products %}
+            {% render 'card-product', productItem: product %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Collections",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

@@ -1,21 +1,24 @@
-{% render "overlay" %}
-{% render "drawer" %}
+{% render 'overlay' %}
+{% render 'drawer' %}
 
-<div data-money-format="{{ shop.money_format }}" class="container py-[clamp(0.5rem,0.748vw+0.327rem,1rem)] flex items-center justify-between gap-2">
-
-  {% if section.settings.logo-icon.src %}
-    {% render "logo"
-      , logo: section.settings.logo-icon.src %}
+<div
+  data-money-format="{{ shop.money_format }}"
+  class="container py-[clamp(0.5rem,0.748vw+0.327rem,1rem)] flex items-center justify-between gap-2"
+>
+  {% if section.settings['logo-icon'].src %}
+    {% render 'logo', logo: section.settings['logo-icon'].src %}
   {% endif %}
 
   <nav class="nav">
-    <ul data-scrollSpy class="sm:flex hidden gap-[clamp(1rem,2.243vw+0.481rem,2.5rem)] flex-wrap text-[14px] font-semibold items-center justify-center">
-      {% for link in section.settings.menu-links.links %}
+    <ul
+      data-scrollSpy
+      class="sm:flex hidden gap-[clamp(1rem,2.243vw+0.481rem,2.5rem)] flex-wrap text-[14px] font-semibold items-center justify-center"
+    >
+      {% for link in section.settings['menu-links'].links %}
         {% if link.links != blank %}
           <button data-menu="close" class="relative flex items-center gap-1 py-[5px] nav__button">
             <div class="relative link-button">{{ link.title }}</div>
-            {% render "icon-chevron"
-              , className: "icon-chevron icon-chevron_open w-4 h-4 stroke-gray-400" %}
+            {% render 'icon-chevron', className: 'icon-chevron icon-chevron_open w-4 h-4 stroke-gray-400' %}
             <ul class="transition-all sub-menu w-max rounded-lg flex flex-col absolute left-[50%] gap-4 p-4 top-[100%] bg-primary-gray2">
               {% for sublink in link.links %}
                 <li class="max-w-fit subLink">
@@ -25,40 +28,33 @@
             </ul>
           </button>
         {% else %}
-
           <li>
             <a class="nav__link" href="{{ link.url }}">{{ link.title }}</a>
           </li>
-
         {% endif %}
-
       {% endfor %}
-
     </ul>
-
-
   </nav>
 
   <menu class="flex gap-[clamp(0.5rem,1.121vw+0.241rem,1.25rem)] icon-menu items-center justify-between">
     <button>
-      {% render "icon-searche" %}
+      {% render 'icon-searche' %}
     </button>
     <button>
-      {% render "icon-user" %}
+      {% render 'icon-user' %}
     </button>
     <button>
-      {% render "icon-hard" %}
+      {% render 'icon-hard' %}
     </button>
     <button class="flex items-center gap-2">
-      <a href="{{ routes.cart_url }}">
-        {% render "icon-shop" %}</a>
-      {% render "badge"
-        , quantity: {{ cart.item_count }} %}
-      {% render "burger-menu" %}
+      <a href="{{ routes.cart_url }}"> {% render 'icon-shop' %}</a>
+      {%
+        render "badge"
+        , quantity: {{ cart.item_count }}
+      %}
+      {% render 'burger-menu' %}
     </button>
-
   </menu>
-
 </div>
 
 
@@ -80,29 +76,29 @@
     color: blue;
   }
 
-  [data-menu="open"] .sub-menu {
+  [data-menu='open'] .sub-menu {
     opacity: 1;
     transform: rotateX(0);
     pointer-events: all;
   }
 
-  [data-menu="close"] .sub-menu {
+  [data-menu='close'] .sub-menu {
     opacity: 0;
     transform: rotateX(90deg);
     pointer-events: none;
   }
 
-  [data-drawer] * [data-menu="open"] .sub-menu {
+  [data-drawer] * [data-menu='open'] .sub-menu {
     opacity: 1;
     display: block;
   }
 
-  [data-drawer] * [data-menu="close"] .sub-menu {
+  [data-drawer] * [data-menu='close'] .sub-menu {
     opacity: 0;
     display: none;
   }
 
-  [data-menu="open"] .icon-chevron {
+  [data-menu='open'] .icon-chevron {
     rotate: 180deg;
   }
 
@@ -158,113 +154,110 @@
 <script defer src="{{ 'simple-scrollspy.js' | asset_url }}"></script>
 
 <script>
-  
   const mobileSubMenuToggle = () => {
-    const subMenusButtons = document.querySelectorAll("[data-menu]");
-  
+    const subMenusButtons = document.querySelectorAll('[data-menu]');
+
     if (subMenusButtons.length > 0) {
-    window.addEventListener("click", (event) => {
-      subMenusButtons.forEach((subMenuButton) => {
-        const isOpen = subMenuButton.getAttribute("data-menu") === "open";
-        const isSubMenuButton = subMenuButton.contains(event.target);
-        const isClickInSumMenu = event.target.classList.contains("sub-menu");
-  
-        const openSubMenu = (el) => {
-          el.setAttribute("data-menu", "open");
-        };
-  
-        const closeSubMenu = (el) => {
-          el.setAttribute("data-menu", "close");
-        };
-  
-        if (isSubMenuButton && !isClickInSumMenu) {
-          isOpen ? closeSubMenu(subMenuButton) : openSubMenu(subMenuButton);
-        } else if (!isClickInSumMenu) {
-          isOpen && closeSubMenu(subMenuButton);
-        }
+      window.addEventListener('click', (event) => {
+        subMenusButtons.forEach((subMenuButton) => {
+          const isOpen = subMenuButton.getAttribute('data-menu') === 'open';
+          const isSubMenuButton = subMenuButton.contains(event.target);
+          const isClickInSumMenu = event.target.classList.contains('sub-menu');
+
+          const openSubMenu = (el) => {
+            el.setAttribute('data-menu', 'open');
+          };
+
+          const closeSubMenu = (el) => {
+            el.setAttribute('data-menu', 'close');
+          };
+
+          if (isSubMenuButton && !isClickInSumMenu) {
+            isOpen ? closeSubMenu(subMenuButton) : openSubMenu(subMenuButton);
+          } else if (!isClickInSumMenu) {
+            isOpen && closeSubMenu(subMenuButton);
+          }
+        });
       });
-    });
     }
   };
-  
+
   const headRoomLib = () => {
-    const header = document.querySelector("header");
-    header.classList.add("fixed");
-    const headroom  = new Headroom(header);
+    const header = document.querySelector('header');
+    header.classList.add('fixed');
+    const headroom = new Headroom(header);
     headroom.init();
-  }
-  
-  const addActiveClassToNavLink = () =>{
+  };
+
+  const addActiveClassToNavLink = () => {
     const nowUrl = window.location.pathname;
-    const urlLinks = document.querySelectorAll(".nav__link")
-      urlLinks.forEach(link=>{
-        link.getAttribute("href") === nowUrl ? link.classList.add("active"):link.classList.remove("active")
-      })
-  
-  }
-  
+    const urlLinks = document.querySelectorAll('.nav__link');
+    urlLinks.forEach((link) => {
+      link.getAttribute('href') === nowUrl ? link.classList.add('active') : link.classList.remove('active');
+    });
+  };
+
   const scrollspyLib = () => {
-    const scrollSpyElement = document.querySelector('[data-scrollSpy]')
-    if(scrollSpyElement){
-        const sectios = document.querySelectorAll('section');
-          sectios.forEach(el=>{
-            el.classList.add("scrollspy")
-      })
-  
+    const scrollSpyElement = document.querySelector('[data-scrollSpy]');
+    if (scrollSpyElement) {
+      const sectios = document.querySelectorAll('section');
+      sectios.forEach((el) => {
+        el.classList.add('scrollspy');
+      });
+
       const options = {
-        sectionClass: '.scrollspy',         
-        menuActiveTarget: '.nav__link',       
+        sectionClass: '.scrollspy',
+        menuActiveTarget: '.nav__link',
         smoothScroll: true,
-        offset: 100,  
-      }
-  
-      scrollSpy(scrollSpyElement, options)
+        offset: 100,
+      };
+
+      scrollSpy(scrollSpyElement, options);
       //  <a class="nav__link" href="#shopify-section-{{ link.url }}">about</a>
-  
-    } 
-  }
-  
+    }
+  };
+
   const headerHeightFix = () => {
-      const header = document.querySelector('header');
-  
-      const headerHeightChenge = () => {
-        let headerHeight = header.getBoundingClientRect().height;
-        const section = document.querySelector("main")
-        section.style.paddingTop = headerHeight+"px"
-      }
-      
-    window.addEventListener("DOMContentLoaded",headerHeightChenge)
-    window.addEventListener("resize",headerHeightChenge)
-    window.addEventListener("orientationchange",headerHeightChenge)
-  }
-  
+    const header = document.querySelector('header');
+
+    const headerHeightChenge = () => {
+      let headerHeight = header.getBoundingClientRect().height;
+      const section = document.querySelector('main');
+      section.style.paddingTop = headerHeight + 'px';
+    };
+
+    window.addEventListener('DOMContentLoaded', headerHeightChenge);
+    window.addEventListener('resize', headerHeightChenge);
+    window.addEventListener('orientationchange', headerHeightChenge);
+  };
+
   const startScript = () => {
-    mobileSubMenuToggle()
-    headRoomLib()
-    addActiveClassToNavLink()
-    scrollspyLib()
-    headerHeightFix()
-  }
-  
-  document.addEventListener("DOMContentLoaded", startScript);
+    mobileSubMenuToggle();
+    headRoomLib();
+    addActiveClassToNavLink();
+    scrollspyLib();
+    headerHeightFix();
+  };
+
+  document.addEventListener('DOMContentLoaded', startScript);
 </script>
 
-
 {% schema %}
-  {
-    "name": "Header",
-    "tag": "header",
-    "settings": [
-      {
-        "type": "link_list",
-        "id": "menu-links",
-        "default": "main-menu",
-        "label": "Heading navigation menu"
-      }, {
-        "label": "Logo icon",
-        "id": "logo-icon",
-        "type": "image_picker"
-      }
-    ]
-  }
+{
+  "name": "Header",
+  "tag": "header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu-links",
+      "default": "main-menu",
+      "label": "Heading navigation menu"
+    },
+    {
+      "label": "Logo icon",
+      "id": "logo-icon",
+      "type": "image_picker"
+    }
+  ]
+}
 {% endschema %}

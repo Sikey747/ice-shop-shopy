@@ -1,7 +1,8 @@
 <div class="container">
+
   {% paginate collection.products by {{ section.settings.itemsInPage }} %}
     <h1 class="flex justify-center my-5 text-4xl font-bold text-center">{{ collection.title }}</h1>
-    <div class="grid grid-cols-1 gap-3 sm:grid-cols-{{ section.settings.geidInPage }}">
+    <div class="gap-3 collections__grid ">
       {% for product in collection.products %}
         <div class="flex flex-col gap-1 rounded-lg shadow-lg bg-primary-gray2 bodredr border-primary-gray3">
           {% render 'card-product', productItem: product %}
@@ -17,6 +18,19 @@
     {% endif %}
   {% endpaginate %}
 </div>
+
+<style>
+  .collections__grid {
+    display: grid;
+    grid-template-columns: repeat({{section.settings.geidInPage}}, minmax(0, 1fr));
+  }
+  @media (max-width: 640px) {
+    .collections__grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+</style>
 
 {% schema %}
 {

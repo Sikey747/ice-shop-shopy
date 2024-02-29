@@ -9,6 +9,9 @@
     margin: 0 0 1em 0;
     line-height: 1.4;
   }
+  h1 {
+    @apply text-3xl font-bold;
+  }
 
   h2[data-mce-fragment] {
     margin: 0 0 1em 0;
@@ -20,6 +23,9 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+  }
+  h3 {
+    @apply text-2xl font-semibold;
   }
 }
 @layer components {
@@ -39,7 +45,7 @@
     color: white;
     padding: 5px 10px;
   }
-  .on.toast-error {
+  div.toastify.on.toast-error {
     background: theme(colors.red.500);
     @apply p-4 border border-primary-black;
   }
@@ -159,5 +165,9 @@
     height: 8px;
   }
 }
-@layer toast {
+.locale-selectors__container {
+  padding-bottom: 0 !important;
+}
+#locale_code.locale-selectors__selector {
+  background-color: transparent !important;
 }
