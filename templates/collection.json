@@ -3,6 +3,8 @@
     "template-collection": {
       "type": "template-collection",
       "settings": {
+        "itemsInPage": 3,
+        "geidInPage": 4
       }
     }
   },
