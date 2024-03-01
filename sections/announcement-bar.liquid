@@ -1,0 +1,77 @@
+{%- if section.settings.home_page_only == false or template.name == 'index' -%}
+  <div class="py-4 bg-red-400 ">
+    <div class="container flex items-center justify-center gap-2">
+      {% render 'icon-star' %}
+
+      {%- if section.settings.link == blank -%}
+        <div>
+      {%- else -%}
+        <a href="{{ section.settings.link }}">
+      {%- endif -%}
+
+      <p class="text-2xl font-semibold">{{ section.settings.text | escape }}</p>
+
+      {%- if section.settings.link == blank -%}
+        </div>
+      {%- else -%}
+        </a>
+      {%- endif -%}
+
+      {% render 'icon-star' %}
+    </div>
+  </div>
+{%- endif -%}
+
+{% if section.settings.sticky == false %}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const announcementBar = document.querySelector('.announcement_bar');
+      if (announcementBar && announcementBar.classList.contains('sticky')) {
+        announcementBar.classList.remove('sticky');
+      }
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "tag": "section",
+  "class": "announcement_bar sticky top-0 z-40",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home page only",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky Announcement bar",
+      "default": true,
+      "info": "Works only when conducting an announcement over the heading"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Announce something here"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Announcement link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
+{% endschema %}

@@ -1,16 +1,14 @@
 <div class="container flex flex-col sm:gap-0 gap-4 sm:flex-row py-[52px] justify-center">
   <div class="min-h-[89vw] w-[110vw] -translate-x-[10vw] sm:-translate-x-[0] sm:min-h-full sm:w-1/2 ibg ">
-    {% if section.settings.main-image.src %}
-      {{ section.settings.main-image.src | image_url: width: "5760" | image_tag }}
+    {% if section.settings['main-image'].src %}
+      {{ section.settings['main-image'].src | image_url: width: '5760' | image_tag }}
     {% else %}
-      {{ "lifestyle-1" | placeholder_svg_tag }}
+      {{ 'lifestyle-1' | placeholder_svg_tag }}
     {% endif %}
-
   </div>
   <div class="timer sm:w-1/2 py-[clamp(0rem,13.458vw-3.112rem,9rem)] pl-[clamp(0rem,13.458vw-3.112rem,9rem)] pr-[clamp(0rem,7.664vw-1.772rem,5.125rem)]">
-
     <div class="flex flex-col gap-2 mb-[24px] -tracking-[0.4px]">
-      <h4 class="font-semibold">{{ section.settings.sub-title }}</h4>
+      <h4 class="font-semibold">{{ section.settings['sub-title'] }}</h4>
       <h2 class="font-semibold text-[54px]">{{ section.settings.procent }}% OFF</h2>
       <p>{{ section.settings.description }}</p>
     </div>
@@ -18,7 +16,8 @@
     <div
       class="text-[clamp(1.75rem,0.561vw+1.62rem,2.125rem)] -tracking-[2.4px] leading-[2.5] font-semibold countdown flex"
       data-date="{{ section.settings.day-end }}"
-      data-time="{{ section.settings.timer-end }}">
+      data-time="{{ section.settings.timer-end }}"
+    >
       <div class="flex day">
         <h2 class="num"></h2>
         <p class=" word"></p>
@@ -38,74 +37,81 @@
         <h2 class=" num"></h2>
         <p class=" word"></p>
       </div>
-
     </div>
-    <button class="text-white bg-primary-black py-[10px] px-[24px] mt-[32px] hover:scale-90 transition-all font-semibold text-[18px]">{{ section.settings.button-text }}</button>
+    <button class="text-white bg-primary-black py-[10px] px-[24px] mt-[32px] hover:scale-90 transition-all font-semibold text-[18px]">
+      {{ section.settings['button-text'] }}
+    </button>
   </div>
 </div>
 
 <script defer src="{{"countdown.js" | asset_url }}"></script>
 
 <script>
-  window.addEventListener("DOMContentLoaded", function () {
-  const efcc_countdown = new countdown({
-    target: "#shopify-section-{{ section.id }} * .countdown",
-    dayWord: "d",
-    hourWord: "h",
-    minWord: "m",
-    secWord: "s",
-  });
+  window.addEventListener('DOMContentLoaded', function () {
+    const efcc_countdown = new countdown({
+      target: '#shopify-section-{{ section.id }} * .countdown',
+      dayWord: 'd',
+      hourWord: 'h',
+      minWord: 'm',
+      secWord: 's',
+    });
   });
 </script>
 
 {% schema %}
-  {
-    "name": "Countdown timer",
-    "tag": "section",
-    "settings": [
-      {
-        "label": "Sub title",
-        "id": "sub-title",
-        "type": "text",
-        "default": "Exsclusive"
-      },
-      {
-        "label": "Image main",
-        "id": "main-image",
-        "type": "image_picker"
-      },
-      {
-        "label": "Procent",
-        "id": "procent",
-        "type": "text",
-        "default": "50"
-      },
-      {
-        "label": "Description",
-        "id": "description",
-        "type": "richtext",
-        "default": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>"
-      }, {
-        "label": "Day End day (01-05-2024)",
-        "id": "day-end",
-        "type": "text",
-        "default": "01-05-2024"
-      }, {
-        "label": "Timer End day (24:00)",
-        "id": "timer-end",
-        "type": "text",
-        "default": "24:00"
-      }, {
-        "label": "Button text",
-        "id": "button-text",
-        "type": "text",
-        "default": "Shop Now"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Countdown timer"
-      }
-    ]
-  }
+{
+  "name": "Countdown timer",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "label": "Sub title",
+      "id": "sub-title",
+      "type": "text",
+      "default": "Exsclusive"
+    },
+    {
+      "label": "Image main",
+      "id": "main-image",
+      "type": "image_picker"
+    },
+    {
+      "label": "Procent",
+      "id": "procent",
+      "type": "text",
+      "default": "50"
+    },
+    {
+      "label": "Description",
+      "id": "description",
+      "type": "richtext",
+      "default": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>"
+    },
+    {
+      "label": "Day End day (01-05-2024)",
+      "id": "day-end",
+      "type": "text",
+      "default": "01-05-2024"
+    },
+    {
+      "label": "Timer End day (24:00)",
+      "id": "timer-end",
+      "type": "text",
+      "default": "24:00"
+    },
+    {
+      "label": "Button text",
+      "id": "button-text",
+      "type": "text",
+      "default": "Shop Now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown timer"
+    }
+  ]
+}
 {% endschema %}

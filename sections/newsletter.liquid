@@ -6,57 +6,70 @@
     {% form 'create_customer' %}
       <div class="flex flex-col items-center justify-center gap-3 mt-6 sm:gap-0 sm:flex-row sm:border-b border-primary-gray2">
         <div class="flex items-center border-b border-primary-gray2 sm:border-transparent">
-          {% render "icon-email" %}
+          {% render 'icon-email' %}
           <input
             name="create_customer[email]"
             type="email"
             placeholder="Email address"
-            class="bg-transparent border-0 placeholder:text-primary-gray3 text-primary-black">
+            class="bg-transparent border-0 placeholder:text-primary-gray3 text-primary-black"
+          >
         </div>
 
         <div class="accepts-marketing">
           <input
             type="hidden"
             name="customer[accepts_marketing]"
-            value="true" />
+            value="true"
+          >
 
-          {% comment %} <input type="checkbox" name="customer[accepts_marketing]" />
-                                        <label for="accepts-marketing">Subscribe to email marketing</label> {% endcomment %}
+          {% comment %}
+            <input type="checkbox" name="customer[accepts_marketing]" />
+            <label for="accepts-marketing">Subscribe to email marketing</label>
+          {% endcomment %}
         </div>
-        <button type="submit" class="py-[8px] sm:bg-transparent font-semibold rounded-[12px] sm:text-primary-black text-white bg-primary-black w-full">{{ section.settings.button-text }}</button>
+        <button
+          type="submit"
+          class="py-[8px] sm:bg-transparent font-semibold rounded-[12px] sm:text-primary-black text-white bg-primary-black w-full"
+        >
+          {{ section.settings['button-text'] }}
+        </button>
         {{ form.errors | default_errors }}
       </div>
     {% endform %}
   </div>
 </div>
 
-
 {% schema %}
-  {
-    "name": "Newsletter",
-    "tag": "section",
-    "settings": [
-      {
-        "label": "Title",
-        "id": "title",
-        "type": "richtext",
-        "default": "<p>Join our newsletter</p>"
-      }, {
-        "label": "Discription",
-        "id": "description",
-        "type": "richtext",
-        "default": "<p>Enjoy big discounts and latest updates right to your inbox.</p>"
-      }, {
-        "label": "Button text",
-        "id": "button-text",
-        "type": "text",
-        "default": "Signup"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Newsletter"
-      }
-    ]
-  }
+{
+  "name": "Newsletter",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "richtext",
+      "default": "<p>Join our newsletter</p>"
+    },
+    {
+      "label": "Discription",
+      "id": "description",
+      "type": "richtext",
+      "default": "<p>Enjoy big discounts and latest updates right to your inbox.</p>"
+    },
+    {
+      "label": "Button text",
+      "id": "button-text",
+      "type": "text",
+      "default": "Signup"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
 {% endschema %}

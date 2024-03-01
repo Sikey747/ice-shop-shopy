@@ -9,9 +9,6 @@
     margin: 0 0 1em 0;
     line-height: 1.4;
   }
-  h1 {
-    @apply text-3xl font-bold;
-  }
 
   h2[data-mce-fragment] {
     margin: 0 0 1em 0;

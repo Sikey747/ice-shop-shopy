@@ -1,17 +1,13 @@
 <div class="relative hero">
-
   <div class="swiper">
-
     <div class="swiper-wrapper">
       {% if section.settings.colections.products != blank %}
         {% for product in section.settings.colections.products %}
           <div class="swiper-slide">
-
             <div class="flex flex-col sm:flex-row container-left ">
-
               <div class="sm:w-1/2 ibg sm:min-h-fit min-h-[105.3vw]">
                 {% if product.images != blank %}
-                  {{ product.images.first.src | image_url: width: "5760" | image_tag }}
+                  {{ product.images.first.src | image_url: width: '5760' | image_tag }}
                 {% else %}
                   {{ 'lifestyle-1' | placeholder_svg_tag }}
                 {% endif %}
@@ -19,41 +15,44 @@
 
               <div class="half-container sm:w-1/2 flex flex-col gap-[8px] py-[clamp(1.813rem,16.714vw-2.105rem,12.938rem)] px-[clamp(1rem,7.7vw-1.805rem,5.125rem)]">
                 <p class="font-semibold">{{ product.vendor }}</p>
-                <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">{{ product.title }}</h1>
+                <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">
+                  {{ product.title }}
+                </h1>
                 <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">{{ product.description }}</p>
                 <a
                   href="{{ section.settings.colections.url }}"
                   data-btn
-                  class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] ">{{ section.settings.discrip-text }}</a>
+                  class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] "
+                >
+                  {{- section.settings['discrip-text'] -}}
+                </a>
               </div>
-
             </div>
-
           </div>
         {% endfor %}
       {% else %}
         <div class="swiper-slide">
-
           <div class="flex flex-col sm:flex-row container-left ">
             <div class="sm:w-1/2 ibg sm:min-h-fit min-h-[105.3vw]">
-              {{ "collection-6" | placeholder_svg_tag }}
+              {{ 'collection-6' | placeholder_svg_tag }}
             </div>
 
             <div class="half-container sm:w-1/2 flex flex-col gap-[8px] py-[clamp(1.813rem,16.714vw-2.105rem,12.938rem)] px-[clamp(1rem,7.7vw-1.805rem,5.125rem)]">
               <p class="font-semibold">Text</p>
-              <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">Title</h1>
+              <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">
+                Title
+              </h1>
               <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">{{ Description }}</p>
               <a
                 href="#"
                 data-btn
-                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] ">Text</a>
+                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] "
+                >Text</a
+              >
             </div>
-
           </div>
-
         </div>
         <div class="swiper-slide">
-
           <div class="flex flex-col sm:flex-row container-left ">
             <div class="sm:w-1/2 ibg sm:min-h-fit min-h-[105.3vw]">
               {{ 'lifestyle-1' | placeholder_svg_tag }}
@@ -61,19 +60,20 @@
 
             <div class="half-container sm:w-1/2 flex flex-col gap-[8px] py-[clamp(1.813rem,16.714vw-2.105rem,12.938rem)] px-[clamp(1rem,7.7vw-1.805rem,5.125rem)]">
               <p class="font-semibold">Text</p>
-              <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">Title</h1>
+              <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">
+                Title
+              </h1>
               <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">{{ Description }}</p>
               <a
                 href="#"
                 data-btn
-                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] ">Text</a>
+                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] "
+                >Text</a
+              >
             </div>
-
           </div>
-
         </div>
         <div class="swiper-slide">
-
           <div class="flex flex-col sm:flex-row container-left ">
             <div class="sm:w-1/2 ibg sm:min-h-fit min-h-[105.3vw]">
               {{ 'lifestyle-2' | placeholder_svg_tag }}
@@ -81,22 +81,21 @@
 
             <div class="half-container sm:w-1/2 flex flex-col gap-[8px] py-[clamp(1.813rem,16.714vw-2.105rem,12.938rem)] px-[clamp(1rem,7.7vw-1.805rem,5.125rem)]">
               <p class="font-semibold">Text</p>
-              <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">Title</h1>
+              <h1 class="font-semibold sm:line-height-[3.875] leading-[2,125] text-[clamp(1.75rem,5.07vw+0.562rem,5.125rem)] ">
+                Title
+              </h1>
               <p class="text-[clamp(1rem,0.188vw+0.956rem,1.125rem)]">{{ Description }}</p>
               <a
                 href="#"
                 data-btn
-                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] ">Text</a>
+                class="w-fit relative mt-5 text-[clamp(1rem,0.188vw+0.956rem,1.125rem)] text-start font-semibold tracking-[-0.4px leading-[2] "
+                >Text</a
+              >
             </div>
-
           </div>
-
         </div>
       {% endif %}
-
-
     </div>
-
   </div>
 
   {% if section.settings.colections.products != blank %}
@@ -108,7 +107,8 @@
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
           <rect
             id="Icon/arrow-left"
             width="31.999998"
@@ -148,7 +148,8 @@
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
           <rect
             id="Icon/arrow-right"
             width="31.999998"
@@ -183,47 +184,48 @@
       </button>
     </div>
   {% endif %}
-
 </div>
-
 
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 <script defer src="{{ 'swiper.js' | asset_url }}"></script>
 
 <script>
-  window.addEventListener("DOMContentLoaded", function () {
-  const heroSwiper = new Swiper('#shopify-section-{{ section.id }} .hero .swiper', {
-  loop: true,
-  autoHeight:true,
-  navigation: {
-    nextEl: '#shopify-section-{{ section.id }} .hero .container .swiper-button-next-{{ section.id }}',
-    prevEl: '#shopify-section-{{ section.id }} .hero .container .swiper-button-prev-{{ section.id }}',
-  },
-  });
+  window.addEventListener('DOMContentLoaded', function () {
+    const heroSwiper = new Swiper('#shopify-section-{{ section.id }} .hero .swiper', {
+      loop: true,
+      autoHeight: true,
+      navigation: {
+        nextEl: '#shopify-section-{{ section.id }} .hero .container .swiper-button-next-{{ section.id }}',
+        prevEl: '#shopify-section-{{ section.id }} .hero .container .swiper-button-prev-{{ section.id }}',
+      },
+    });
   });
 </script>
 
-
 {% schema %}
-  {
-    "name": "Hero",
-    "tag": "section",
-    "settings": [
-      {
-        "label": "Colections",
-        "id": "colections",
-        "type": "collection"
-      }, {
-        "label": "Discription text",
-        "id": "discrip-text",
-        "type": "richtext",
-        "default": "<p>You text</p>"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Hero"
-      }
-    ]
-  }
+{
+  "name": "Hero",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "label": "Colections",
+      "id": "colections",
+      "type": "collection"
+    },
+    {
+      "label": "Discription text",
+      "id": "discrip-text",
+      "type": "richtext",
+      "default": "<p>You text</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
 {% endschema %}

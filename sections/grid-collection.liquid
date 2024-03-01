@@ -4,53 +4,59 @@
       {% for collection in section.settings.collectionList %}
         <a href="{{ collection.url }}" class="flex flex-col grid-collection-link flex-[424px]">
           <div class="ibg sm:h-[40vw] max-h-[524px] h-[123vw]">
-            {{ collection.featured_image | image_url: width: "5700px" | image_tag }}
+            {{ collection.featured_image | image_url: width: '5700px' | image_tag }}
           </div>
           <div class="px-4 pt-4 pb-8 text-center ">
             {% if collection == blank %}
               <h3 class="font-semibold text-[20px]">Add Collection</h3>
             {% endif %}
             <p class="text-primary-gray1">{{ collection.title }}</p>
-            <h3 class="font-semibold text-[20px]">{{ collection.all_vendors.first }} {{ section.settings.postfix }}</h3>
+            <h3 class="font-semibold text-[20px]">
+              {{ collection.all_vendors.first }}
+              {{ section.settings.postfix }}
+            </h3>
           </div>
         </a>
       {% endfor %}
     {% else %}
-      {% render "colections-card" %}
-      {% render "colections-card" %}
-      {% render "colections-card" %}
+      {% render 'colections-card' %}
+      {% render 'colections-card' %}
+      {% render 'colections-card' %}
     {% endif %}
-
   </div>
 </div>
 
 <style>
   .grid-collection-link:hover * img {
-    scale: 1.10;
+    scale: 1.1;
     transition: all 0.3s ease-in-out;
   }
 </style>
 
 {% schema %}
-  {
-    "name": "Grid Collection",
-    "tag": "section",
-    "settings": [
-      {
-        "label": "List Collection",
-        "id": "collectionList",
-        "type": "collection_list"
-      }, {
-        "label": "Postfix",
-        "id": "postfix",
-        "type": "text",
-        "default": "Series®"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Grid Collection"
-      }
-    ]
-  }
+{
+  "name": "Grid Collection",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "label": "List Collection",
+      "id": "collectionList",
+      "type": "collection_list"
+    },
+    {
+      "label": "Postfix",
+      "id": "postfix",
+      "type": "text",
+      "default": "Series®"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Collection"
+    }
+  ]
+}
 {% endschema %}

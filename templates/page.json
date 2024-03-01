@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "tempalte": {
+      "type": "tempalte-page"
+    }
+  },
+  "order": ["tempalte"]
+}
