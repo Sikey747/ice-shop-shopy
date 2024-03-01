@@ -1123,6 +1123,18 @@ div.toastify.on.toast-error {
   padding: 1rem;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .visible {
   visibility: visible;
 }
@@ -1159,6 +1171,11 @@ div.toastify.on.toast-error {
   inset: 0px;
 }
 
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -1189,6 +1206,10 @@ div.toastify.on.toast-error {
 
 .top-\[100\%\] {
   top: 100%;
+}
+
+.end-0 {
+  inset-inline-end: 0px;
 }
 
 .z-10 {
@@ -1317,6 +1338,14 @@ div.toastify.on.toast-error {
   margin-top: 32px;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -1362,6 +1391,11 @@ div.toastify.on.toast-error {
 .size-6 {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.size-4 {
+  width: 1rem;
+  height: 1rem;
 }
 
 .h-4 {
@@ -1555,6 +1589,14 @@ div.toastify.on.toast-error {
   max-width: 100%;
 }
 
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1667,6 +1709,10 @@ div.toastify.on.toast-error {
   flex-wrap: wrap;
 }
 
+.place-content-center {
+  place-content: center;
+}
+
 .place-items-center {
   place-items: center;
 }
@@ -1772,6 +1818,12 @@ div.toastify.on.toast-error {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
 .divide-x > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(1px * var(--tw-divide-x-reverse));
@@ -1797,6 +1849,10 @@ div.toastify.on.toast-error {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded {
@@ -1969,6 +2025,16 @@ div.toastify.on.toast-error {
   background-color: rgb(255 255 255 / 0.5);
 }
 
+.bg-purple-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 235 254 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
+}
+
 .stroke-gray-400 {
   stroke: #9CA3AF;
 }
@@ -2116,6 +2182,51 @@ div.toastify.on.toast-error {
   padding-bottom: clamp(2.5rem,1.495vw + 2.154rem,3.5rem);
 }
 
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.px-\[0\.4rem\] {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+
+.py-\[0\.4rem\] {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.px-\[0\.3rem\] {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+.py-\[0\.2rem\] {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -2158,6 +2269,10 @@ div.toastify.on.toast-error {
 
 .pt-\[clamp\(6\.188rem\2c 5\.514vw\+4\.912rem\2c 9\.875rem\)\] {
   padding-top: clamp(6.188rem,5.514vw + 4.912rem,9.875rem);
+}
+
+.pe-12 {
+  padding-inline-end: 3rem;
 }
 
 .text-center {
@@ -2352,6 +2467,16 @@ div.toastify.on.toast-error {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-purple-700 {
+  --tw-text-opacity: 1;
+  color: rgb(108 43 217 / var(--tw-text-opacity));
+}
+
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -2474,17 +2599,17 @@ div.toastify.on.toast-error {
   transition: all 0.3s ease-in-out;
 }
 
-.ibg > div {
+.card-product * .ibg > div {
   transition: all 0.3s ease-in-out;
 }
 
-.ibg:hover > div:nth-child(2) {
+.card-product * .ibg:hover > div:nth-child(2) {
   opacity: 0;
   scale: 1.2;
   transition: all 0.3s ease-in-out;
 }
 
-.ibg:hover > div:nth-child(1) {
+.card-product * .ibg:hover > div:nth-child(1) {
   scale: 1.2;
   transition: all 0.3s ease-in-out;
 }
@@ -2956,8 +3081,47 @@ svg {
     background-color: transparent;
   }
 
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .sm\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .sm\:text-primary-black {
     color: var(--primary-black);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lg\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 }
 

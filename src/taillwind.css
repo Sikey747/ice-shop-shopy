@@ -90,15 +90,15 @@
     transition: all 0.3s ease-in-out;
   }
 
-  .ibg > div {
+  .card-product * .ibg > div {
     transition: all 0.3s ease-in-out;
   }
-  .ibg:hover > div:nth-child(2) {
+  .card-product * .ibg:hover > div:nth-child(2) {
     opacity: 0;
     scale: 1.2;
     transition: all 0.3s ease-in-out;
   }
-  .ibg:hover > div:nth-child(1) {
+  .card-product * .ibg:hover > div:nth-child(1) {
     scale: 1.2;
     transition: all 0.3s ease-in-out;
   }
