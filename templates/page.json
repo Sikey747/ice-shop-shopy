@@ -1,8 +1,8 @@
 {
   "sections": {
-    "tempalte": {
-      "type": "tempalte-page"
+    "template": {
+      "type": "template-page"
     }
   },
-  "order": ["tempalte"]
+  "order": ["template"]
 }
