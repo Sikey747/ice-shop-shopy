@@ -5,16 +5,24 @@
       "blocks": {
         "updateBlock": {
           "type": "update",
-          "settings": {}
+          "settings": {
+          }
         },
         "checkoutBlock": {
           "type": "checkout",
-          "settings": {}
+          "settings": {
+          }
         }
       },
-      "block_order": ["updateBlock", "checkoutBlock"],
-      "settings": {}
+      "block_order": [
+        "updateBlock",
+        "checkoutBlock"
+      ],
+      "settings": {
+      }
     }
   },
-  "order": ["template"]
+  "order": [
+    "template"
+  ]
 }
