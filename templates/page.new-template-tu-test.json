@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "template": {
+      "type": "template-page",
+      "settings": {
+      }
+    },
+    "main_fK6FnC": {
+      "type": "main",
+      "settings": {
+        "title": "Exquisite Craftsmanship",
+        "description": "<p>Phosfluor escently engage worldwide methodologies with web-enabled process-centric technology.<\/p>",
+        "link": "",
+        "text-link": "Learn more",
+        "text-color": "primary-black"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "main_fK6FnC"
+  ]
+}
