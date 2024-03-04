@@ -19,7 +19,58 @@
     {{ 'aos.min.css' | asset_url | stylesheet_tag }}
     {{ 'toastify.css' | asset_url | stylesheet_tag }}
 
+    {% assign vv = 'AvenirNextCyr-Regular.woff2' | asset_url %}
+    {% if vv %}
+      <style>
+        @font-face {
+          font-family: 'AvenirNextCyr';
+          src: url("{{ 'AvenirNextCyr-Regular.woff2' | asset_url }}") format(“woff2”);
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'AvenirNextCyr';
+          src: url("{{ 'AvenirNextCyr-Bold.woff2' | asset_url }}") format(“woff2”);
+          font-weight: bold;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'AvenirNextCyr';
+          src: url("{{ 'AvenirNextCyr-Medium.woff2' | asset_url }}") format(“woff2”);
+          font-weight: 500;
+          font-style: normal;
+          font-display: swap;
+        }
+      </style>
+    {% endif %}
     {% style %}
+            @font-face {
+          font-family: 'AvenirNextCyr';
+          src: url('{{ 'AvenirNextCyr-Regular.woff2' | asset_url }}') format('woff2');
+          font-weight: 400;
+           font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'AvenirNextCyr';
+          src: url('{{ 'AvenirNextCyr-Bold.woff2' | asset_url }}') format('woff2');
+          font-weight: bold;
+           font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'AvenirNextCyr';
+          src: url('{{ 'AvenirNextCyr-Medium.woff2' | asset_url }}') format('woff2');
+          font-weight: 500;
+           font-style: normal;
+            font-display: swap;
+        }
       :root
       {
         --primary-black: #282828;
@@ -31,7 +82,7 @@
         --container-with: 1310px;
         --container-padding: 15px;
         --tw-ring-color: var(--primary-black);
-        --f1: "Inter";
+        --f1: 'AvenirNextCyr';
         --accordion-btn-active-icon: url("{{ "chevron.svg" | asset_url }}");
         --bs-accordion-button-active-icon: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg'");
 
@@ -40,6 +91,10 @@
 
       .shadow1 {
         box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
+      }
+
+      html{
+         font-family: var(--f1);
       }
 
       body {

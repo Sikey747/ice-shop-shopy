@@ -2,8 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"); */
+@font-face {
+  font-family: "AvenirNextCyr";
+  src: url("AvenirNextCyr-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "AvenirNextCyr";
+  src: url("AvenirNextCyr-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNextCyr";
+  src: url("AvenirNextCyr-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+h1 {
+  font-family: AvenirNextCyr;
+}
+p {
+  font-family: AvenirNextCyr;
+}
 @layer base {
   p[data-mce-fragment] {
     margin: 0 0 1em 0;
@@ -23,6 +51,24 @@
   }
   h3 {
     @apply text-2xl font-semibold;
+  }
+
+  .shadow1 {
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  body {
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    margin: 0 auto;
+    font-family: var(--f1);
+    overflow-x: hidden;
+  }
+  .container {
+    max-width: 1370px;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    margin: 0 auto;
   }
 }
 @layer components {

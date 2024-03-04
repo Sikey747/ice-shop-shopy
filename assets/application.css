@@ -930,6 +930,25 @@ h3 {
   font-weight: 600;
 }
 
+.shadow1 {
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
+}
+
+body {
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+  margin: 0 auto;
+  font-family: var(--f1);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1370px;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin: 0 auto;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1184,6 +1203,10 @@ div.toastify.on.toast-error {
   bottom: 60px;
 }
 
+.end-0 {
+  inset-inline-end: 0px;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -1206,10 +1229,6 @@ div.toastify.on.toast-error {
 
 .top-\[100\%\] {
   top: 100%;
-}
-
-.end-0 {
-  inset-inline-end: 0px;
 }
 
 .z-10 {
@@ -1286,6 +1305,10 @@ div.toastify.on.toast-error {
   margin-bottom: 1.75rem;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1334,16 +1357,12 @@ div.toastify.on.toast-error {
   margin-top: 1.5rem;
 }
 
-.mt-\[32px\] {
-  margin-top: 32px;
-}
-
-.mb-0 {
-  margin-bottom: 0px;
-}
-
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mt-\[32px\] {
+  margin-top: 32px;
 }
 
 .block {
@@ -1388,14 +1407,14 @@ div.toastify.on.toast-error {
   height: 0.875rem;
 }
 
-.size-6 {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
 .size-4 {
   width: 1rem;
   height: 1rem;
+}
+
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .h-4 {
@@ -1961,6 +1980,11 @@ div.toastify.on.toast-error {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
+}
+
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
@@ -2025,16 +2049,6 @@ div.toastify.on.toast-error {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-purple-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 235 254 / var(--tw-bg-opacity));
-}
-
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
-}
-
 .stroke-gray-400 {
   stroke: #9CA3AF;
 }
@@ -2092,6 +2106,11 @@ div.toastify.on.toast-error {
   padding-right: 1.5rem;
 }
 
+.px-\[0\.3rem\] {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
 .px-\[24px\] {
   padding-left: 24px;
   padding-right: 24px;
@@ -2105,6 +2124,11 @@ div.toastify.on.toast-error {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .py-2 {
@@ -2130,6 +2154,11 @@ div.toastify.on.toast-error {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-\[0\.2rem\] {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 
 .py-\[10px\] {
@@ -2182,51 +2211,6 @@ div.toastify.on.toast-error {
   padding-bottom: clamp(2.5rem,1.495vw + 2.154rem,3.5rem);
 }
 
-.px-2\.5 {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-}
-
-.py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-.py-0\.5 {
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-}
-
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.px-\[0\.4rem\] {
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-}
-
-.py-\[0\.4rem\] {
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-}
-
-.px-\[0\.3rem\] {
-  padding-left: 0.3rem;
-  padding-right: 0.3rem;
-}
-
-.py-\[0\.2rem\] {
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
-}
-
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -2237,6 +2221,10 @@ div.toastify.on.toast-error {
 
 .pb-\[clamp\(1\.5rem\2c 0\.28vw\+1\.435rem\2c 1\.688rem\)\] {
   padding-bottom: clamp(1.5rem,0.28vw + 1.435rem,1.688rem);
+}
+
+.pe-12 {
+  padding-inline-end: 3rem;
 }
 
 .pl-0 {
@@ -2269,10 +2257,6 @@ div.toastify.on.toast-error {
 
 .pt-\[clamp\(6\.188rem\2c 5\.514vw\+4\.912rem\2c 9\.875rem\)\] {
   padding-top: clamp(6.188rem,5.514vw + 4.912rem,9.875rem);
-}
-
-.pe-12 {
-  padding-inline-end: 3rem;
 }
 
 .text-center {
@@ -2426,6 +2410,11 @@ div.toastify.on.toast-error {
   color: rgb(28 100 242 / var(--tw-text-opacity));
 }
 
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -2465,16 +2454,6 @@ div.toastify.on.toast-error {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-purple-700 {
-  --tw-text-opacity: 1;
-  color: rgb(108 43 217 / var(--tw-text-opacity));
-}
-
-.text-gray-400 {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2630,6 +2609,52 @@ svg {
 
 .\[-moz-appearance\:_textfield\] {
   -moz-appearance: textfield;
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"); */
+
+@font-face {
+  font-family: "AvenirNextCyr";
+
+  src: url("AvenirNextCyr-Regular.woff2") format("woff2");
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNextCyr";
+
+  src: url("AvenirNextCyr-Bold.woff2") format("woff2");
+
+  font-weight: bold;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNextCyr";
+
+  src: url("AvenirNextCyr-Medium.woff2") format("woff2");
+
+  font-weight: 500;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+h1 {
+  font-family: AvenirNextCyr;
+}
+
+p {
+  font-family: AvenirNextCyr;
 }
 
 @layer pagination {

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "shopify theme dev",
+    "pull": "shopify theme pull",
     "watch": "npx tailwindcss -i ./src/taillwind.css -o ./assets/application.css --watch",
     "build": "npx tailwindcss -i ./src/taillwind.css -o ./assets/application.css --minify",
     "prettier": "prettier"
