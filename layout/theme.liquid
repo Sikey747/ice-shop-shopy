@@ -20,45 +20,45 @@
     {{ 'toastify.css' | asset_url | stylesheet_tag }}
 
     {% style %}
-      @font-face {
-  font-family: "Font name";
-  src: url("{{ '[font-file-name]' | file_url }}") format("[font-format]");
-}
-      :root
-      {
-        --primary-black: #282828;
-        --primary-white: {{ settings.bg-color }};
-        --primary-beaver: #79987;
-        --primary-gray1: #5F6980;
-        --primary-gray2: #D0D5DD;
-        --primary-gray3: #9D9FA2;
-        --container-with: 1310px;
-        --container-padding: 15px;
-        --tw-ring-color: var(--primary-black);
-        --f1: "Inter";
-        --accordion-btn-active-icon: url("{{ "chevron.svg" | asset_url }}");
-        --bs-accordion-button-active-icon: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg'");
+            @font-face {
+        font-family: "SegoueUI";
+        src: url("{{ '[SegoueUI]' | file_url }}") format("[font-format]");
+      }
+            :root
+            {
+              --primary-black: #282828;
+              --primary-white: {{ settings.bg-color }};
+              --primary-beaver: #79987;
+              --primary-gray1: #5F6980;
+              --primary-gray2: #D0D5DD;
+              --primary-gray3: #9D9FA2;
+              --container-with: 1310px;
+              --container-padding: 15px;
+              --tw-ring-color: var(--primary-black);
+              --f1: "Inter";
+              --accordion-btn-active-icon: url("{{ "chevron.svg" | asset_url }}");
+              --bs-accordion-button-active-icon: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg'");
 
-        --sm:640px
-      }
+              --sm:640px
+            }
 
-      .shadow1 {
-        box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
-      }
+            .shadow1 {
+              box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
+            }
 
-      body {
-        background-color: var(--primary-white);
-        color: var(--primary-black);
-        margin: 0 auto;
-        font-family: var(--f1);
-        overflow-x: hidden;
-      }
-      .container {
-        max-width: 1370px;
-        padding-left: var(--container-padding);
-        padding-right: var(--container-padding);
-        margin: 0 auto;
-      }
+            body {
+              background-color: var(--primary-white);
+              color: var(--primary-black);
+              margin: 0 auto;
+              font-family: var(--f1);
+              overflow-x: hidden;
+            }
+            .container {
+              max-width: 1370px;
+              padding-left: var(--container-padding);
+              padding-right: var(--container-padding);
+              margin: 0 auto;
+            }
     {% endstyle %}
   </head>
   <body class="relative">
