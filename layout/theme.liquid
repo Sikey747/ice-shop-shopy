@@ -20,6 +20,10 @@
     {{ 'toastify.css' | asset_url | stylesheet_tag }}
 
     {% style %}
+      @font-face {
+  font-family: "Font name";
+  src: url("{{ '[font-file-name]' | file_url }}") format("[font-format]");
+}
       :root
       {
         --primary-black: #282828;
