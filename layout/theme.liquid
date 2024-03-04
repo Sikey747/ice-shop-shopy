@@ -21,21 +21,9 @@
 
     {% style %}
            @font-face {
-
-        font-family: “FONT”;
-
-        src: url(‘{{ “FONT.eot” | asset_url }}’);
-
-        src: url(‘{{ “FONT.eot” | asset_url }} ?#iefix’) format(“embedded-opentype”),
-
-             url(‘{{ “FONT.woff” | asset_url }}’) format(“woff”),
-
-             url(‘{{ “FONT.woff2” | asset_url }}’) format(“woff2”),
-
-             url(‘{{ “FONT.ttf” | asset_url }}’) format(“truetype”),
-
-             url(‘{{ “FONT.svg” | asset_url }} #FONT’) format(“svg”);
-
+        font-family: “SegoeUI”;
+        src: url(‘{{ “SegoeUI.woff” | asset_url }}’);
+        src: url(‘{{ “SegoeUI.woff” | asset_url }}’) format(“woff2”);
       }
                   :root
                   {
@@ -48,7 +36,7 @@
                     --container-with: 1310px;
                     --container-padding: 15px;
                     --tw-ring-color: var(--primary-black);
-                    --f1: "SegoueUI";
+                    --f1: "SegoeUI";
                     --accordion-btn-active-icon: url("{{ "chevron.svg" | asset_url }}");
                     --bs-accordion-button-active-icon: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg'");
 
