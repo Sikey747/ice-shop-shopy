@@ -79,7 +79,8 @@
             "quantity_increment_not_met": "Для цього товару має бути застосовано збільшення кількості на {{increment}} .",
             "quantity_rules_not_met": "Недійсна кількість товару.",
             "bundle_requires_components": "Цей набір товарів не містить компонентів.",
-            "title_too_long": "Назва товару задовга."
+            "title_too_long": "Назва товару задовга.",
+            "title_empty": "Назва товару порожня."
           },
           "buyer_identity": {
             "business_customer_does_not_match_company": "Контакт компанії не має доступу до компанії.",
@@ -182,7 +183,8 @@
             "method_required": "Потрібно запропонувати спосіб оплати.",
             "paypal_express_address_invalid": "PayPal повернув недійсну адресу.",
             "shop_cash_unsupported_currency": "Shop Cash не підтримує цю валюту.",
-            "market_manager_blocks_wallet_payments": "Метод оплати не підтримується менеджером маркету."
+            "market_manager_blocks_wallet_payments": "Метод оплати не підтримується менеджером маркету.",
+            "saved_payment_methods_cvv_verification_disabled": "Вибраний метод оплати вимагає перевірки CVV, яка не активована для цього магазину. Виберіть інший спосіб оплати."
           },
           "tip": {
             "not_accepted_by_shop": "Магазин не приймає чайові.",
@@ -2016,7 +2018,8 @@
         "password_reset_error": "Помилка скидання пароля",
         "no_account_found": "Обліковий запис із цією електронною адресою не знайдено.",
         "invalid_credentials": "Неправильна адреса електронної пошти або пароль.",
-        "denylisted_reset_password": "Неможливо отримати доступ до вашого облікового запису, оскільки поточний пароль не є безпечним. Ви отримаєте електронний лист для оновлення пароля."
+        "denylisted_reset_password": "Неможливо отримати доступ до вашого облікового запису, оскільки поточний пароль не є безпечним. Ви отримаєте електронний лист для оновлення пароля.",
+        "signup_disabled": "Створення облікового запису клієнта вимкнено."
       },
       "address": {
         "updated": "Адресу успішно оновлено.",
@@ -3029,7 +3032,8 @@
         "updated_at": "Ваше замовлення оновлено {{date}}",
         "returned": "Повернувся",
         "returned_with_quantities": "Повернуто {{delta}} із {{total}}",
-        "removed_with_quantities": "Видалено {{delta}} із {{total}}"
+        "removed_with_quantities": "Видалено {{delta}} із {{total}}",
+        "return_line_item_removed_with_quantities": "Видалено {{delta}} із повернення"
       },
       "shop_pay": {
         "order_completed_with": "Замовлення виконано с",
