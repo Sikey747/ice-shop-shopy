@@ -1540,7 +1540,60 @@
           "title": "Попередній перегляд недоступний",
           "content": "Не хвилюйтеся, ця експрес-оплата працює для ваших клієнтів.",
           "button": "В порядку"
-        }
+        },
+        "amazon_payments_login_hint": "Вам буде запропоновано ввійти за допомогою Amazon.",
+        "amazon_payments_logout": "Вийдіть із Amazon Pay",
+        "amazon_payments_failed_mfa_challenge": "Не вдалося використати вибраний спосіб оплати. Виберіть інший спосіб або зверніться до свого банку чи емітента картки.",
+        "amazon_payments_abandoned_mfa_challenge": "Не вдалося здійснити платіж. Спробуйте інший спосіб оплати або зверніться до свого банку чи емітента картки.",
+        "amazon_payments_could_not_enqueue_authorize": "Виникла проблема з обробкою вашого платежу. Повторіть спробу або скористайтеся іншим способом оплати.",
+        "title": "Оплата",
+        "amount_left_to_pay_label": "Очікуваний платіж:",
+        "discount_button_action_label": "Застосувати код знижки",
+        "gift_card_code_label": "Код подарункової картки",
+        "apply_gift_card_button_label": "Застосувати",
+        "gift_card_balance_label": "Баланс:",
+        "supported_card_brands_more_label": "і більше…",
+        "detected_card_brand": "Виявлена ​​марка картки: {brand}",
+        "credit_card_vaulting_sign_in_banner_title": "Збережіть свою кредитну картку",
+        "credit_card_vaulting_sign_in_banner_info": "Увійдіть або створіть обліковий запис, щоб зберегти свою кредитну картку для майбутніх покупок.",
+        "credit_card_vaulting_sign_in_banner_button_label": "авторизуватися",
+        "ftd_vault_credit_card_label": "Збережіть цю кредитну картку в моєму обліковому записі для швидшої оплати",
+        "card_number_label": "Номер картки",
+        "card_number_placeholder": "Номер картки",
+        "card_pay_with": "Оплатити за допомогою:",
+        "card_security_notice": "Усі транзакції безпечні та зашифровані.",
+        "card_security_vault_notice": "Нам потрібні ваші дані для майбутніх платежів. Усі транзакції безпечні та зашифровані.",
+        "card_information_notice": "Усі транзакції безпечні та зашифровані. Інформація про кредитну картку ніколи не зберігається.",
+        "name_on_card_label": "Ім'я на картці",
+        "name_on_card_placeholder": "Ім'я на картці",
+        "card_nickname_label": "псевдонім (необов'язково)",
+        "card_expired": "Термін дії минув",
+        "card_expiry_label": "Термін придатності (MM \/ YY)",
+        "card_expiry_placeholder": "Термін придатності (MM \/ YY)",
+        "credit_card_start_month": "Почати місяць",
+        "credit_card_start_year": "Початковий рік",
+        "delete_customer_mandate_modal_title": "Видалити цю платіжну картку?",
+        "delete_customer_mandate_modal_body": "Якщо ви видалите цю картку, вам потрібно буде додати її знову, перш ніж використовувати її для платежів.",
+        "delete_customer_mandate_modal_confirm": "Видалити картку",
+        "delete_customer_mandate_modal_cancel": "Скасувати",
+        "card_verification_value_label": "Код безпеки",
+        "card_verification_value_placeholder": "Код безпеки",
+        "card_verification_confirm": "Для підтвердження введіть код безпеки вашої картки.",
+        "card_expiry_date_explanation": "Термін дії картки у форматі: місяць, місяць, рік, рік",
+        "card_expiration_month_label": "Місяць придатності",
+        "card_expiration_year_label": "Рік придатності",
+        "card_verification_value_explanation": "3-значний код безпеки зазвичай знаходиться на звороті вашої картки. Картки American Express мають 4-значний код, розташований на лицьовій стороні.",
+        "card_verification_value_explanation_amex": "4-значний код безпеки на лицьовій стороні картки",
+        "card_verification_value_explanation_other": "3-значний код безпеки на звороті вашої картки",
+        "card_start_label": "Дата видачі (MM \/ YY)",
+        "card_start_placeholder": "Дата видачі (MM \/ YY)",
+        "card_issue_number_label": "Номер заявки",
+        "card_issue_number_placeholder": "Номер заявки",
+        "card_change_label": "Зміна",
+        "card_update_label": "Оновити картку",
+        "ends_with_label": "закінчується на %{last_digits}",
+        "payment_method_saved": "Спосіб оплати збережено",
+        "card_vaulted_company_location": "Картка збережена для цього місця"
       },
       "billing": {
         "billing_address_title": "Виставити рахунок",
@@ -1820,6 +1873,71 @@
             "other": "Ці товари буде видалено з вашого кошика, оскільки для вашої адреси недоступні способи доставки."
           },
           "label": "Без доставки"
+        }
+      },
+      "shipping": {
+        "subscription_delivery_description": {
+          "first_order_shipping_price_included": "Перше замовлення включено, потім %{recurring_order_shipping_price}",
+          "first_order_different_shipping_price": "%{first_order_shipping_price} (%{per_delivery_price} за доставку), потім %{recurring_order_shipping_price}",
+          "first_n_order_free": {
+            "one": "Перше замовлення безкоштовно",
+            "other": "Перші %{count} замовлень безкоштовно"
+          },
+          "free_for_first_n_order": {
+            "one": "Для першого замовлення",
+            "other": "Для перших %{count} замовлень"
+          }
+        },
+        "one_time_purchase_shipping": "Одноразова доставка",
+        "address2_add_label": "Додайте квартиру, люкс тощо.",
+        "duties_and_taxes_title": "Мита і податки",
+        "shipping_information_required_notice": "Потрібна інформація про доставку. {{link}} .",
+        "shipping_information_redirect_link": "Введіть свою інформацію тут",
+        "loading_progressive_rates": "Пошук інших тарифів…",
+        "no_other_methods_available": "Інших методів немає",
+        "duties_and_taxes_options": {
+          "ddu_title": "Оплата при отриманні",
+          "ddu_caption": "Може стягуватися додаткова плата",
+          "ddp_title": "Платити зараз",
+          "ddp_caption": "Без додаткових комісій при доставці"
+        },
+        "shipping_method_combinations": {
+          "combination": "%{rest} і %{current}"
+        },
+        "shipping_used_as_billing_notice": "Це також буде використано як вашу платіжну адресу для цього замовлення.",
+        "address_update": "Оновити адресу",
+        "enter_address_manually_label": "Введіть адресу вручну",
+        "shipping_address_title": "Відправити до",
+        "add_address": "Використовуйте іншу адресу",
+        "add_delivery_instructions": "Додайте інструкції з доставки",
+        "edit": "Редагувати",
+        "delete": "Видалити",
+        "address_more": "Інші дії для цієї адреси",
+        "address_edit": "Редагувати адресу",
+        "address_delete": "Видалити адресу",
+        "address_confirm": "Ви впевнені, що хочете видалити цю адресу зі свого облікового запису?",
+        "address_form": {
+          "add_address": "Додайте адресу",
+          "save": "зберегти",
+          "cancel": "Скасувати",
+          "generic_error": "Під час збереження адреси виникла проблема. Будь ласка спробуйте ще раз.",
+          "one_time_address_subtitle": "Використовуйте одноразову адресу для цього замовлення"
+        },
+        "different_shipping_method_summary": "Введіть іншу адресу доставки, щоб переглянути доступні способи доставки",
+        "invalid_shipping_method_summary": "Введіть дійсну адресу доставки, щоб переглянути доступні способи доставки",
+        "method_summary": {
+          "incomplete_address_entered": "Введіть повну адресу доставки, щоб переглянути доступні способи доставки",
+          "incomplete_address_selected": "Виберіть повну адресу доставки, щоб переглянути доступні способи доставки"
+        },
+        "local_pickup": {
+          "search_address": "Пошук адреси",
+          "rollup_title": "Місце отримання"
+        },
+        "missing_shipping_address": "Відсутня адреса доставки"
+      },
+      "localized_fields": {
+        "additional_information": {
+          "title": "Додаткова інформація"
         }
       }
     },
