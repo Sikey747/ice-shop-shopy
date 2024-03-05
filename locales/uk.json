@@ -1593,7 +1593,10 @@
         "card_update_label": "Оновити картку",
         "ends_with_label": "закінчується на %{last_digits}",
         "payment_method_saved": "Спосіб оплати збережено",
-        "card_vaulted_company_location": "Картка збережена для цього місця"
+        "card_vaulted_company_location": "Картка збережена для цього місця",
+        "expiry_long": "(Закінчується %{month}\/%{year})",
+        "expiry_short": "(Термін %{місяць}\/%{рік})",
+        "saved_by_payment_method": "Збережено %{payment_method}"
       },
       "billing": {
         "billing_address_title": "Виставити рахунок",
@@ -3126,7 +3129,8 @@
       },
       "pickup": {
         "pickup": "Пікап",
-        "pickup_location": "Місце отримання"
+        "pickup_location": "Місце отримання",
+        "pickup_point": "Пункт самовивозу"
       },
       "show_items": "Показати елементи",
       "show_order_summary": "Показати зведення замовлення",
@@ -3151,7 +3155,8 @@
         "returned": "Повернувся",
         "returned_with_quantities": "Повернуто {{delta}} із {{total}}",
         "removed_with_quantities": "Видалено {{delta}} із {{total}}",
-        "return_line_item_removed_with_quantities": "Видалено {{delta}} із повернення"
+        "return_line_item_removed_with_quantities": "Видалено {{delta}} із повернення",
+        "return_line_item_removed": "Знято з повернення"
       },
       "shop_pay": {
         "order_completed_with": "Замовлення виконано с",
