@@ -5,9 +5,12 @@
   data-money-format="{{ shop.money_format }}"
   class="container py-[clamp(0.5rem,0.748vw+0.327rem,1rem)] flex items-center justify-between gap-2 bg-backg color-{{ section.settings.color_scheme }}"
 >
-  {% if section.settings['logo-icon'].src %}
-    {% render 'logo', logo: section.settings['logo-icon'].src %}
+  {% if settings.logo != blank %}
+    {% render 'logo' %}
   {% endif %}
+
+  <p class="font-f1">Hello</p>
+  <p class="font-f2">Hello</p>
 
   <nav class="nav">
     <ul
@@ -61,7 +64,6 @@
   header {
     width: 100%;
     z-index: 30;
-
     /* background-color: white; */
   }
 
@@ -307,12 +309,6 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Select color schema for header",
-      "default": "scheme-2"
-    },
-    {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "Menu color scheme",
       "default": "scheme-2"
     }
   ]

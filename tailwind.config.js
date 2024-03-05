@@ -3,8 +3,8 @@ module.exports = {
   content: ["./**/*.liquid"],
   theme: {
     colors: {
-      forg: "var(--color-foreground)",
-      backg: "var(--color-background-contrast)",
+      forg: "rgb(var(--color-foreground))",
+      backg: "rgb(var(--color-background-contrast))",
       b: "var(--color-button)",
       bt: "var(--color-button-text)",
       sb: "var(--color-secondary-button)",

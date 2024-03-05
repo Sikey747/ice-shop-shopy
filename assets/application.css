@@ -1241,20 +1241,16 @@ video {
   border-color: var(--gray-800);
 }
 
+.bg-backg {
+  background-color: rgb(var(--color-background-contrast));
+}
+
 .bg-gray-300 {
   background-color: var(--gray-300);
 }
 
 .bg-gray-800 {
   background-color: var(--gray-800);
-}
-
-.bg-backg {
-  background-color: var(--color-background-contrast);
-}
-
-.bg-error-400 {
-  background-color: var(--error-400);
 }
 
 .stroke-gray-400 {
@@ -1612,6 +1608,10 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.opacity-50 {
+  opacity: 0.5;
 }
 
 .shadow {

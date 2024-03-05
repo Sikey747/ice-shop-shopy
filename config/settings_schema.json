@@ -1,19 +1,19 @@
 [
   {
-    "name": "Ice",
+    "name": "theme_info",
     "theme_name": "Summer",
     "theme_version": "1.0.0",
     "theme_author": "SiKey747",
-    "theme_documentation_url": "",
-    "theme_support_url": ""
+    "theme_documentation_url": "https://github.com/Shopify/themekit",
+    "theme_support_url": "https://github.com/Shopify/themekit/issues"
   },
   {
-    "name": "t:settings_schema.logo.name",
+    "name": "Logo",
     "settings": [
       {
         "type": "image_picker",
         "id": "logo",
-        "label": "t:settings_schema.logo.settings.logo_image.label"
+        "label": "Logo image"
       },
       {
         "type": "range",
@@ -23,18 +23,18 @@
         "step": 10,
         "default": 100,
         "unit": "px",
-        "label": "t:settings_schema.logo.settings.logo_width.label"
+        "label": "Logo width"
       },
       {
         "type": "image_picker",
         "id": "favicon",
-        "label": "t:settings_schema.logo.settings.favicon.label",
-        "info": "t:settings_schema.logo.settings.favicon.info"
+        "label": "Favicon icon",
+        "info": "image for your site in search field"
       }
     ]
   },
   {
-    "name": "t:settings_schema.colors.name",
+    "name": "Color",
     "settings": [
       {
         "type": "color_scheme_group",
@@ -43,43 +43,43 @@
           {
             "type": "color",
             "id": "background",
-            "label": "t:settings_schema.colors.settings.background.label",
+            "label": "Background",
             "default": "#FFFFFF"
           },
           {
             "type": "color_background",
             "id": "background_gradient",
-            "label": "t:settings_schema.colors.settings.background_gradient.label",
-            "info": "t:settings_schema.colors.settings.background_gradient.info"
+            "label": "Background gradient",
+            "info": "If Gradient is not chosen, background color is used"
           },
           {
             "type": "color",
             "id": "text",
-            "label": "t:settings_schema.colors.settings.text.label",
+            "label": "Text Color",
             "default": "#212121"
           },
           {
             "type": "color",
             "id": "button",
-            "label": "t:settings_schema.colors.settings.button_background.label",
+            "label": "Button background color",
             "default": "#212121"
           },
           {
             "type": "color",
             "id": "button_label",
-            "label": "t:settings_schema.colors.settings.button_label.label",
+            "label": "Button text color",
             "default": "#FFFFFF"
           },
           {
             "type": "color",
             "id": "secondary_button_label",
-            "label": "t:settings_schema.colors.settings.secondary_button_label.label",
+            "label": "Second button color",
             "default": "#212121"
           },
           {
             "type": "color",
             "id": "shadow",
-            "label": "t:settings_schema.colors.settings.shadow.label",
+            "label": "Shadow color",
             "default": "#212121"
           }
         ],
@@ -100,8 +100,8 @@
         }
       },
       {
-        "name": "Additional",
-        "type": "header"
+        "type": "header",
+        "content": "Additional"
       },
       {
         "type": "color",
@@ -120,39 +120,18 @@
     ]
   },
   {
-    "name": "t:settings_schema.typography.name",
+    "name": "Typography",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.typography.settings.header__1.content"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_header_font",
-        "default": "avenir_next_n4",
-        "label": "t:settings_schema.typography.settings.type_header_font.label",
-        "info": "t:settings_schema.typography.settings.type_header_font.info"
-      },
-      {
-        "type": "range",
-        "id": "heading_scale",
-        "min": 100,
-        "max": 150,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.typography.settings.heading_scale.label",
-        "default": 100
-      },
-      {
-        "type": "header",
-        "content": "t:settings_schema.typography.settings.header__2.content"
+        "content": "Main font"
       },
       {
         "type": "font_picker",
         "id": "type_body_font",
-        "default": "caslon_bold_n4",
-        "label": "t:settings_schema.typography.settings.type_body_font.label",
-        "info": "t:settings_schema.typography.settings.type_body_font.info"
+        "default": "avenir_next_n4",
+        "label": "Body font",
+        "info": "Primary font"
       },
       {
         "type": "range",
@@ -161,7 +140,28 @@
         "max": 130,
         "step": 5,
         "unit": "%",
-        "label": "t:settings_schema.typography.settings.body_scale.label",
+        "label": "Size main font",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "Font"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "caslon_bold_n4",
+        "label": "Second Font",
+        "info": "Font for contrast"
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "min": 100,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "Second font size",
         "default": 100
       }
     ]

@@ -1,9 +1,15 @@
 <a href="{{ shop.url }}">
-  <div class="ibgin max-w-[120px] {{ class }}">
-    {% if logo != blank %}
-      {{ logo | image_url: width: "24px" | image_tag }}
+  <div class="ibgin logo-max">
+    {% if settings.logo.src != blank %}
+      {{ settings.logo.src | image_url: width: '100px' | image_tag }}
     {% else %}
-      {{ "collection-1" | placeholder_svg_tag }}
+      {{ 'collection-1' | placeholder_svg_tag }}
     {% endif %}
   </div>
 </a>
+
+<style>
+  .logo-max{
+    max-width:{{ settings.logo_width | divided_by: 10 }}rem;
+  }
+</style>

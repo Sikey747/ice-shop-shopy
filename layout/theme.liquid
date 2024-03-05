@@ -102,7 +102,9 @@
         color: rgba(var(--color-foreground), 0.75);
         background-color: rgb(var(--color-background));
       }
+    {% endstyle %}
 
+    {% style %}
       :root {
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
@@ -251,6 +253,18 @@
         font-weight: var(--font-body-weight);
       }
     {% endstyle %}
+
+    {% if 'BigCaslonMedium.ttf' | asset_url %}
+      <style>
+        @font-face {
+          font-family: 'Big Caslon Medium';
+          src: url('{{  'BigCaslonMedium.ttf' | asset_url }}') format('ttf');
+        }
+        :root{
+          --font-heading-family: "Big Caslon Medium", sans-serif"
+        }
+      </style>
+    {% endif %}
 
     {{ 'application.css' | asset_url | stylesheet_tag }}
 
