@@ -285,7 +285,8 @@
         "map": {
           "cluster_title": {
             "one": "Кластер маркера {{number}}",
-            "other": "Кластер із {{number}} маркерів"
+            "other": "Кластер із {{number}} маркерів",
+            "few": "Маркерів у кластері: {{number}}"
           }
         },
         "full_price": "Повна ціна:",
@@ -1884,12 +1885,55 @@
           "first_order_different_shipping_price": "%{first_order_shipping_price} (%{per_delivery_price} за доставку), потім %{recurring_order_shipping_price}",
           "first_n_order_free": {
             "one": "Перше замовлення безкоштовно",
-            "other": "Перші %{count} замовлень безкоштовно"
+            "other": "Перші %{count} замовлень безкоштовно",
+            "few": "Декілька перших замовлень (%{count}) — безкоштовно",
+            "many": "Декілька перших замовлень (%{count}) — безкоштовно"
           },
           "free_for_first_n_order": {
             "one": "Для першого замовлення",
-            "other": "Для перших %{count} замовлень"
-          }
+            "other": "Для перших %{count} замовлень",
+            "few": "За кілька перших замовлень (% {count})",
+            "many": "За кілька перших замовлень (% {count})"
+          },
+          "prepaid_delivery_frequency": {
+            "one": "за %{count} доставку",
+            "other": "за певну кількість доставок (% {count})",
+            "few": "за певну кількість доставок (% {count})",
+            "many": "за певну кількість доставок (% {count})"
+          },
+          "subscription_delivery_frequency": {
+            "day": {
+              "one": "кожен день",
+              "other": "кожні %{count} дн.",
+              "few": "кожні %{count} дн.",
+              "many": "кожні %{count} дн."
+            },
+            "week": {
+              "one": "щотижня",
+              "other": "кожні %{count} тиж.",
+              "few": "кожні %{count} тиж.",
+              "many": "кожні %{count} тиж."
+            },
+            "month": {
+              "one": "кожен місяць",
+              "other": "кожні %{count} міс.",
+              "few": "кожні %{count} міс.",
+              "many": "кожні %{count} міс."
+            },
+            "year": {
+              "one": "щороку",
+              "other": "кожні %{count} рік.",
+              "few": "кожні %{count} рік.",
+              "many": "кожні %{count} рік."
+            }
+          },
+          "initial_order_discounted": "Перша доставка за %{discounted_shipping_cost}, потім %{frequency_description}",
+          "prepaid_initial_order_discounted": "Перша доставка за %{discounted_shipping_price} %{prepaid_delivery_frequency}",
+          "prepaid_initial_order_discounted_with_per_delivery_price": "Перша доставка за %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery})",
+          "prepaid_initial_order_discounted_with_renewal": "Перша доставка за %{discounted_shipping_price} %{prepaid_delivery_frequency}, потім %{shipping_price} %{billing_cycle}",
+          "prepaid_initial_order_discounted_with_per_delivery_price_and_renewal": "Перша доставка за %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery}), потім - %{shipping_price} %{billing_cycle}",
+          "shipping_price_included": "Увімкнено",
+          "recurring_order_shipping_price": "з %{recurring_order_shipping_price}"
         },
         "one_time_purchase_shipping": "Одноразова доставка",
         "address2_add_label": "Додайте квартиру, люкс тощо.",
@@ -1936,7 +1980,66 @@
           "search_address": "Пошук адреси",
           "rollup_title": "Місце отримання"
         },
-        "missing_shipping_address": "Відсутня адреса доставки"
+        "missing_shipping_address": "Відсутня адреса доставки",
+        "shipping_method_title": "Спосіб доставки",
+        "waiting_on_rate_notice": "Отримання доступних варіантів вартості доставки...",
+        "waiting_on_pickup_location_notice": "Отримання списку доступних точок самовивезення...",
+        "no_rates_for_cart_or_destination_notice": "Немає доступних способів доставки для товарів у кошику чи адреси",
+        "no_pickup_location_notice": "Принаймні один замовлений товар недоступний для самовивезення",
+        "no_rates_for_country_notice": "Немає даних про вартість доставки на цю адресу.",
+        "no_rates_contact_notice": "Зв'яжіться з нами, щоб дізнатися більше",
+        "free_rate_label": "Безкоштовно",
+        "cheapest_rate_label": "Сама низька ціна",
+        "please_enter_your_shipping_information_notice": "Введіть інформацію про доставку.",
+        "estimated_delivery_date_range": "%{minimum}–%{maximum} робочих днів.",
+        "shipping_line_phone_label": "Номер мобільного телефону (обов'язково)",
+        "shipping_line_phone": "Ваш кур'єр може використовувати цей номер, щоб зв'язатися з вами.",
+        "shipping_rate_discounted_amount": "До: %{original_amount}. Зараз: %{amount}",
+        "optional_shipping_line_delivery_instructions_label": "Інструкції з доставки (необов'язково)",
+        "estimated_delivery_date": {
+          "one": "Робочі дні: %{count}",
+          "other": "%{count} робочих днів.",
+          "few": "%{count} робочих днів.",
+          "many": "%{count} робочих днів."
+        },
+        "other_method": {
+          "zero": "Немає інших доступних варіантів",
+          "one": "Інші варіанти доступні: %{count}",
+          "other": "Доступно варіантів: %{count}, починаючи від",
+          "few": "Доступно варіантів: %{count}, починаючи від",
+          "many": "Доступно варіантів: %{count}, починаючи від"
+        },
+        "shipping_line_delivery_phone": "Вам можуть повідомити нові дані про вашу доставку.",
+        "shipping_line_delivery_phone_label": "Номер мобільного телефону",
+        "shipping_line_delivery_instructions": "Введіть корисну інформацію, наприклад код домофону або інструкції, де залишити посилку.",
+        "local_delivery": "Місцева доставка",
+        "subscription_shipping": "Доставка по підписці",
+        "shipping_method_one_time_purchase_group_title": "Разова покупка",
+        "shipping_method_subscription_group_title": "Передплата",
+        "estimated_delivery_time": "Передбачуваний час доставки: %{time}",
+        "estimated_delivery_time_range": "Передбачуваний час доставки: %{min_time}–%{max_time}",
+        "arrives_time": "Час прибуття: %{time}",
+        "arrives_time_range": "Час прибуття: %{min_time}–%{max_time}",
+        "estimated_time": "Імовірно: %{time}",
+        "estimated_time_range": "Імовірно: %{min_time}–%{max_time}",
+        "subscription_local_delivery": "Передплата з доставкою за адресою",
+        "subscription_pickup": "Підписка з доступним самовивізом",
+        "delivery_today": "Доставка того ж дня в %{time}",
+        "delivery_tomorrow": "Доставка наступного дня в %{time}",
+        "two_day_delivery": "Доставка через 2 дні, %{time}",
+        "split_cart_merchandise_quantity_label_standard": "Позицій: % {quantity}",
+        "split_cart_merchandise_quantity_label_additional": "та ще %{quantity}",
+        "merchandise_quantity_label_inline_primary": "Кількість: %{quantity}",
+        "split_cart_merchandise_shipment_number": "Надсилання %{number} із %{total}",
+        "split_cart_ships_now": "Вирушає зараз",
+        "split_cart_ships_later": "Відправляється пізніше",
+        "split_cart_multiple_shipment_label": "Декілька посилок",
+        "split_cart_shipping_label": "Спосіб",
+        "split_cart_ships_date": "Буде відправлено %{date}",
+        "split_cart_multiple_shipment_quantity_label": "Кількість посилок: %{quantity}",
+        "split_cart_multiple_shipment_notice": "Ваше замовлення було поділено на кілька посилок",
+        "split_cart_shipped_by_amazon_prime": "Надіслано Amazon Prime",
+        "split_cart_shipped_by_shop": "Надіслано %{shop_name}"
       },
       "localized_fields": {
         "additional_information": {
