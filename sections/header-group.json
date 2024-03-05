@@ -6,5 +6,5 @@
       "type": "header"
     }
   },
-  "order": ["header", "announcement-bar", "breadcrumb"]
+  "order": ["header"]
 }

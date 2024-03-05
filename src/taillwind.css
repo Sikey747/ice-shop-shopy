@@ -2,89 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"); */
-@font-face {
-  font-family: "AvenirNextCyr";
-  src: url("AvenirNextCyr-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "AvenirNextCyr";
-  src: url("AvenirNextCyr-Bold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "AvenirNextCyr";
-  src: url("AvenirNextCyr-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-h1 {
-  font-family: AvenirNextCyr;
-}
-p {
-  font-family: AvenirNextCyr;
-}
 @layer base {
-  p[data-mce-fragment] {
-    margin: 0 0 1em 0;
-    line-height: 1.4;
-  }
-
-  h2[data-mce-fragment] {
-    margin: 0 0 1em 0;
-    line-height: 1.4;
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-  }
-  h3 {
-    @apply text-2xl font-semibold;
-  }
-
-  .shadow1 {
-    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.06);
-  }
-
-  body {
-    background-color: var(--primary-white);
-    color: var(--primary-black);
-    margin: 0 auto;
-    font-family: var(--f1);
-    overflow-x: hidden;
-  }
-  .container {
-    max-width: 1370px;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
-    margin: 0 auto;
-  }
 }
 @layer components {
-  .btn {
-    @apply inline-flex items-center px-4 py-3 text-sm font-semibold text-white bg-primary-gray1 border border-transparent rounded-lg gap-x-2 hover:bg-primary-gray1 transition-all disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 justify-center;
-  }
-  [data-btn]::after {
-    display: block;
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 1px;
-    background-color: var(--primary-black);
-  }
   .shopify-challenge__container .shopify-challenge__button {
-    background-color: var(--primary-black);
+    /* background-color: var(--primary-black); */
     color: white;
     padding: 5px 10px;
   }
@@ -94,16 +16,16 @@ p {
   }
 }
 @layer pagination {
-  .deco,
+  /* .deco,
   .page,
   .prev,
   .next {
-    @apply cursor-pointer inline-flex items-center h-full px-3 hover:bg-gray-300 rounded-l bg-gray-50;
+    @apply cursor-pointer inline-flex items-center h-full px-3 hover:bg-gray-300 rounded-l;
   }
 
   .page.current {
     @apply text-blue-500;
-  }
+  } */
 }
 @layer utilities {
   .ibg {
@@ -160,12 +82,15 @@ p {
   }
 
   .half-container {
-    max-width: calc(var(--container-with) / 2);
+    max-width: calc(var(--container) / 2);
   }
 
   .container-1\2 {
     display: flex;
-    padding-right: max(15px, calc((100% - 1440px) / 2));
+    padding-right: max(
+      calc(var(--container_padding) / 2),
+      calc((100% - var(--container)) / 2)
+    );
   }
 }
 @layer swiper {
@@ -213,4 +138,106 @@ p {
 }
 #locale_code.locale-selectors__selector {
   background-color: transparent !important;
+}
+
+:root {
+  --gray-100: #f6f6f6;
+  --gray-200: #dadada;
+  --gray-300: #bbbbbb;
+  --gray-400: #9c9b9b;
+  --gray-500: #6d6d6d;
+  --gray-600: #525252;
+  --gray-700: #3d3d3d;
+  --gray-800: #212121;
+  --success-100: #ddf8e8;
+  --success-200: #abedc6;
+  --success-300: #77e1a5;
+  --success-400: #45d883;
+  --success-500: #27b965;
+  --success-600: #1f9752;
+  --success-700: #19743f;
+  --success-800: #0e4324;
+  --warning-100: #f9eddc;
+  --warning-200: #f0d1a8;
+  --warning-300: #eabe85;
+  --warning-400: #e4ac63;
+  --warning-500: #d98e2b;
+  --warning-600: #ad7020;
+  --warning-700: #794e16;
+  --warning-800: #442d0b;
+  --error-100: #f8e2dd;
+  --error-200: #edb7aa;
+  --error-300: #e79a88;
+  --error-400: #dc6e57;
+  --error-500: #ca462a;
+  --error-600: #99351f;
+  --error-700: #662415;
+  --error-800: #44180e;
+  --overlay-300: rgba(0, 0, 0, 0.3);
+  --overlay-200: rgba(0, 0, 0, 0.2);
+  --overlay-800: rgba(0, 0, 0, 0.8);
+
+  /* Fonts */
+  /* --f1: "BigCaslon, sans-serif";
+  --f2: "AvenirNext, sans-serif"; */
+  --f1: var(--font-body-family);
+  --f2: var(--font-heading-family);
+
+  --container: var(--page-width);
+  --container_padding: var(--page-padding);
+
+  --big-caslon-2xl-font-size: 60px;
+  --big-caslon-xl-font-size: 34px;
+  --big-caslon-lg-font-size: 27px;
+  --avenir-next-xl-font-size: 22px;
+  --big-caslon-md-font-size: 21px;
+  --big-caslon-sm-font-size: 18px;
+  --big-caslon-xs-font-size: 15px;
+  --avenir-next-sm-font-size: 14px;
+  --big-caslon-2xs-font-size: 13px;
+  --avenir-next-2xl-font-size: 12px;
+
+  /* Effects */
+  --xs-box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --sm-box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
+    0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+  --md-box-shadow: 0px 2px 4px -2px rgba(16, 24, 40, 0.06),
+    0px 4px 8px -2px rgba(16, 24, 40, 0.1);
+  --lg-box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03),
+    0px 12px 16px -4px rgba(16, 24, 40, 0.08),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --xl-box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0.2);
+}
+
+/* body {
+  margin: 0 auto;
+  overflow-x: hidden;
+} */
+
+.shadow-xs {
+  box-shadow: var(--xs-box-shadow);
+}
+.shadow-sm {
+  box-shadow: var(--sm-box-shadow);
+}
+.shadow-md {
+  box-shadow: var(--md-box-shadow);
+}
+.shadow-lg {
+  box-shadow: var(--lg-box-shadow);
+}
+.shadow-xl {
+  box-shadow: var(--xl-box-shadow);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: calc(var(--container) + (var(--container_padding) * 2));
+  padding-inline: var(--container_padding);
+}
+
+.container-xl {
+  margin: 0 auto;
+  max-width: calc((var(--container) * 1.11) + (var(--container_padding) / 2));
+  padding-inline: calc(var(--container_padding) / 2);
 }

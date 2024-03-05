@@ -1,44 +1,49 @@
-{% comment %} 
-                                              props
-                                              text 
-                                              className
-                                              variant
-                                              {% render "button"
-                                                , text: section.settings.header-button
-                                                , variant: "outline"
-                                              %}
-                                              
+{% comment %}
+  props
+
+  content
+  class
+  variant
+  type
+  href
+
+  {% render "button"
+    , text: section.settings.header-button
+    , variant: "outline"
+  %}
 {% endcomment %}
-{% if class %}
-  {% assign className = class %}
-{% else %}
-  {% assign className = "" %}
-{% endif %}
 
-
-{% if text == blank %}
-  {% assign text = "value" %}
-{% endif %}
+{% assign className = class | default: ' relative' %}
+{% assign content = content | default: 'Your text' %}
+{% assign type = type | default: 'button' %}
 
 {% case variant %}
-  {% when "ghost" %}
-    <button type="button" class="{{ className }} inline-flex items-center px-4 text-sm font-semibold text-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-100 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:bg-blue-800/30 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-      {{ text }}
-    </button>
-  {% when "outline" %}
-    <button type="button" class="{{ className }} inline-flex items-center px-4 py-3 text-sm font-semibold text-gray-500 border border-gray-200 rounded-lg gap-x-2 hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-500 dark:hover:border-blue-600 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-      {{ text }}
-    </button>
-  {% when "white" %}
-    <button type="button" class="{{ className }} inline-flex items-center px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-      {{ text }}
-    </button>
-  {% when "link" %}
-    <a href="{{ href }}" class="{{ className }} inline-flex items-center text-sm font-semibold transition-all border border-transparent rounded-lg w-fit gap-x-2 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-      {{ text }}
-    </a>
+  {% when 'outline' %}
+    {% assign var = 'outline' %}
+  {% when 'solid-primary' %}
+    {% assign var = 'solid-primary text-white' %}
+  {% when 'solid-secondary' %}
+    {% assign var = 'solid-secondary' %}
+  {% when 'icon' %}
+    {% assign var = 'icon' %}
+  {% when 'text' %}
+    {% assign var = 'text' %}
   {% else %}
-    <button type="button" class="{{ className }} inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-gray-900 rounded-md hover:bg-gray-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:shadow-outline focus:outline-none">
-      {{ text }}
-    </button>
+    {% assign var = '' %}
 {% endcase %}
+
+{% if href %}
+  <a class="{{ var }} {{ className }}" href="{{ href }}">{{ content }}</a>
+{% else %}
+  <button class="{{ var }} {{ className }}" type="{{ type }}">{{ content }}</button>
+{% endif %}
+
+<div
+  class="bg-gray-800 rounded border-solid border-gray-800 border pt-[18px] pr-[30px] pb-[18px] pl-[30px] flex flex-row gap-2.5 items-center justify-center self-stretch shrink-0 relative"
+>
+  <div
+    class=""
+  >
+    Buy it now
+  </div>
+</div>

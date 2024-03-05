@@ -3,7 +3,7 @@
 
 <div
   data-money-format="{{ shop.money_format }}"
-  class="container py-[clamp(0.5rem,0.748vw+0.327rem,1rem)] flex items-center justify-between gap-2"
+  class="container py-[clamp(0.5rem,0.748vw+0.327rem,1rem)] flex items-center justify-between gap-2 bg-backg color-{{ section.settings.color_scheme }}"
 >
   {% if section.settings['logo-icon'].src %}
     {% render 'logo', logo: section.settings['logo-icon'].src %}
@@ -62,7 +62,7 @@
     width: 100%;
     z-index: 30;
 
-    background-color: white;
+    /* background-color: white; */
   }
 
   .sub-menu {
@@ -285,6 +285,7 @@
 {% schema %}
 {
   "name": "Header",
+  "class": "section-header",
   "tag": "header",
   "settings": [
     {
@@ -297,6 +298,22 @@
       "label": "Logo icon",
       "id": "logo-icon",
       "type": "image_picker"
+    },
+    {
+      "type": "header",
+      "content": "Header color schema"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Select color schema for header",
+      "default": "scheme-2"
+    },
+    {
+      "type": "color_scheme",
+      "id": "menu_color_scheme",
+      "label": "Menu color scheme",
+      "default": "scheme-2"
     }
   ]
 }
