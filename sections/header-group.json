@@ -3,8 +3,12 @@
   "name": "Header group",
   "sections": {
     "header": {
-      "type": "header"
+      "type": "header",
+      "settings": {
+      }
     }
   },
-  "order": ["header"]
+  "order": [
+    "header"
+  ]
 }
