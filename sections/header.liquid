@@ -57,8 +57,11 @@
   </menu>
 </div>
 
-{% render 'button', content: 'hello', variant: 'primary' %}
-
+{% render 'button', variant: 'text', content: 'Shop New Arrivals' %}
+{% render 'button', variant: 'text', content: 'Shop New Arrivals', type: submit %}
+{% render 'button', variant: 'text', content: 'Shop New Arrivals', disable: 'disable' %}
+{% render 'button', variant: 'link', content: 'Shop New Arrivals', href: '/#' %}
+{{ scheme.settings.icon_hover | json }}
 {% style %}
   header {
     width: 100%;

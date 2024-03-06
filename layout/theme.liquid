@@ -93,17 +93,17 @@
 
         --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
 
-        /* --color-foreground: rgb({{ scheme.settings.text}});
+        --color-foreground: rgb({{ scheme.settings.text}});
         --color-background-contrast: rgb({{ --color-background-contrast }});
 
         --color-button: rgb({{ scheme.settings.button.rgb }});
         --color-button-text: rgb({{ scheme.settings.button_label.rgb }});
         --color-secondary-button: rgb({{ scheme.settings.background.rgb }});
-        --color-secondary-button-text: rgb({{ scheme.settings.secondary_button_label.rgb }}); */
+        --color-secondary-button-text: rgb({{ scheme.settings.secondary_button_label.rgb }});
 
 
-        --icon_hover: rgb({{ scheme.settings.icon_hover.rgb }});
-        --link_hover: rgb({{ scheme.settings.link_hover.rgb }});
+        --icon-hover: rgb({{ scheme.settings.icon_hover.rgb }});
+        --link-hover: rgb({{ scheme.settings.link_hover.rgb }});
       }
       {% endfor %}
 
@@ -236,6 +236,9 @@
         --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
         --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+
+
+        --duration-default: 0.2s;
       }
 
       *,

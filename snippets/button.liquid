@@ -21,16 +21,16 @@
 {% assign type = type | default: 'button' %}
 
 {% case variant %}
-  {% when 'primary' %}
-    {% assign var = 'primary' %}
-  {% when 'secondary' %}
-    {% assign var = 'secondary' %}
+  {% when 'solid' %}
+    {% assign var = 'solid' %}
+  {% when 'outline' %}
+    {% assign var = 'outline' %}
   {% when 'icon' %}
     {% assign var = 'icon' %}
+  {% when 'link' %}
+    {% assign var = 'link' %}
   {% when 'text' %}
     {% assign var = 'text' %}
-  {% else %}
-    {% assign var = '' %}
 {% endcase %}
 
 {% if href %}
@@ -41,57 +41,48 @@
 
 <style>
   .button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     font-family: var(--f1);
     font-weight: 400;
     font-size: 0.9375rem;
     color: var(--color-foreground);
     position: relative;
-    transition: all 0.3s ease-in-out;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all var(--duration-default) ease-in-out;
   }
-  .primary {
-    background-color: var(--color-button);
-    color: var(--color-button-text);
+  .solid,
+  .outline,
+  .text {
     padding: 1.125rem 1.875rem;
   }
-  .primary::after {
+  .solid {
+    border: var(--buttons-border-width) solid var(--color-button);
     background-color: var(--color-button);
+    color: var(--color-button-text);
+    border-radius: var(--buttons-radius);
   }
-  .primary:hover {
+  .solid:hover {
     background-color: var(--color-button-text);
     color: var(--color-button);
   }
   .outline {
+    border: var(--buttons-border-width) solid var(--color-secondary-button-text);
     color: var(--color-secondary-button-text);
-    background-color: var(--color-secondary-button-text);
-    padding: 1.125rem 1.875rem;
-  }
-  .outline::after {
     background-color: var(--color-secondary-button);
+    border-radius: var(--buttons-radius);
   }
   .outline:hover {
     background-color: var(--color-secondary-button-text);
     color: var(--color-secondary-button);
   }
-  .button.outline::after,
-  .button.primary::after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    top: var(--buttons-border-width);
-    right: var(--buttons-border-width);
-    bottom: var(--buttons-border-width);
-    left: var(--buttons-border-width);
-    z-index: 1;
-    border-radius: var(--buttons-radius);
-    /* box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
-        rgba(var(--color-button-text), var(--buttons--border-opacity)),
-      0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
-    transition: box-shadow var(--duration-short) ease; */
+  .link:hover {
+    color: var(--link-hover);
   }
-  .text:hover {
-    color: var(--link_hover);
-  }
-  .text::after {
+  .link::after {
     background: var(--color-foreground);
     position: absolute;
     content: '';
@@ -99,10 +90,10 @@
     left: 0;
     width: 100%;
     height: 1px;
-    transition: all 0.3s ease-in-out;
+    transition: all var(--duration-default) ease-in-out;
   }
-  .text::after:hover {
-    background: var(--link_hover);
+  .link::after:hover {
+    background: var(--link-hover);
   }
   .icon {
     padding: 0.75rem;
@@ -110,5 +101,13 @@
   }
   .icon:hover {
     background-color: var(--gray-200);
+  }
+  .text {
+    background-color: var(--color-button-text);
+    color: var(--color-button);
+    border-radius: var(--buttons-radius);
+  }
+  .text:hover {
+    color: var(--link-hover);
   }
 </style>

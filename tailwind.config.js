@@ -10,8 +10,8 @@ module.exports = {
       sb: "var(--color-secondary-button)",
       sbt: "var(--color-secondary-button-text)",
       s: "var(--color-shadow)",
-      ih: "var(--icon_hover)",
-      lh: "var(--link_hover)",
+      ih: "var(--icon-hover)",
+      lh: "var(--link-hover)",
       gray: {
         100: "var(--gray-100)",
         200: "var(--gray-200)",
