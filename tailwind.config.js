@@ -62,6 +62,10 @@ module.exports = {
       f1: "var(--f1)",
       f2: "var(--f2)",
     },
+    gap: {
+      vg: "var(--grid-desktop-vertical-spacing)",
+      hg: "var(--grid-desktop-horizontal-spacing)",
+    },
     extend: {},
   },
   plugins: [],

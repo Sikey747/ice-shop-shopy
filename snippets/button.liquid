@@ -1,29 +1,30 @@
 {% comment %}
-  props
-
   content
   class
   variant
   type
   href
+  disable
 
   {% render "button"
-    , text: section.settings.header-button
+    , content: "hello"
     , variant: "outline"
+    , disable: disable,
+    , class: {{ "shadow-sm" }}
+    , type: "button"
+    , href:  "/#"
   %}
 {% endcomment %}
 
-{% assign className = class | default: ' relative' %}
+{% assign className = class %}
 {% assign content = content | default: 'Your text' %}
 {% assign type = type | default: 'button' %}
 
 {% case variant %}
-  {% when 'outline' %}
-    {% assign var = 'outline' %}
-  {% when 'solid-primary' %}
-    {% assign var = 'solid-primary text-white' %}
-  {% when 'solid-secondary' %}
-    {% assign var = 'solid-secondary' %}
+  {% when 'primary' %}
+    {% assign var = 'primary' %}
+  {% when 'secondary' %}
+    {% assign var = 'secondary' %}
   {% when 'icon' %}
     {% assign var = 'icon' %}
   {% when 'text' %}
@@ -33,17 +34,81 @@
 {% endcase %}
 
 {% if href %}
-  <a class="{{ var }} {{ className }}" href="{{ href }}">{{ content }}</a>
+  <a class="button {{ var }} {{ className }}" href="{{ href }}">{{ content }}</a>
 {% else %}
-  <button class="{{ var }} {{ className }}" type="{{ type }}">{{ content }}</button>
+  <button class="button {{ var }} {{ className }}" type="{{ type }}" {{ disable }}>{{ content }}</button>
 {% endif %}
 
-<div
-  class="bg-gray-800 rounded border-solid border-gray-800 border pt-[18px] pr-[30px] pb-[18px] pl-[30px] flex flex-row gap-2.5 items-center justify-center self-stretch shrink-0 relative"
->
-  <div
-    class=""
-  >
-    Buy it now
-  </div>
-</div>
+<style>
+  .button {
+    font-family: var(--f1);
+    font-weight: 400;
+    font-size: 0.9375rem;
+    color: var(--color-foreground);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  .primary {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    padding: 1.125rem 1.875rem;
+  }
+  .primary::after {
+    background-color: var(--color-button);
+  }
+  .primary:hover {
+    background-color: var(--color-button-text);
+    color: var(--color-button);
+  }
+  .outline {
+    color: var(--color-secondary-button-text);
+    background-color: var(--color-secondary-button-text);
+    padding: 1.125rem 1.875rem;
+  }
+  .outline::after {
+    background-color: var(--color-secondary-button);
+  }
+  .outline:hover {
+    background-color: var(--color-secondary-button-text);
+    color: var(--color-secondary-button);
+  }
+  .button.outline::after,
+  .button.primary::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    top: var(--buttons-border-width);
+    right: var(--buttons-border-width);
+    bottom: var(--buttons-border-width);
+    left: var(--buttons-border-width);
+    z-index: 1;
+    border-radius: var(--buttons-radius);
+    /* box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
+        rgba(var(--color-button-text), var(--buttons--border-opacity)),
+      0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
+    transition: box-shadow var(--duration-short) ease; */
+  }
+  .text:hover {
+    color: var(--link_hover);
+  }
+  .text::after {
+    background: var(--color-foreground);
+    position: absolute;
+    content: '';
+    bottom: 3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transition: all 0.3s ease-in-out;
+  }
+  .text::after:hover {
+    background: var(--link_hover);
+  }
+  .icon {
+    padding: 0.75rem;
+    border-radius: 100%;
+  }
+  .icon:hover {
+    background-color: var(--gray-200);
+  }
+</style>

@@ -167,7 +167,7 @@
     ]
   },
   {
-    "name": "t:settings_schema.layout.name",
+    "name": "Layout",
     "settings": [
       {
         "type": "range",
@@ -177,7 +177,7 @@
         "step": 20,
         "default": 1220,
         "unit": "px",
-        "label": "t:settings_schema.layout.settings.page_width.label"
+        "label": "Container width"
       },
       {
         "type": "range",
@@ -187,7 +187,7 @@
         "step": 2,
         "default": 20,
         "unit": "px",
-        "label": "t:settings_schema.layout.settings..label"
+        "label": "left and right padding"
       },
       {
         "type": "range",
@@ -196,16 +196,16 @@
         "max": 100,
         "step": 4,
         "unit": "px",
-        "label": "t:settings_schema.layout.settings.spacing_sections.label",
+        "label": "spacing",
         "default": 0
       },
       {
         "type": "header",
-        "content": "t:settings_schema.layout.settings.header__grid.content"
+        "content": "Grid"
       },
       {
         "type": "paragraph",
-        "content": "t:settings_schema.layout.settings.paragraph__grid.content"
+        "content": "Grid gap settings"
       },
       {
         "type": "range",
@@ -215,7 +215,7 @@
         "step": 4,
         "default": 20,
         "unit": "px",
-        "label": "t:settings_schema.layout.settings.spacing_grid_horizontal.label"
+        "label": "Horizontal grid gap"
       },
       {
         "type": "range",
@@ -225,7 +225,7 @@
         "step": 4,
         "default": 40,
         "unit": "px",
-        "label": "t:settings_schema.layout.settings.spacing_grid_vertical.label"
+        "label": "Vertical Grid gap"
       }
     ]
   },
@@ -262,11 +262,11 @@
     ]
   },
   {
-    "name": "t:settings_schema.buttons.name",
+    "name": "Buttons",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.global.settings.header__border.content"
+        "content": "Buttons settings"
       },
       {
         "type": "range",
@@ -275,7 +275,7 @@
         "max": 12,
         "step": 1,
         "unit": "px",
-        "label": "t:settings_schema.global.settings.thickness.label",
+        "label": "Button border",
         "default": 1
       },
       {
@@ -285,7 +285,7 @@
         "max": 100,
         "step": 5,
         "unit": "%",
-        "label": "t:settings_schema.global.settings.opacity.label",
+        "label": "Button border opacity",
         "default": 0
       },
       {
@@ -295,12 +295,12 @@
         "max": 40,
         "step": 2,
         "unit": "px",
-        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "label": "Buttons radius",
         "default": 4
       },
       {
         "type": "header",
-        "content": "t:settings_schema.global.settings.header__shadow.content"
+        "content": "Shadow"
       },
       {
         "type": "range",
@@ -309,7 +309,7 @@
         "max": 100,
         "step": 5,
         "unit": "%",
-        "label": "t:settings_schema.global.settings.opacity.label",
+        "label": "Shadow opacity",
         "default": 0
       },
       {
@@ -319,7 +319,7 @@
         "max": 12,
         "step": 2,
         "unit": "px",
-        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "label": "Buttons shadow horizontal",
         "default": 0
       },
       {
@@ -329,7 +329,7 @@
         "max": 12,
         "step": 2,
         "unit": "px",
-        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "label": "Buttons shadow vertical offset",
         "default": 0
       },
       {
@@ -339,7 +339,7 @@
         "max": 20,
         "step": 5,
         "unit": "px",
-        "label": "t:settings_schema.global.settings.blur.label",
+        "label": "Buttons shadow blur",
         "default": 0
       }
     ]

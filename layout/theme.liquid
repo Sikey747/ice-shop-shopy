@@ -93,8 +93,17 @@
 
         --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
 
-        --icon_hover: rgb({{ scheme.settings.icon_hover }});
-        --link_hover: rgb({{ scheme.settings.link_hover }});
+        /* --color-foreground: rgb({{ scheme.settings.text}});
+        --color-background-contrast: rgb({{ --color-background-contrast }});
+
+        --color-button: rgb({{ scheme.settings.button.rgb }});
+        --color-button-text: rgb({{ scheme.settings.button_label.rgb }});
+        --color-secondary-button: rgb({{ scheme.settings.background.rgb }});
+        --color-secondary-button-text: rgb({{ scheme.settings.secondary_button_label.rgb }}); */
+
+
+        --icon_hover: rgb({{ scheme.settings.icon_hover.rgb }});
+        --link_hover: rgb({{ scheme.settings.link_hover.rgb }});
       }
       {% endfor %}
 
@@ -110,12 +119,11 @@
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
 
         --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
-
-        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
@@ -200,9 +208,10 @@
         --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
 
         --buttons-radius: {{ settings.buttons_radius }}px;
-        --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
         --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+
         --buttons-border-opacity: {{ settings.buttons_border_opacity | divided_by: 100.0 }};
+        --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
         --buttons-shadow-opacity: {{ settings.buttons_shadow_opacity | divided_by: 100.0 }};
         --buttons-shadow-visible: {% if settings.buttons_shadow_opacity > 0 %}1{% else %}0{% endif %};
         --buttons-shadow-horizontal-offset: {{ settings.buttons_shadow_horizontal_offset }}px;
@@ -254,14 +263,20 @@
       }
     {% endstyle %}
 
-    {% if 'BigCaslonMedium.ttf' | asset_url %}
-      <style>
+    {% comment %} castom fonts {% endcomment %}
+    {% if 'Big Caslon Medium.ttf' | asset_url %}
+      <style data-font>
         @font-face {
           font-family: 'Big Caslon Medium';
-          src: url('{{  'BigCaslonMedium.ttf' | asset_url }}') format('ttf');
+          src: url("{{ 'Big Caslon Medium.ttf' | asset_url }}") format('ttf');
+          font-weight: 500;
+          font-style: normal;
+          font-display: swap;
         }
-        :root{
-          --font-heading-family: "Big Caslon Medium", sans-serif"
+        :root {
+          --font-heading-family: 'Big Caslon Medium', 'sans-serif';
+          --font-heading-weight: 500;
+          --font-heading-style: normal;
         }
       </style>
     {% endif %}
