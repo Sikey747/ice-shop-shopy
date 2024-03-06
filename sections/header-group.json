@@ -5,6 +5,8 @@
     "header": {
       "type": "header",
       "settings": {
+        "menu-links": "main-menu",
+        "color_scheme": "scheme-2"
       }
     }
   },
