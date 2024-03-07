@@ -1,0 +1,66 @@
+<div class="container max-w-[46.875rem] color-{{ section.settings.color_scheme }} py-[clamp(3.125rem,5.882vw+1.765rem,6.25rem)]">
+  <h2 class="text-xl-s font-f2 font-500">{{ section.settings.title }}</h2>
+  {% if section.blocks.size > 0 %}
+    <div class="mt-8" data-spollers data-one-spoller class="spollers">
+      {% for faqItems in section.blocks %}
+        <details class="spollers__item">
+          <summary class="spollers__title">{{ faqItems.settings.acordion_title }}</summary>
+          <div class="spollers__body">{{ faqItems.settings.acordion_content }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<script src="{{ 'accordion_spollers.js' | asset_url }}" defer></script>
+{{ 'accordion_spollers.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+  "name": "Test",
+  "class": "section-test",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "FAQs"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Select color schema for header",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "FAQs"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "acordion",
+      "type": "acordion_block",
+      "settings": [
+        {
+          "label": "Acordion title",
+          "id": "acordion_title",
+          "type": "text",
+          "placeholder": "FAQs Title"
+        },
+        {
+          "label": "Acordion content",
+          "id": "acordion_content",
+          "type": "richtext"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "test"
+    }
+  ]
+}
+{% endschema %}

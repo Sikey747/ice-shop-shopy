@@ -12,6 +12,7 @@ module.exports = {
       s: "var(--color-shadow)",
       ih: "var(--icon-hover)",
       lh: "var(--link-hover)",
+      transparent: "transparent",
       gray: {
         100: "var(--gray-100)",
         200: "var(--gray-200)",
