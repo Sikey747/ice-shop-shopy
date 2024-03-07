@@ -4,8 +4,13 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "color_scheme": "scheme-2",
+        "menu-links": "main-menu"
+      }
     }
   },
-  "order": ["header"]
+  "order": [
+    "header"
+  ]
 }
