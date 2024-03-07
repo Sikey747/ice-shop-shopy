@@ -39,12 +39,64 @@
         "colections": "bages",
         "discrip-text": "<p>SEE<\/p>"
       }
+    },
+    "fa_qs_pJ8Wer": {
+      "type": "FAQs",
+      "blocks": {
+        "acordion_block_4Qp4CJ": {
+          "type": "acordion_block",
+          "settings": {
+            "acordion_title": "What size should I buy",
+            "acordion_content": "<p>Find Your Perfect Fit: Discover the Ideal Size Just for You!<\/p>"
+          }
+        },
+        "acordion_block_CH7Fb9": {
+          "type": "acordion_block",
+          "settings": {
+            "acordion_title": "Can I cancel my order?",
+            "acordion_content": "<p>Understanding Our Order Cancellation Policy for Peace of Mind.<\/p>"
+          }
+        },
+        "acordion_block_yhBAHG": {
+          "type": "acordion_block",
+          "settings": {
+            "acordion_title": "What if I want to speak to someone?",
+            "acordion_content": "<p>Get Your Snack On and Chat with Us! Indulge in Delicious Treats.<\/p>"
+          }
+        },
+        "acordion_block_6LXgQ9": {
+          "type": "acordion_block",
+          "settings": {
+            "acordion_title": "What is the shipping policy?",
+            "acordion_content": "<p>Learn About Our Transparent Shipping Policies for Your Peace of Mind.<\/p>"
+          }
+        },
+        "acordion_block_4yE7jF": {
+          "type": "acordion_block",
+          "settings": {
+            "acordion_title": "What's the return policy?",
+            "acordion_content": "<p>Shop Smart Knowing You're Covered by Our Customer-Friendly Return Policy.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "acordion_block_4Qp4CJ",
+        "acordion_block_CH7Fb9",
+        "acordion_block_yhBAHG",
+        "acordion_block_6LXgQ9",
+        "acordion_block_4yE7jF"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "title": "FAQs"
+      }
     }
   },
   "order": [
     "hero",
     "partners_tENp6B",
     "countdown_timer_PDBbrb",
-    "hero_ng9CMR"
+    "hero_ng9CMR",
+    "fa_qs_pJ8Wer"
   ]
 }
