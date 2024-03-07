@@ -66,6 +66,10 @@ module.exports = {
       vg: "var(--grid-desktop-vertical-spacing)",
       hg: "var(--grid-desktop-horizontal-spacing)",
     },
+    borderRadius: {
+      button: "var(--buttons-radius)",
+      full: "999px",
+    },
     extend: {},
   },
   plugins: [],

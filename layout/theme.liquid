@@ -93,17 +93,16 @@
 
         --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
 
-        --color-foreground: rgb({{ scheme.settings.text}});
-        --color-background-contrast: rgb({{ --color-background-contrast }});
+        --color-foreground: rgb({{ scheme.settings.text.rgb}});
+        --color-background-contrast: rgb({{ --color-background-contrast.rgb }});
 
         --color-button: rgb({{ scheme.settings.button.rgb }});
         --color-button-text: rgb({{ scheme.settings.button_label.rgb }});
         --color-secondary-button: rgb({{ scheme.settings.background.rgb }});
         --color-secondary-button-text: rgb({{ scheme.settings.secondary_button_label.rgb }});
 
-
-        --icon-hover: rgb({{ scheme.settings.icon_hover.rgb }});
-        --link-hover: rgb({{ scheme.settings.link_hover.rgb }});
+        --icon-hover: rgb({{ settings.icon_hover.rgb }});
+        --link-hover: rgb({{ settings.link_hover.rgb }});
       }
       {% endfor %}
 
@@ -249,7 +248,7 @@
 
       html {
         box-sizing: border-box;
-        font-size: calc(var(--font-body-scale) * 62.5%);
+        font-size: calc(var(--font-body-scale) * 100%);
         height: 100%;
       }
 

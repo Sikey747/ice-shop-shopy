@@ -31,83 +31,12 @@
     {% assign var = 'link' %}
   {% when 'text' %}
     {% assign var = 'text' %}
+  {% else %}
+    {% assign var = '' %}
 {% endcase %}
 
 {% if href %}
   <a class="button {{ var }} {{ className }}" href="{{ href }}">{{ content }}</a>
 {% else %}
-  <button class="button {{ var }} {{ className }}" type="{{ type }}" {{ disable }}>{{ content }}</button>
+  <button class="button {{ var }} {{ className }}" type="{{ type }}" {{ disabled }}>{{ content }}</button>
 {% endif %}
-
-<style>
-  .button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-family: var(--f1);
-    font-weight: 400;
-    font-size: 0.9375rem;
-    color: var(--color-foreground);
-    position: relative;
-    -webkit-appearance: none;
-    appearance: none;
-    transition: all var(--duration-default) ease-in-out;
-  }
-  .solid,
-  .outline,
-  .text {
-    padding: 1.125rem 1.875rem;
-  }
-  .solid {
-    border: var(--buttons-border-width) solid var(--color-button);
-    background-color: var(--color-button);
-    color: var(--color-button-text);
-    border-radius: var(--buttons-radius);
-  }
-  .solid:hover {
-    background-color: var(--color-button-text);
-    color: var(--color-button);
-  }
-  .outline {
-    border: var(--buttons-border-width) solid var(--color-secondary-button-text);
-    color: var(--color-secondary-button-text);
-    background-color: var(--color-secondary-button);
-    border-radius: var(--buttons-radius);
-  }
-  .outline:hover {
-    background-color: var(--color-secondary-button-text);
-    color: var(--color-secondary-button);
-  }
-  .link:hover {
-    color: var(--link-hover);
-  }
-  .link::after {
-    background: var(--color-foreground);
-    position: absolute;
-    content: '';
-    bottom: 3px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    transition: all var(--duration-default) ease-in-out;
-  }
-  .link::after:hover {
-    background: var(--link-hover);
-  }
-  .icon {
-    padding: 0.75rem;
-    border-radius: 100%;
-  }
-  .icon:hover {
-    background-color: var(--gray-200);
-  }
-  .text {
-    background-color: var(--color-button-text);
-    color: var(--color-button);
-    border-radius: var(--buttons-radius);
-  }
-  .text:hover {
-    color: var(--link-hover);
-  }
-</style>

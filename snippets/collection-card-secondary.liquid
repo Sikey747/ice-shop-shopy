@@ -1,0 +1,62 @@
+<div class="collection-card-secondary ibg max-w-[530px] min-h-[0] h-[50vw] max-h-[760px] relative flex flex-col justify-center items-center">
+  {% if item.image.src %}
+    {{ item.image.src | image_url: width: '500px' | image_tag: loading: 'lazy' }}
+  {% else %}
+    <img src="{{ 'plaseholder.jpg' | asset_img_url }}" width="500" height="500" alt="#">
+  {% endif %}
+  <div class="sm:px-10 sm:py-10 px-5 py-[3.125rem]  text-forg relative h-full flex flex-col justify-end items-start gap-[0.875rem]">
+    <div class="collection-card-secondary__info flex item-center flex-col justify-center gap-[0.875rem]  ">
+      <p class="text-[0.8125rem]">12 products</p>
+      <h3 class="font-f2 text-[1.6875rem]">Black Friday</h3>
+    </div>
+    <div class="collection-card-secondary__btn">
+      {% render 'button', href: '#', variant: 'text', content: 'View' %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .collection-card-secondary .collection-card-secondary__info {
+    translate: 0 100%;
+    transition: all var(--duration-default) ease-in-out;
+  }
+  .collection-card-secondary .collection-card-secondary__btn {
+    opacity: 0;
+    translate: 0 50%;
+    transition: all var(--duration-default) ease-in-out;
+  }
+
+  @media (any-hover: hover) {
+    .collection-card-secondary:hover .collection-card-secondary__info {
+      translate: 0 0;
+    }
+
+    .collection-card-secondary:hover .collection-card-secondary__btn {
+      opacity: 1;
+      translate: 0 0%;
+    }
+  }
+
+  @media (any-hover: none) {
+    .active-card.collection-card-secondary .collection-card-secondary__info {
+      translate: 0 0;
+    }
+    .active-card.collection-card-secondary .collection-card-secondary__btn {
+      opacity: 1;
+      translate: 0 0%;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const collectionCards = document.querySelectorAll('.collection-card-secondary');
+    if (collectionCards.length > 0) {
+      collectionCards.forEach((el) => {
+        el.addEventListener('click', () => {
+          el.classList.toggle('active-card');
+        });
+      });
+    }
+  });
+</script>

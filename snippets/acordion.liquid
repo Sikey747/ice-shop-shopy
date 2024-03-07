@@ -1,0 +1,20 @@
+{{ 'accordion.css' | asset_url | stylesheet_tag }}
+
+<div class="accordion-container-{{sectionID}}">
+  <div class="ac">
+    <h2 class="ac-header">
+      <button type="button" class="ac-trigger">{{ title }}</button>
+    </h2>
+    <div class="ac-panel">
+      <p class="ac-text">{{ content }}</p>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'accordion.js' | asset_url }}" defer></script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new Accordion('.accordion-container-{{sectionID}}');
+  });
+</script>

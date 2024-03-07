@@ -1,0 +1,60 @@
+<div class="collection-card-primary ibg max-w-[400px] min-h-[19.4375rem] h-[50vw] max-h-[32rem] relative flex flex-col justify-center items-center">
+  {% if item.image.src %}
+    {{ item.image.src | image_url: width: '500px' | image_tag: loading: 'lazy' }}
+  {% else %}
+    <img src="{{ 'plaseholder.jpg' | asset_img_url }}" width="500" height="500" alt="#">
+  {% endif %}
+  <div class="text-forg relative h-full flex flex-col justify-center items-center gap-[0.875rem]">
+    <h3 class="font-f2 text-[1.6875rem]">Black Friday</h3>
+    <div class="collection-card-primary__info flex item-center flex-col justify-center gap-[0.875rem] hover-block ">
+      <p class="text-[0.8125rem]">12 products</p>
+      {% render 'button', href: '#', variant: 'text', content: 'View' %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .collection-card-primary h3 {
+    translate: 0 100%;
+    transition: all var(--duration-default) ease-in-out;
+  }
+  .collection-card-primary .collection-card-primary__info {
+    opacity: 0;
+    translate: 0 50%;
+    transition: all var(--duration-default) ease-in-out;
+  }
+
+  @media (any-hover: hover) {
+    .collection-card-primary:hover h3 {
+      translate: 0 0;
+    }
+
+    .collection-card-primary:hover .collection-card-primary__info {
+      opacity: 1;
+      translate: 0 0%;
+    }
+  }
+
+  @media (any-hover: none) {
+    .active-card.collection-card-primary h3 {
+      translate: 0 0;
+    }
+    .active-card.collection-card-primary .collection-card-primary__info {
+      opacity: 1;
+      translate: 0 0%;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const collectionCards = document.querySelectorAll('.collection-card-primary');
+    if (collectionCards.length > 0) {
+      collectionCards.forEach((el) => {
+        el.addEventListener('click', () => {
+          el.classList.toggle('active-card');
+        });
+      });
+    }
+  });
+</script>

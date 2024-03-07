@@ -1,23 +1,19 @@
 {%- if section.settings.home_page_only == false or template.name == 'index' -%}
-  <div class="py-4 bg-red-400 ">
+  <div class="py-[0.625rem] bg-backg ">
     <div class="container flex items-center justify-center gap-2">
-      {% render 'icon-star' %}
-
       {%- if section.settings.link == blank -%}
         <div>
       {%- else -%}
         <a href="{{ section.settings.link }}">
       {%- endif -%}
 
-      <p class="text-2xl font-semibold">{{ section.settings.text | escape }}</p>
+      <p class="text-[0.875rem]">{{ section.settings.text | escape }}</p>
 
       {%- if section.settings.link == blank -%}
         </div>
       {%- else -%}
         </a>
       {%- endif -%}
-
-      {% render 'icon-star' %}
     </div>
   </div>
 {%- endif -%}
@@ -66,6 +62,16 @@
       "type": "url",
       "id": "link",
       "label": "Announcement link"
+    },
+    {
+      "type": "header",
+      "content": "Header color schema"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Select color schema for header",
+      "default": "scheme-3"
     }
   ],
   "presets": [

@@ -57,11 +57,6 @@
   </menu>
 </div>
 
-{% render 'button', variant: 'text', content: 'Shop New Arrivals' %}
-{% render 'button', variant: 'text', content: 'Shop New Arrivals', type: submit %}
-{% render 'button', variant: 'text', content: 'Shop New Arrivals', disable: 'disable' %}
-{% render 'button', variant: 'link', content: 'Shop New Arrivals', href: '/#' %}
-{{ scheme.settings.icon_hover | json }}
 {% style %}
   header {
     width: 100%;
@@ -293,17 +288,6 @@
   "tag": "header",
   "settings": [
     {
-      "type": "link_list",
-      "id": "menu-links",
-      "default": "main-menu",
-      "label": "Heading navigation menu"
-    },
-    {
-      "label": "Logo icon",
-      "id": "logo-icon",
-      "type": "image_picker"
-    },
-    {
       "type": "header",
       "content": "Header color schema"
     },
@@ -312,6 +296,12 @@
       "id": "color_scheme",
       "label": "Select color schema for header",
       "default": "scheme-2"
+    },
+    {
+      "type": "link_list",
+      "id": "menu-links",
+      "default": "main-menu",
+      "label": "Heading navigation menu"
     }
   ]
 }

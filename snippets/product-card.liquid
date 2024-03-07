@@ -1,0 +1,49 @@
+<div class="product-card relative flex flex-col gap-[12px] w-[308px]">
+  <div class="ibg min-h-[378px] h-[50vw] max-h-[462px]">
+    {% if item.image.src %}
+      {{ item.image.src | image_url: width: '500px' | image_tag: loading: 'lazy' }}
+    {% else %}
+      <img src="{{ 'plaseholder.jpg' | asset_img_url }}" width="500" height="500" alt="#">
+    {% endif %}
+  </div>
+  <div class="flex flex-col gap-[12px] text-[15px]">
+    <h3>Product name</h3>
+    {% render 'price' %}
+  </div>
+  {% render 'button', variant: 'outline', content: 'Qvice view', class: 'product-card__btn w-full ', href: '#' %}
+</div>
+
+<style>
+  .product-card__btn {
+    position: absolute;
+    bottom: 0;
+    translate: 0 50%;
+    opacity: 0;
+    transition: all var(--duration-default) ease-in-out;
+  }
+  @media (any-hover: hover) {
+    .product-card:hover .product-card__btn {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+  @media (any-hover: none) {
+    .active-card.product-card .product-card__btn {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const collectionCards = document.querySelectorAll('.product-card');
+    if (collectionCards.length > 0) {
+      collectionCards.forEach((el) => {
+        el.addEventListener('click', () => {
+          el.classList.toggle('active-card');
+        });
+      });
+    }
+  });
+</script>
